@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MasterDetailExample</string>
+    <string name="title_blogpost_detail">BlogPost Detail</string>
+
+</resources>

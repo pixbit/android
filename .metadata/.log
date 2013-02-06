@@ -1,0 +1,22 @@
+!SESSION 2013-02-05 17:20:24.992 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-05 17:31:50.152
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2013-02-05 17:31:51.799
+!MESSAGE DDMS files not found: /Users/bit/Documents/pixbit/android/adt-bundle-mac-x86_64/eclipse/Eclipse.app/Contents/MacOS/platform-tools/adb /Users/bit/Documents/pixbit/android/adt-bundle-mac-x86_64/eclipse/Eclipse.app/Contents/MacOS/tools/hprof-conv /Users/bit/Documents/pixbit/android/adt-bundle-mac-x86_64/eclipse/Eclipse.app/Contents/MacOS/tools/traceview 
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-05 17:31:54.158
+!MESSAGE An Android SDK is already being loaded. Please try again later.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-05 17:49:44.808
+!MESSAGE Failed to load properties file for project 'MasterDetailExample'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-05 19:25:57.222
+!MESSAGE Failed to load properties file for project 'BlogReader'
