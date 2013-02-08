@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true" >
     </ListView>
     
-    <TextView android:id="@android:id/empty"
+    <TextView android:id="@android/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
