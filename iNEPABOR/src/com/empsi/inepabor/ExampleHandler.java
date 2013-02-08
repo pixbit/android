@@ -4,13 +4,19 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import android.util.Log;
+
 public class ExampleHandler extends DefaultHandler{
 
 	// ===========================================================
 	// Fields
 	// ===========================================================
-	
-	private boolean in_stringtag = false;
+
+	private boolean in_dict_tag = false;
+	private boolean in_array_tag = false;
+	private boolean in_key_tag = false;
+	private boolean is_string_tag = false;
+	private int position = 0;
 	
 	private ParsedExampleDataSet myParsedExampleDataSet = new ParsedExampleDataSet();
 
@@ -42,12 +48,23 @@ public class ExampleHandler extends DefaultHandler{
 	@Override
 	public void startElement(String namespaceURI, String localName,
 			String qName, Attributes atts) throws SAXException {
-		if (localName.equals("string")) {
-			this.in_stringtag = true;
-		}else if (localName.equals("tagwithnumber")) {
-            String attrValue = atts.getValue("thenumber");
-            int i = Integer.parseInt(attrValue);
-            myParsedExampleDataSet.setExtractedInt(i);
+		
+		if (localName.equals("dict")) {
+			this.in_dict_tag = true;
+			Log.d("startElement", "<dict>");
+			
+		}else if (localName.equals("array")) {
+			this.in_array_tag = true;
+			Log.d("startElement", "<array>");
+			
+		}else if (localName.equals("key")) {
+			this.in_key_tag = true;
+			Log.d("startElement", "<key>");
+			
+		}else if (localName.equals("string")) {
+			this.is_string_tag = true;
+			Log.d("startElement", "<string>");
+//          myParsedExampleDataSet.setExtractedInt(i);
 		}
 	}
 	
@@ -56,8 +73,23 @@ public class ExampleHandler extends DefaultHandler{
 	@Override
 	public void endElement(String namespaceURI, String localName, String qName)
 			throws SAXException {
-		if (localName.equals("string")) {
-			this.in_stringtag = false;
+
+		if (localName.equals("dict")) {
+			this.in_dict_tag = false;
+			Log.d("endElement", "</dict>");
+			
+		}else if (localName.equals("array")) {
+			this.in_array_tag = false;
+			Log.d("endElement", "</array>");
+			
+		}else if (localName.equals("key")) {
+			this.in_key_tag = false;
+			Log.d("endElement", "</key>");
+			
+		}else if (localName.equals("string")) {
+			this.is_string_tag = false;
+			Log.d("endElement", "</string>");
+//          myParsedExampleDataSet.setExtractedInt(i);
 		}
 	}
 	
@@ -65,7 +97,13 @@ public class ExampleHandler extends DefaultHandler{
 	 * <tag>characters</tag> */
 	@Override
     public void characters(char ch[], int start, int length) {
-		if(this.in_stringtag){
+		String charSet = new String(ch, start, length);
+		
+		if(this.in_key_tag){
+			Log.d("ch[]", charSet);
+    		myParsedExampleDataSet.setExtractedString(new String(ch, start, length));
+    	}else if(this.is_string_tag){
+			Log.d("ch[]", charSet);
     		myParsedExampleDataSet.setExtractedString(new String(ch, start, length));
     	}
     }

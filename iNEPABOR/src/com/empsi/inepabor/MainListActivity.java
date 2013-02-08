@@ -13,6 +13,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 public class MainListActivity extends ListActivity {
@@ -28,9 +29,6 @@ public class MainListActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
-//        
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mItemNames);
-//        setListAdapter(adapter);
         
         /* Create a new TextView to display the parsingresult later. */
 //        TextView tv = new TextView(this);
@@ -61,12 +59,15 @@ public class MainListActivity extends ListActivity {
 
                 /* Set the result to be displayed in our GUI. */
               Toast.makeText(this, parsedExampleDataSet.toString(), Toast.LENGTH_LONG).show();
+              
+              ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, parsedExampleDataSet.getList());
+              setListAdapter(adapter);
 //                tv.setText(parsedExampleDataSet.toString());
                
         } catch (Exception e) {
                 /* Display any Error to the GUI. */
 //                tv.setText("Error: " + e.getMessage());
-                Log.e(TAG, "WeatherQueryError", e);
+                Log.e(TAG, "XMLQueryError", e);
         }
         /* Display the TextView. */
 //        this.setContentView(tv);
