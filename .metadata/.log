@@ -20,3 +20,39 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2013-02-05 19:25:57.222
 !MESSAGE Failed to load properties file for project 'BlogReader'
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-07 19:48:13.984
+!MESSAGE 7in WSVGA (Tablet): Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-07 19:48:14.254
+!MESSAGE 10.1in WXGA (Tablet): Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-07 19:48:15.199
+!MESSAGE Landscape: Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-07 19:48:24.550
+!MESSAGE 7in WSVGA (Tablet): Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-07 19:48:25.450
+!MESSAGE 10.1in WXGA (Tablet): Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-07 19:48:26.959
+!MESSAGE Landscape: Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-07 21:28:46.696
+!MESSAGE Failed to load properties file for project 'WebviewExample'
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-08 00:18:48.811
+!MESSAGE 7in WSVGA (Tablet): Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-08 00:18:51.801
+!MESSAGE 10.1in WXGA (Tablet): Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-08 00:20:09.378
+!MESSAGE Landscape: Couldn't resolve resource @string/no_items
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-08 00:49:19.861
+!MESSAGE Failed to load properties file for project 'iNEPA BOR'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-08 00:51:43.060
+!MESSAGE Failed to load properties file for project 'iNEPABOR'
