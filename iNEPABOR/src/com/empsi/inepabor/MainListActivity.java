@@ -1,6 +1,7 @@
 package com.empsi.inepabor;
 
 import java.io.InputStream;
+import java.util.List;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -13,16 +14,9 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 public class MainListActivity extends ListActivity {
 
-	protected String[] mItemNames = {
-			"Item 1",
-			"Item 2",
-			"Item 3"
-	};
 	public static final String TAG = MainListActivity.class.getSimpleName();
 	
     @Override
@@ -30,8 +24,6 @@ public class MainListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
         
-        /* Create a new TextView to display the parsingresult later. */
-//        TextView tv = new TextView(this);
         try {
                 /* Get a SAXParser from the SAXPArserFactory. */
                 SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -40,8 +32,8 @@ public class MainListActivity extends ListActivity {
                 /* Get the XMLReader of the SAXParser we created. */
                 XMLReader xr = sp.getXMLReader();
                 /* Create a new ContentHandler and apply it to the XML-Reader*/
-                ExampleHandler myExampleHandler = new ExampleHandler();
-                xr.setContentHandler(myExampleHandler);
+                PlistHandler myHandler = new PlistHandler();
+                xr.setContentHandler(myHandler);
 
                 /* Parse the xml-data from our URL. */
 //                URL url = new URL("files:///android_asset/Data.plist");
@@ -50,18 +42,27 @@ public class MainListActivity extends ListActivity {
                 
                 /* Parse the xml-data from our file. */
                 Resources res = getResources();
-                InputStream is = res.openRawResource(R.raw.data);
+                InputStream is = res.openRawResource(R.raw.test);
                 xr.parse(new InputSource(is));
                 /* Parsing has finished. */
 
-                /* Our ExampleHandler now provides the parsed data to us. */
-                ParsedExampleDataSet parsedExampleDataSet = myExampleHandler.getParsedData();
+                /* Our PlistHandler now provides the parsed data to us. */
+                //ParsedDataSet dataSet = myHandler.getParsedData();
+            		List<ParsedDataSet> entries = myHandler.getEntries();
+
+            		Log.d(TAG, "Number of entries parsed: " + Integer.toString(entries.size()));
+            		
+            		
+                
+                /* Gets list of all the extracted strings */
+                //List<String> dataList = dataSet.getList();
+                
+                /* Set the result to be displayed in our GUI. */
+//              Toast.makeText(this, parsedExampleDataSet.toString(), Toast.LENGTH_LONG).show();
 
                 /* Set the result to be displayed in our GUI. */
-              Toast.makeText(this, parsedExampleDataSet.toString(), Toast.LENGTH_LONG).show();
-              
-              ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, parsedExampleDataSet.getList());
-              setListAdapter(adapter);
+//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
+//                setListAdapter(adapter);
 //                tv.setText(parsedExampleDataSet.toString());
                
         } catch (Exception e) {
@@ -80,5 +81,4 @@ public class MainListActivity extends ListActivity {
         getMenuInflater().inflate(R.menu.activity_main_list, menu);
         return true;
     }
-    
 }

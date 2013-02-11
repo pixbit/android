@@ -1,0 +1,8 @@
+package com.empsi.inepabor;
+
+public class listItem {
+	public String title = null;
+	public String scroll = null;
+	public String view = null;
+	public boolean Children = false;
+}

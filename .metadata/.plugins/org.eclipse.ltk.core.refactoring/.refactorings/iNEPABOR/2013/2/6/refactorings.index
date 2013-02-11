@@ -4,3 +4,19 @@
 1360310056678	Delete elements
 1360310307236	Delete element
 1360328961780	Encapsulate field 'tagString'
+1360338126500	Rename type 'listItem'
+1360369579098	Copy file
+1360372732402	Rename type 'ExampleHandler'
+1360374501966	Rename local variable 'myExampleHandler'
+1360374557383	Rename local variable 'parsedExampleDataSet'
+1360374577933	Rename local variable 'parsedDataSet'
+1360374590036	Rename type 'ParsedExampleDataSet'
+1360374784800	Rename field 'myParsedExampleDataSet'
+1360374821274	Rename field 'extractedStrings'
+1360376436774	Rename field 'in_dict_tag'
+1360376453317	Rename field 'in_array_tag'
+1360376464343	Rename field 'in_key_tag'
+1360376474596	Rename field 'in_string_tag'
+1360379103354	Encapsulate field 'title'
+1360379114620	Encapsulate field 'scroll'
+1360379121527	Encapsulate field 'view'

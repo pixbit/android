@@ -1,0 +1,34 @@
+package com.empsi.inepabor;
+
+import java.util.List;
+
+public class ParsedExampleDataSet {
+	private String extractedString = null;
+	private int extractedInt = 0;
+	private List<String> extractedStrings = new ArrayList<String>();
+
+	public String getExtractedString() {
+		return extractedString;
+	}
+	
+	public void setExtractedString(String extractedString) {
+		this.extractedString = extractedString;
+	}
+
+	public int getExtractedInt() {
+		return extractedInt;
+	}
+	public void setExtractedInt(int extractedInt) {
+		this.extractedInt = extractedInt;
+//		Log.d("ParsedExampleDataSet.setExtractedInt()", Integer.toString(this.extractedInt));
+	}
+	
+	public String toString(){
+		return "ExtractedString = " + this.extractedString
+				+ "nExtractedInt = " + this.extractedInt;
+	}
+	
+	public List<String> getList(){
+		return this.extractedStrings;
+	}
+}

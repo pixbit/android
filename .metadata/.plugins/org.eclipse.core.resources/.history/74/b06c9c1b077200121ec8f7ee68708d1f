@@ -1,0 +1,35 @@
+package com.empsi.inepabor;
+
+public class ListItem {
+	private String title = null;
+	private String scroll = null;
+	private String view = null;
+	private int childrenID = -1;
+
+	public void setTitle(String title){
+		title = this.title;
+	}
+	public String getTitle(){
+		return this.title;
+	}
+	
+	public void setScroll(String scroll){
+		this.scroll = scroll;
+	}
+	public String getScroll(){
+		return this.scroll;
+	}
+	public String getView(){
+		return this.view;
+	}
+	
+	public void setView(String scroll){
+		this.view = scroll;
+	}
+	public void setChildrenID(int childrenID){
+		this.childrenID = childrenID;
+	}
+	public int getChildrenID(){
+		return this.childrenID;
+	}
+}

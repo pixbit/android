@@ -1,0 +1,143 @@
+package com.empsi.inepabor;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import android.util.Log;
+
+public class ExampleHandler extends DefaultHandler{
+
+	// ===========================================================
+	// Fields
+	// ===========================================================
+
+	private boolean in_dict_tag = false;
+	private boolean in_array_tag = false;
+	private boolean in_key_tag = false;
+	private boolean in_string_tag = false;
+
+	private boolean in_title_key = false;
+	private boolean in_scroll_key = false;
+	private boolean in_view_key = false;
+	private boolean in_children_key = false;
+	
+	private int position = 0;
+	
+	private ParsedExampleDataSet myParsedExampleDataSet = new ParsedExampleDataSet();
+	
+	private Map<String, String> map = new HashMap<String, String>();
+
+	// ===========================================================
+	// Getter & Setter
+	// ===========================================================
+
+	public ParsedExampleDataSet getParsedData() {
+		return this.myParsedExampleDataSet;
+	}
+	
+	public Map<String, String> getMap() {
+		return this.map;
+	}
+
+	// ===========================================================
+	// Methods
+	// ===========================================================
+	@Override
+	public void startDocument() throws SAXException {
+		this.myParsedExampleDataSet = new ParsedExampleDataSet();
+	}
+
+	@Override
+	public void endDocument() throws SAXException {
+		// Nothing to do
+	}
+
+	/** Gets be called on opening tags like: 
+	 * <tag> 
+	 * Can provide attribute(s), when xml was like:
+	 * <tag attribute="attributeValue">*/
+	@Override
+	public void startElement(String namespaceURI, String localName,
+			String qName, Attributes atts) throws SAXException {
+		
+		if (localName.equals("dict")) {
+			this.in_dict_tag = true;
+//			Log.d("startElement", "<dict>");
+			
+		}else if (localName.equals("array")) {
+			this.in_array_tag = true;
+//			Log.d("startElement", "<array>");
+			
+		}else if (localName.equals("key")) {
+			this.in_key_tag = true;
+//			Log.d("startElement", "<key>");
+			
+		}else if (localName.equals("string")) {
+			this.in_string_tag = true;
+//			Log.d("startElement", "<string>");
+//          myParsedExampleDataSet.setExtractedInt(i);
+		}
+	}
+	
+	/** Gets be called on closing tags like: 
+	 * </tag> */
+	@Override
+	public void endElement(String namespaceURI, String localName, String qName)
+			throws SAXException {
+
+		if (localName.equals("dict")) {
+			this.in_dict_tag = false;
+			Log.d("endElement", "</dict>");
+			
+		}else if (localName.equals("array")) {
+			this.in_array_tag = false;
+			Log.d("endElement", "</array>");
+			
+		}else if (localName.equals("key")) {
+			this.in_key_tag = false;
+			Log.d("endElement", "</key>");
+			
+		}else if (localName.equals("string")) {
+			this.in_string_tag = false;
+			Log.d("endElement", "</string>");
+//          myParsedExampleDataSet.setExtractedInt(i);
+		}
+	}
+	
+	/** Gets be called on the following structure: 
+	 * <tag>characters</tag> */
+	@Override
+    public void characters(char ch[], int start, int length) {
+		String charSet = new String(ch, start, length);
+
+		
+		this.storeItem(charSet);
+		this.in_title_key = false;
+		this.in_scroll_key = false;
+		this.in_view_key = false;
+		
+		if(this.in_key_tag){
+			if(charSet.equals("Title")){
+				this.in_title_key = true;
+//				Log.d("Title", charSet);
+			}
+			if(charSet.equals("Scroll")){
+				this.in_scroll_key = true;
+//				Log.d("Scroll", charSet);
+			}
+			if(charSet.equals("View")){
+				this.in_view_key = true;
+//				Log.d("View", charSet);
+			}
+    	}else if(this.in_string_tag){
+//			Log.d("ch[]", charSet);
+    	}
+		
+		myParsedExampleDataSet.setExtractedString(new String(ch, start, length));
+    }
+	
+}
