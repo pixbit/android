@@ -1,6 +1,7 @@
 package com.empsi.inepabor;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.SAXParser;
@@ -14,6 +15,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
 
 public class MainListActivity extends ListActivity {
 
@@ -42,27 +44,27 @@ public class MainListActivity extends ListActivity {
                 
                 /* Parse the xml-data from our file. */
                 Resources res = getResources();
-                InputStream is = res.openRawResource(R.raw.test);
+                InputStream is = res.openRawResource(R.raw.data);
                 xr.parse(new InputSource(is));
                 /* Parsing has finished. */
 
                 /* Our PlistHandler now provides the parsed data to us. */
                 //ParsedDataSet dataSet = myHandler.getParsedData();
-            		List<ParsedDataSet> entries = myHandler.getEntries();
-
-            		Log.d(TAG, "Number of entries parsed: " + Integer.toString(entries.size()));
+            		List<ParsedRow> entries = myHandler.getListOfRows();
+//            		Log.d(TAG, "Number of entries parsed: " + Integer.toString(entries.size()));
             		
-            		
-                
-                /* Gets list of all the extracted strings */
-                //List<String> dataList = dataSet.getList();
+            		/* Gets list of all the extracted strings */
+            		List<String> dataList = new ArrayList<String>();
+            		for(ParsedRow entry : entries){
+            			dataList.add(entry.getTitle());
+            		}
                 
                 /* Set the result to be displayed in our GUI. */
 //              Toast.makeText(this, parsedExampleDataSet.toString(), Toast.LENGTH_LONG).show();
 
                 /* Set the result to be displayed in our GUI. */
-//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
-//                setListAdapter(adapter);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
+                setListAdapter(adapter);
 //                tv.setText(parsedExampleDataSet.toString());
                
         } catch (Exception e) {

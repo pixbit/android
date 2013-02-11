@@ -1,0 +1,175 @@
+package com.empsi.inepabor;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import android.util.Log;
+
+public class PlistHandler extends DefaultHandler{
+	public static final String TAG = PlistHandler.class.getSimpleName();
+	
+	// ===========================================================
+	// Fields
+	// ===========================================================
+
+	private int plist_depth = 0;
+	private int depth = 0;
+	
+	private boolean in_title_key = false;
+	private boolean in_scroll_key = false;
+	private boolean in_view_key = false;
+	
+	public List<ParsedRow> listOfRows;
+	private ParsedRow row;
+	private List<ParsedRow> temp;
+	
+
+	// ===========================================================
+	// Getter & Setter
+	// ===========================================================
+	
+	public List<ParsedRow> getListOfRows() {
+//		Log.d(TAG, "getEntries called.");
+		return this.listOfRows;
+	}
+
+	// ===========================================================
+	// Methods
+	// ===========================================================
+	@Override
+	public void startDocument() throws SAXException {
+//		Log.d(TAG, "startDocument called.");
+		this.listOfRows = new ArrayList<ParsedRow>();
+	}
+
+	@Override
+	public void endDocument() throws SAXException {
+//		Log.d(TAG, "endDocument called.");
+		// Nothing to do
+	}
+
+	/** Gets be called on opening tags like: 
+	 * <tag> 
+	 * Can provide attribute(s), when xml was like:
+	 * <tag attribute="attributeValue">*/
+	@Override
+	public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+//		Log.d(TAG, "STARTING a " + localName + " tag.");
+		
+		if (localName.equals("plist")) {
+			Log.d(TAG, "+PLIST[" + depth + "]");
+			
+		}else if (localName.equals("dict")) {
+			Log.d(TAG, "+DICT[" + depth + "]");
+			if(this.depth > 0){
+				
+				// Allocate empty row
+				Log.d(TAG, "++ Allocate empty row ++");
+				this.row = new ParsedRow();
+				
+			}
+			
+		}else if (localName.equals("array")) {
+			Log.d(TAG, "+ARRAY[" + depth + "]");
+			
+			// Increment depth
+			Log.d(TAG, "++ Increment depth ++");
+			this.depth++;
+			
+			if(this.depth > 0){
+				// Allocate empty temp list
+				Log.d(TAG, "++ Allocate temp list ++");
+				this.temp = new ArrayList<ParsedRow>();
+			}
+			
+		}else if (localName.equals("key")) {
+			Log.d(TAG, "+KEY[" + depth + "]");
+			
+		}else if (localName.equals("string")) {
+			Log.d(TAG, "+STRING[" + depth + "]");
+			
+		}
+	}
+	
+	/** Gets be called on closing tags like: 
+	 * </tag> */
+	@Override
+	public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+//		Log.d(TAG, "ENDING a " + localName + " tag.");
+		
+		if (localName.equals("plist")) {
+			Log.d(TAG, "-PLIST[" + plist_depth + "]");
+			this.plist_depth--;
+			
+		}else if (localName.equals("dict")) {
+			Log.d(TAG, "-DICT[" + depth + "]");
+			if(this.depth > 0){
+				// Add row to temp list
+				Log.d(TAG, "Add row to temp list '" + this.row.getTitle() + "'");
+				this.temp.add(this.row);
+				
+				// Release row
+				Log.d(TAG, "++ Release row ++");
+				this.row = null;
+				
+			}else if(this.depth == 0){
+				this.listOfRows.add(this.row);
+			}
+			
+			this.depth--;
+			
+		}else if (localName.equals("array")) {
+			Log.d(TAG, "-ARRAY[" + depth + "]");
+			
+			if(this.depth > 0){
+				this.temp.add(row);
+				Log.d(TAG, "Added entry for '" + this.row.getTitle() + "'");
+			}
+			this.depth--;
+				
+		}else if (localName.equals("key")) {
+			Log.d(TAG, "-KEY[" + depth + "]");
+			
+		}else if (localName.equals("string")) {
+			Log.d(TAG, "-STRING[" + depth + "]");
+			
+		}
+	}
+	
+	/** Gets be called on the following structure: 
+	 * <tag>characters</tag> */
+	@Override
+    public void characters(char ch[], int start, int length) {
+		String charSet;
+		
+		if(this.depth > 0){
+			charSet = new String(ch, start, length);
+			Log.d(TAG, "["+ Integer.toString(depth) + "]" + charSet);
+			
+			if(charSet.equals("Title")){
+				this.in_title_key = true;
+			}else if(charSet.equals("Scroll")){
+				this.in_scroll_key = true;
+			}else if(charSet.equals("View")){
+				this.in_view_key = true;
+			}
+		}else if(this.depth > 0){
+			charSet = new String(ch, start, length);
+			Log.d(TAG, "[" + Integer.toString(depth) + "]" + charSet);
+			if(this.in_title_key){
+				this.row.setTitle(charSet);
+				this.in_title_key = false;
+			}else if(this.in_scroll_key){
+				this.row.setScroll(charSet);
+				this.in_scroll_key = false;
+			}else if(this.in_view_key){
+				this.row.setView(charSet);
+				this.in_view_key = false;
+			}
+		}
+    }
+}

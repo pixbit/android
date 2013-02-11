@@ -16,31 +16,28 @@ public class PlistHandler extends DefaultHandler{
 	// Fields
 	// ===========================================================
 
-	private int plist_tag = 0;
-	private int dict_tag = 0;
-	private int array_tag = 0;
-	private int key_tag = 0;
-	private int string_tag = 0;
+	private int depth = 0;
 	
 	private boolean in_title_key = false;
 	private boolean in_scroll_key = false;
 	private boolean in_view_key = false;
 	
-	private ParsedDataSet dataSet;
-	public List<ParsedDataSet> entries = new ArrayList<ParsedDataSet>();
+	private boolean in_string_tag = false;
+	
+	public List<ParsedRow> listOfRows;
+	private ParsedRow rowDepth1;
+	private ParsedRow rowDepth2;
+	private ParsedRow rowDepth3;
+	private ParsedRow rowDepth4;
 	
 
 	// ===========================================================
 	// Getter & Setter
 	// ===========================================================
-
-	public ParsedDataSet getParsedData() {
-		return this.dataSet;
-	}
 	
-	public List<ParsedDataSet> getEntries() {
+	public List<ParsedRow> getListOfRows() {
 //		Log.d(TAG, "getEntries called.");
-		return this.entries;
+		return this.listOfRows;
 	}
 
 	// ===========================================================
@@ -48,8 +45,8 @@ public class PlistHandler extends DefaultHandler{
 	// ===========================================================
 	@Override
 	public void startDocument() throws SAXException {
-		Log.d(TAG, "startDocument called.");
-		this.dataSet = new ParsedDataSet();
+//		Log.d(TAG, "startDocument called.");
+		this.listOfRows = new ArrayList<ParsedRow>();
 	}
 
 	@Override
@@ -67,22 +64,42 @@ public class PlistHandler extends DefaultHandler{
 //		Log.d(TAG, "STARTING a " + localName + " tag.");
 		
 		if (localName.equals("plist")) {
-			this.plist_tag++;
-			Log.d(TAG, "+PLIST[" + plist_tag + "]");
+//			Log.d(TAG, "+PLIST[" + depth + "]");
+			
 		}else if (localName.equals("dict")) {
-			if(this.dict_tag++ > 0){
-				this.dataSet = new ParsedDataSet();
+//			Log.d(TAG, "+DICT[" + depth + "]");
+			if(this.depth == 1){
+				// Allocate empty row
+//				Log.d(TAG, "++ Allocate empty rowDepth1 ++");
+				this.rowDepth1 = new ParsedRow();
+			}else if(this.depth == 2){
+				// Allocate empty row
+//				Log.d(TAG, "++ Allocate empty rowDepth2 ++");
+				this.rowDepth2 = new ParsedRow();
+			}else if(this.depth == 3){
+				// Allocate empty row
+//				Log.d(TAG, "++ Allocate empty rowDepth3 ++");
+				this.rowDepth3 = new ParsedRow();
+			}else if(this.depth == 4){
+				// Allocate empty row
+//				Log.d(TAG, "++ Allocate empty rowDepth4 ++");
+				this.rowDepth4 = new ParsedRow();
 			}
-			Log.d(TAG, "+DICT[" + dict_tag + "]");
+			
 		}else if (localName.equals("array")) {
-			this.array_tag++;
-			Log.d(TAG, "+ARRAY[" + array_tag + "]");
+//			Log.d(TAG, "+ARRAY[" + depth + "]");
+			
+			// Increment depth
+//			Log.d(TAG, "++ Increment depth ++");
+			this.depth++;
+			
 		}else if (localName.equals("key")) {
-			this.key_tag++;
-			Log.d(TAG, "+KEY[" + key_tag + "]");
+//			Log.d(TAG, "+KEY[" + depth + "]");
+			
 		}else if (localName.equals("string")) {
-			this.string_tag++;
-			Log.d(TAG, "+STRING[" + string_tag + "]");
+//			Log.d(TAG, "+STRING[" + depth + "]");
+			this.in_string_tag = true;
+			
 		}
 	}
 	
@@ -93,24 +110,61 @@ public class PlistHandler extends DefaultHandler{
 //		Log.d(TAG, "ENDING a " + localName + " tag.");
 		
 		if (localName.equals("plist")) {
-			Log.d(TAG, "-PLIST[" + plist_tag + "]");
-			this.array_tag--;
+//			Log.d(TAG, "-PLIST[" + plist_depth + "]");
+			
 		}else if (localName.equals("dict")) {
-			Log.d(TAG, "-DICT[" + dict_tag + "]");
-			if(this.dict_tag-- > 1){
-				this.entries.add(this.dataSet);
-				Log.d(TAG, "Added entry for '" + this.dataSet.getTitle() + "'");
-				this.dataSet = null;
+//			Log.d(TAG, "-DICT[" + depth + "]");
+			if(this.depth == 1){
+				// Add row to temp list
+//				Log.d(TAG, "Add row to temp list '" + this.rowDepth1.getTitle() + "'");
+				this.listOfRows.add(this.rowDepth1);
+				
+				// Release row
+//				Log.d(TAG, "++ Release row ++");
+				this.rowDepth1 = null;
+				
+			}else if(this.depth == 2){
+				// Add row to temp list
+//				Log.d(TAG, "Add rowDepth2 to rowDepth1's children '" + this.rowDepth1.getTitle() + "'");
+				this.rowDepth1.addChild(this.rowDepth2);
+				
+				// Release row
+//				Log.d(TAG, "++ Release row ++");
+				this.rowDepth2 = null;
+				
+			}else if(this.depth == 3){
+				// Add row to temp list
+//				Log.d(TAG, "Add rowDepth3 to rowDepth2's children '" + this.rowDepth2.getTitle() + "'");
+				this.rowDepth2.addChild(this.rowDepth3);
+				
+				// Release row
+//				Log.d(TAG, "++ Release row ++");
+				this.rowDepth3 = null;
+				
+			}else if(this.depth == 4){
+				// Add row to temp list
+//				Log.d(TAG, "Add rowDepth4 to rowDepth3's children '" + this.rowDepth3.getTitle() + "'");
+				this.rowDepth3.addChild(this.rowDepth4);
+				
+				// Release row
+//				Log.d(TAG, "++ Release row ++");
+				this.rowDepth4 = null;
+				
 			}
+			
 		}else if (localName.equals("array")) {
-			Log.d(TAG, "-ARRAY[" + array_tag + "]");
-			this.array_tag--;
+//			Log.d(TAG, "-ARRAY[" + depth + "]");
+			// Decrement depth
+//			Log.d(TAG, "++ Decrement depth ++");
+			this.depth--;
+				
 		}else if (localName.equals("key")) {
-			Log.d(TAG, "-KEY[" + key_tag + "]");
-			this.key_tag--;
+//			Log.d(TAG, "-KEY[" + depth + "]");
+			
 		}else if (localName.equals("string")) {
-			Log.d(TAG, "-STRING[" + string_tag + "]");
-			this.string_tag--;
+//			Log.d(TAG, "-STRING[" + depth + "]");
+			this.in_string_tag = false;
+			
 		}
 	}
 	
@@ -118,33 +172,73 @@ public class PlistHandler extends DefaultHandler{
 	 * <tag>characters</tag> */
 	@Override
     public void characters(char ch[], int start, int length) {
-		String charSet;
-		
-		if(this.key_tag > 0){
-			charSet = new String(ch, start, length);
-//			Log.d(TAG, "READ A KEY ["+ Integer.toString(array_tag) + "]: " + charSet);
+		String charSet = new String(ch, start, length);
+
+		if(charSet.equals("Title")){
+			this.in_title_key = true;
+		}else if(charSet.equals("Scroll")){
+			this.in_scroll_key = true;
+		}else if(charSet.equals("View")){
+			this.in_view_key = true;
+		}
 			
-			if(charSet.equals("Title")){
-				this.in_title_key = true;
-			}else if(charSet.equals("Scroll")){
-				this.in_scroll_key = true;
-			}else if(charSet.equals("View")){
-				this.in_view_key = true;
-			}
-    			
-			
-		}else if(this.string_tag > 0){
-			charSet = new String(ch, start, length);
-//			Log.d(TAG, "READ A STRING [" + Integer.toString(array_tag) + "]: " + charSet);
-			if(this.in_title_key){
-				this.dataSet.setTitle(charSet);
-				this.in_title_key = false;
-			}else if(this.in_scroll_key){
-				this.dataSet.setScroll(charSet);
-				this.in_scroll_key = false;
-			}else if(this.in_view_key){
-				this.dataSet.setView(charSet);
-				this.in_view_key = false;
+		if(this.in_string_tag){
+			if(this.depth == 1){
+				if(this.in_title_key){
+					Log.d(TAG, "rowDepth1 title[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth1.setTitle(charSet);
+					this.in_title_key = false;
+				}else if(this.in_scroll_key){
+					Log.d(TAG, "rowDepth1 scroll[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth1.setScroll(charSet);
+					this.in_scroll_key = false;
+				}else if(this.in_view_key){
+					Log.d(TAG, "rowDepth1 view[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth1.setView(charSet);
+					this.in_view_key = false;
+				}
+			}else if(this.depth == 2){
+				if(this.in_title_key){
+					Log.d(TAG, "rowDepth2 title[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth2.setTitle(charSet);
+					this.in_title_key = false;
+				}else if(this.in_scroll_key){
+					Log.d(TAG, "rowDepth2 scroll[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth2.setScroll(charSet);
+					this.in_scroll_key = false;
+				}else if(this.in_view_key){
+					Log.d(TAG, "rowDepth2 view[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth2.setView(charSet);
+					this.in_view_key = false;
+				}
+			}else if(this.depth == 3){
+				if(this.in_title_key){
+					Log.d(TAG, "rowDepth3 title[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth3.setTitle(charSet);
+					this.in_title_key = false;
+				}else if(this.in_scroll_key){
+					Log.d(TAG, "rowDepth3 scroll[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth3.setScroll(charSet);
+					this.in_scroll_key = false;
+				}else if(this.in_view_key){
+					Log.d(TAG, "rowDepth3 view[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth3.setView(charSet);
+					this.in_view_key = false;
+				}
+			}else if(this.depth == 4){
+				if(this.in_title_key){
+					Log.d(TAG, "rowDepth4 title[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth4.setTitle(charSet);
+					this.in_title_key = false;
+				}else if(this.in_scroll_key){
+					Log.d(TAG, "rowDepth4 scroll[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth4.setScroll(charSet);
+					this.in_scroll_key = false;
+				}else if(this.in_view_key){
+					Log.d(TAG, "rowDepth4 view[" + Integer.toString(depth) + "]" + charSet);
+					this.rowDepth4.setView(charSet);
+					this.in_view_key = false;
+				}
 			}
 		}
     }

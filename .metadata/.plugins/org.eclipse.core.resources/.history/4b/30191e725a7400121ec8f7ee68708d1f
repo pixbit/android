@@ -1,0 +1,174 @@
+package com.empsi.inepabor;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import android.util.Log;
+
+public class PlistHandler extends DefaultHandler{
+	public static final String TAG = PlistHandler.class.getSimpleName();
+	
+	// ===========================================================
+	// Fields
+	// ===========================================================
+
+	private int plist_depth = 0;
+	private int dict_depth = -1; // Negative so as to not count first dict tag
+	private int key_depth = 0;
+	private int string_depth = 0;
+	
+	private boolean in_title_key = false;
+	private boolean in_scroll_key = false;
+	private boolean in_view_key = false;
+	
+	private boolean in_child_array = false;
+	
+	private ParsedDataSet dataSet;
+	public List<ParsedDataSet> entries;
+	public List<ParsedDataSet> temp;
+	
+
+	// ===========================================================
+	// Getter & Setter
+	// ===========================================================
+
+	public ParsedDataSet getParsedData() {
+		return this.dataSet;
+	}
+	
+	public List<ParsedDataSet> getEntries() {
+//		Log.d(TAG, "getEntries called.");
+		return this.entries;
+	}
+
+	// ===========================================================
+	// Methods
+	// ===========================================================
+	@Override
+	public void startDocument() throws SAXException {
+//		Log.d(TAG, "startDocument called.");
+		this.entries = new ArrayList<ParsedDataSet>();
+	}
+
+	@Override
+	public void endDocument() throws SAXException {
+//		Log.d(TAG, "endDocument called.");
+		// Nothing to do
+	}
+
+	/** Gets be called on opening tags like: 
+	 * <tag> 
+	 * Can provide attribute(s), when xml was like:
+	 * <tag attribute="attributeValue">*/
+	@Override
+	public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+//		Log.d(TAG, "STARTING a " + localName + " tag.");
+		
+		if (localName.equals("plist")) {
+			this.plist_depth++;
+			Log.d(TAG, "+PLIST[" + plist_depth + "]");
+			
+		}else if (localName.equals("dict")) {
+			if(this.dict_depth++ > 0){
+				this.dataSet = new ParsedDataSet();
+				Log.d(TAG, "+DICT[" + dict_depth + "]");
+				Log.d(TAG, "++ NEW DATASET ++");
+			}
+			
+		}else if (localName.equals("array")) {
+			if(this.array_depth > 0){
+				Log.d(TAG, "+CHILD ARRAY[" + array_depth + "] ENTERED");
+				this.temp = new ArrayList<ParsedDataSet>();
+			}
+			this.array_depth++;
+			Log.d(TAG, "+ARRAY[" + array_depth + "]");
+			
+		}else if (localName.equals("key")) {
+			this.key_depth++;
+			Log.d(TAG, "+KEY[" + key_depth + "]");
+			
+		}else if (localName.equals("string")) {
+			this.string_depth++;
+			Log.d(TAG, "+STRING[" + string_depth + "]");
+			
+		}
+	}
+	
+	/** Gets be called on closing tags like: 
+	 * </tag> */
+	@Override
+	public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+//		Log.d(TAG, "ENDING a " + localName + " tag.");
+		
+		if (localName.equals("plist")) {
+			Log.d(TAG, "-PLIST[" + plist_depth + "]");
+			this.plist_depth--;
+			
+		}else if (localName.equals("array")) {
+			Log.d(TAG, "-ARRAY[" + array_depth + "]");
+			
+			if(this.array_depth > 0){
+				this.temp.add(dataSet);
+				Log.d(TAG, "Added entry for '" + this.dataSet.getTitle() + "'");
+			}
+			this.array_depth--;
+				
+		}else if (localName.equals("dict")) {
+			Log.d(TAG, "-DICT[" + dict_depth + "]");
+			if(this.dict_depth > 0){
+				Log.d(TAG, "Added entry for '" + this.dataSet.getTitle() + "'");
+				this.dataSet = null;
+			}else if(this.dict_depth == 0){
+				this.entries.add(this.dataSet);
+			}
+			
+			this.dict_depth--;
+			
+		}else if (localName.equals("key")) {
+			Log.d(TAG, "-KEY[" + key_depth + "]");
+			this.key_depth--;
+			
+		}else if (localName.equals("string")) {
+			Log.d(TAG, "-STRING[" + string_depth + "]");
+			this.string_depth--;
+			
+		}
+	}
+	
+	/** Gets be called on the following structure: 
+	 * <tag>characters</tag> */
+	@Override
+    public void characters(char ch[], int start, int length) {
+		String charSet;
+		
+		if(this.key_depth > 0){
+			charSet = new String(ch, start, length);
+			Log.d(TAG, "["+ Integer.toString(array_depth) + "]" + charSet);
+			
+			if(charSet.equals("Title")){
+				this.in_title_key = true;
+			}else if(charSet.equals("Scroll")){
+				this.in_scroll_key = true;
+			}else if(charSet.equals("View")){
+				this.in_view_key = true;
+			}
+		}else if(this.string_depth > 0){
+			charSet = new String(ch, start, length);
+			Log.d(TAG, "[" + Integer.toString(array_depth) + "]" + charSet);
+			if(this.in_title_key){
+				this.dataSet.setTitle(charSet);
+				this.in_title_key = false;
+			}else if(this.in_scroll_key){
+				this.dataSet.setScroll(charSet);
+				this.in_scroll_key = false;
+			}else if(this.in_view_key){
+				this.dataSet.setView(charSet);
+				this.in_view_key = false;
+			}
+		}
+    }
+}
