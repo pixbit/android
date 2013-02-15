@@ -12,3 +12,9 @@
 1360595043273	Rename type 'ParsedDataSet'
 1360595287494	Rename field 'entries'
 1360597074290	Rename field 'row'
+1360603439439	Delete element
+1360603445984	Delete element
+1360603454061	Delete element
+1360603681857	Rename field 'currentList'
+1360959452595	Delete element
+1360962666016	Rename local variable 'showContent'

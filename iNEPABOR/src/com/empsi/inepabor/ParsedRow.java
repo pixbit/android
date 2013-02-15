@@ -33,7 +33,7 @@ public class ParsedRow {
 		this.view = view;
 	}
 
-	public List<ParsedRow> getEntries() {
+	public List<ParsedRow> getChildren() {
 		return children;
 	}
 

@@ -7,8 +7,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import android.util.Log;
-
 public class PlistHandler extends DefaultHandler{
 	public static final String TAG = PlistHandler.class.getSimpleName();
 	
@@ -185,57 +183,57 @@ public class PlistHandler extends DefaultHandler{
 		if(this.in_string_tag){
 			if(this.depth == 1){
 				if(this.in_title_key){
-					Log.d(TAG, "rowDepth1 title[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth1 title[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth1.setTitle(charSet);
 					this.in_title_key = false;
 				}else if(this.in_scroll_key){
-					Log.d(TAG, "rowDepth1 scroll[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth1 scroll[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth1.setScroll(charSet);
 					this.in_scroll_key = false;
 				}else if(this.in_view_key){
-					Log.d(TAG, "rowDepth1 view[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth1 view[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth1.setView(charSet);
 					this.in_view_key = false;
 				}
 			}else if(this.depth == 2){
 				if(this.in_title_key){
-					Log.d(TAG, "rowDepth2 title[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth2 title[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth2.setTitle(charSet);
 					this.in_title_key = false;
 				}else if(this.in_scroll_key){
-					Log.d(TAG, "rowDepth2 scroll[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth2 scroll[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth2.setScroll(charSet);
 					this.in_scroll_key = false;
 				}else if(this.in_view_key){
-					Log.d(TAG, "rowDepth2 view[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth2 view[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth2.setView(charSet);
 					this.in_view_key = false;
 				}
 			}else if(this.depth == 3){
 				if(this.in_title_key){
-					Log.d(TAG, "rowDepth3 title[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth3 title[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth3.setTitle(charSet);
 					this.in_title_key = false;
 				}else if(this.in_scroll_key){
-					Log.d(TAG, "rowDepth3 scroll[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth3 scroll[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth3.setScroll(charSet);
 					this.in_scroll_key = false;
 				}else if(this.in_view_key){
-					Log.d(TAG, "rowDepth3 view[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth3 view[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth3.setView(charSet);
 					this.in_view_key = false;
 				}
 			}else if(this.depth == 4){
 				if(this.in_title_key){
-					Log.d(TAG, "rowDepth4 title[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth4 title[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth4.setTitle(charSet);
 					this.in_title_key = false;
 				}else if(this.in_scroll_key){
-					Log.d(TAG, "rowDepth4 scroll[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth4 scroll[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth4.setScroll(charSet);
 					this.in_scroll_key = false;
 				}else if(this.in_view_key){
-					Log.d(TAG, "rowDepth4 view[" + Integer.toString(depth) + "]" + charSet);
+//					Log.d(TAG, "rowDepth4 view[" + Integer.toString(depth) + "]" + charSet);
 					this.rowDepth4.setView(charSet);
 					this.in_view_key = false;
 				}
