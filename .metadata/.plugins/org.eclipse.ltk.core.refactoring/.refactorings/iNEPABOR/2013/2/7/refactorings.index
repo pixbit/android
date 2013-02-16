@@ -18,3 +18,7 @@
 1360603681857	Rename field 'currentList'
 1360959452595	Delete element
 1360962666016	Rename local variable 'showContent'
+1360967683391	Rename local variable 'launchingIntent'
+1360968436807	Delete element
+1360968445883	Delete element
+1360977222050	Rename local variable 'engine'

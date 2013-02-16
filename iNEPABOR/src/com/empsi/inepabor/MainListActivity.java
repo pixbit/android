@@ -81,20 +81,36 @@ public class MainListActivity extends ListActivity {
     
     @Override
     public void onListItemClick(ListView parent, View v, int position, long id) {
-        Toast.makeText(this, this.currentEntries.get(position).getView(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, this.currentEntries.get(position).getView(), Toast.LENGTH_SHORT).show();
         int view = Integer.parseInt(this.currentEntries.get(position).getView());
+        String title = this.currentEntries.get(position).getTitle();
+        String scroll = this.currentEntries.get(position).getScroll();
         
-        String url = "http://www.google.com";
+        String url;
         switch(view){
         		case 1:
         			url = "file:///android_asset/handbook.htm";
+        			break;
+        		case 2:
+        			url = "file:///android_asset/applicationTutorial.htm";
+        			break;
+        		case 3:
+        			url = "file:///android_asset/bookmarkTutorial.htm";
+        			break;
+        		case 4:
+        			url = "file:///android_asset/navigationTutorial.htm";
         			break;
         		default:
         			url = "http://www.cnn.com";
         }
         
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        
+        i.putExtra("view", url);
+        i.putExtra("title", title);
+        i.putExtra("scroll", scroll);
         i.setData(Uri.parse(url));
+        
         startActivity(i);
     	
 //    		this.previousEntries = this.currentEntries;
