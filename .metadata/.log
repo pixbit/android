@@ -388,3 +388,436 @@ com.android.ddmlib.ShellCommandUnresponsiveException
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2013-02-16 17:08:43.353 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-16 17:10:53.145
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2013-02-16 22:21:55.357 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-16 22:22:08.057
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2013-02-16 22:31:50.258 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-16 22:32:01.314
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2013-02-16 22:34:46.120 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-16 22:35:14.057
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2013-02-16 22:38:23.536
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2013-02-16 22:38:23.536
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.536
+!MESSAGE "Android DDMS" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Android Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Android Hierarchy Viewer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Android Traceview" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Tracer for OpenGL ES" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Eclipse Platform" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Eclipse RCP" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Android Native Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "C/C++ Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.537
+!MESSAGE "Eclipse XML Editors and Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2013-02-16 22:38:23.537
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2013-02-16 22:38:23.537
+!MESSAGE org.eclipse.linuxtools.callgraph.feature.feature.group [1.0.0.201209191645] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2013-02-16 22:38:23.595
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2013-02-16 22:38:23.595
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.595
+!MESSAGE "Android DDMS" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.595
+!MESSAGE "Android Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.595
+!MESSAGE "Android Hierarchy Viewer" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.595
+!MESSAGE "Android Traceview" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.596
+!MESSAGE "Tracer for OpenGL ES" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.596
+!MESSAGE "Eclipse Platform" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.596
+!MESSAGE "Eclipse RCP" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.596
+!MESSAGE "Android Native Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.596
+!MESSAGE "C/C++ Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.596
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-02-16 22:38:23.596
+!MESSAGE "Eclipse XML Editors and Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2013-02-16 22:38:23.596
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2013-02-16 22:38:23.596
+!MESSAGE org.eclipse.linuxtools.callgraph.feature.feature.group [1.0.0.201209191645] cannot be installed in this environment because its filter is not applicable.
+!SESSION 2013-02-17 13:20:17.161 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bit/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-17 13:22:00.318
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-19 20:49:44.747
+!MESSAGE Failed to load properties file for project 'ActionBarDemo'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-19 20:54:02.462
+!MESSAGE Failed to load properties file for project 'ActionBarDemo'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-19 20:54:02.489
+!MESSAGE Failed to load properties file for project 'ActionBarDemo'
+
+!ENTRY org.eclipse.ui 4 0 2013-02-19 20:55:44.705
+!MESSAGE Widget is disposed
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:775)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:569)
+	at org.eclipse.swt.widgets.Control.getBounds(Control.java:1606)
+	at org.eclipse.ui.internal.forms.MessageManager.update(MessageManager.java:504)
+	at org.eclipse.ui.internal.forms.MessageManager.updateForm(MessageManager.java:499)
+	at org.eclipse.ui.internal.forms.MessageManager.removeMessage(MessageManager.java:403)
+	at com.android.ide.eclipse.adt.internal.editors.manifest.model.UiPackageAttributeNode$4.widgetDisposed(UiPackageAttributeNode.java:166)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:123)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4134)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1458)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1481)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1462)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1300)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Canvas.releaseChildren(Canvas.java:331)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:903)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:1303)
+	at org.eclipse.swt.widgets.Control.release(Control.java:2836)
+	at org.eclipse.swt.widgets.Widget.dispose(Widget.java:663)
+	at org.eclipse.ui.internal.PartPane.dispose(PartPane.java:182)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:681)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1801)
+	at org.eclipse.ui.internal.WorkbenchPage.handleDeferredEvents(WorkbenchPage.java:1505)
+	at org.eclipse.ui.internal.WorkbenchPage.deferUpdates(WorkbenchPage.java:1489)
+	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1463)
+	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1518)
+	at org.eclipse.ui.internal.EditorPane.doHide(EditorPane.java:61)
+	at org.eclipse.ui.internal.PartStack.close(PartStack.java:537)
+	at org.eclipse.ui.internal.EditorStack.close(EditorStack.java:206)
+	at org.eclipse.ui.internal.PartStack$1.close(PartStack.java:120)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:83)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:269)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:278)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$1.closeButtonPressed(DefaultTabFolder.java:71)
+	at org.eclipse.ui.internal.presentations.PaneFolder.notifyCloseListeners(PaneFolder.java:631)
+	at org.eclipse.ui.internal.presentations.PaneFolder$3.close(PaneFolder.java:206)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1599)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:261)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4134)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1458)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1481)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1466)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1271)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3980)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3619)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.ui 4 0 2013-02-19 23:49:09.211
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:775)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:569)
+	at org.eclipse.swt.custom.CTabItem.getControl(CTabItem.java:161)
+	at org.eclipse.swt.custom.CTabFolderLayout.layout(CTabFolderLayout.java:82)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1194)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.layout(Composite.java:703)
+	at org.eclipse.swt.widgets.Display.runSettings(Display.java:4074)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3609)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.ui 4 0 2013-02-20 16:04:14.063
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:775)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:569)
+	at org.eclipse.swt.custom.CTabItem.getControl(CTabItem.java:161)
+	at org.eclipse.swt.custom.CTabFolderLayout.layout(CTabFolderLayout.java:82)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1194)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.layout(Composite.java:703)
+	at org.eclipse.swt.widgets.Display.runSettings(Display.java:4074)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3609)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.ui 4 0 2013-02-20 18:38:57.864
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:775)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:569)
+	at org.eclipse.swt.custom.CTabItem.getControl(CTabItem.java:161)
+	at org.eclipse.swt.custom.CTabFolderLayout.layout(CTabFolderLayout.java:82)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1194)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.layout(Composite.java:703)
+	at org.eclipse.swt.widgets.Display.runSettings(Display.java:4074)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3609)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.ui 4 0 2013-02-21 12:49:39.245
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:775)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:569)
+	at org.eclipse.swt.custom.CTabItem.getControl(CTabItem.java:161)
+	at org.eclipse.swt.custom.CTabFolderLayout.layout(CTabFolderLayout.java:82)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1194)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.updateLayout(Composite.java:1200)
+	at org.eclipse.swt.widgets.Composite.layout(Composite.java:703)
+	at org.eclipse.swt.widgets.Display.runSettings(Display.java:4074)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3609)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-21 16:31:36.557
+!MESSAGE No command output when running: 'am start -n com.empsi.inepabor/com.empsi.inepabor.MainListActivity -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device emulator-5556
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:453)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(ActivityLaunchAction.java:67)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(ActivityLaunchAction.java:109)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.doLaunchAction(AndroidLaunchController.java:1277)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.doLaunchAction(AndroidLaunchController.java:1289)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(AndroidLaunchController.java:1261)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(AndroidLaunchController.java:906)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.continueLaunch(AndroidLaunchController.java:748)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launch(AndroidLaunchController.java:570)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.doLaunch(LaunchConfigDelegate.java:322)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.launch(LaunchConfigDelegate.java:238)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-21 17:26:24.796
+!MESSAGE No command output when running: 'am start -n com.empsi.inepabor/com.empsi.inepabor.MainListActivity -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device emulator-5556
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:453)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(ActivityLaunchAction.java:67)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(ActivityLaunchAction.java:109)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.doLaunchAction(AndroidLaunchController.java:1277)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.doLaunchAction(AndroidLaunchController.java:1289)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(AndroidLaunchController.java:1261)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(AndroidLaunchController.java:906)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.continueLaunch(AndroidLaunchController.java:748)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launch(AndroidLaunchController.java:570)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.doLaunch(LaunchConfigDelegate.java:322)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.launch(LaunchConfigDelegate.java:238)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
