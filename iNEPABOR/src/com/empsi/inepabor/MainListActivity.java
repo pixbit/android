@@ -101,7 +101,7 @@ public class MainListActivity extends ListActivity {
         			url = "file:///android_asset/navigationTutorial.htm";
         			break;
         		default:
-        			url = "http://www.cnn.com";
+        			url = "http://www.empsi.com";
         }
         
         Intent i = new Intent(getApplicationContext(), MainActivity.class);

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy, see www.w3.org">
+        <link type="text/css" rel="stylesheet" href=
+        "css-js/jquery.mobile-1.0a3.min.css">
+<script type="text/javascript" src="css-js/jquery-1.5.min.js">
+</script>
+<script type="text/javascript" src=
+"css-js/jquery.mobile-1.0a3.min.js">
+</script>
+
+        <title></title>
+    </head>
+
+    <body>
+        <!-- Page starts here -->
+
+        <div data-role="page" data-theme="c" id="containerPage">
+            <div data-role="header" id="hdrDetail" data-nobackbtn="true" data-theme="c">
+                <h1><img align="top"  src="img/contacts.png"> Details</h1>
+            </div>
+
+            <div data-role="content" id="contentDetail" data-theme="c">
+                <form id="contactForm" onsubmit="return false;">
+                    <input id="contactId" type="hidden"> 
+
+                    <div id="namesDiv" data-role="fieldcontain">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>First name</td>
+
+                                    <td><input id="firstName" type=
+                                    "text"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Last<br>                                 
+                                    name</td>
+
+                                    <td><input id="lastName" type=
+                                    "text"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Notes</td>
+
+                                    <td><input id="note" type=
+                                    "text"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed=
+                    "true">
+                        <h3>Phone Numbers</h3>
+
+                        <table id="phonesTable">
+                        </table>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed=
+                    "true">
+                        <h3>Emails</h3>
+
+                        <table id="emailsTable">
+                        </table>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed=
+                    "true">
+                        <h3>More</h3>
+
+                        <div data-role="collapsible"
+                        data-collapsed="true" id="addressDiv">
+                            <h3>Addresses</h3>
+
+                            <table id="addressTable">
+                            </table>
+                        </div>
+
+                        <div data-role="collapsible"
+                        data-collapsed="true">
+                            <h3>Organizations</h3>
+
+                            <table id="orgsTable">
+                            </table>
+                        </div>
+
+                        <div data-role="collapsible"
+                        data-collapsed="true">
+                            <h3>IMs</h3>
+
+                            <table id="imsTable">
+                            </table>
+                        </div>
+                    </div>
+                </form>
+
+			<div align="CENTER" data-role="controlgroup" data-type="horizontal">
+			    <a href="javascript:generateJson();return false;" data-role="button" ><h5>Save</h5></a>			
+          		<a id="deleteButton"  href="javascript:showDialog();return false;" data-role="button"  ><h5>Delete</h5></a>
+				<a href="javascript:showListPage();return false;" data-role="button" ><h5>Cancel</h5></a>			
+			</div>
+			<div align="CENTER"><P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp;<P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; 
+				<P> &nbsp; <P> &nbsp; <P> &nbsp;<P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; 
+				<P> &nbsp;<P> &nbsp; <P> &nbsp; <P> &nbsp; </div>
+            </div>
+            <!-- contentDetail -->
+
+            <div data-role="footer" id="ftrDetail" data-theme="c"></div>
+            <!--  Progress -->
+
+            <div data-role="header" id="hdrProgress"
+            data-nobackbtn="true" data-theme="c">
+                <h1>Processing...</h1>
+            </div>
+            <div data-role="content" id="contentProgress"
+            data-theme="c">
+                <div align="CENTER">
+                    <h4>Please wait.</h4>
+                </div>
+
+                <div align="CENTER">
+                    <img alt="" id="spin" src="img/wait.gif">
+                </div>
+            </div>
+            <div data-role="footer" id="ftrProgress" data-theme="c"></div>
+            
+            <!--  Dialog -->
+            <div data-role="header" id="hdrDialog" data-nobackbtn="true" data-theme="c">
+                <h1>Confirm delete</h1>
+            </div>
+            <div data-role="content" id="contentDialog"  data-theme="c">
+                <div align="CENTER">
+                    <h4>Are you sure you want to delete this contact?</h4>                    
+                </div>
+                <div align="CENTER" data-role="controlgroup" data-type="horizontal">
+					<a href="javascript:deleteContact();return false;" data-role="button"><h5>Delete</h5></a>				
+					<a href="javascript:showDetail();return false;" data-role="button"><h5>Cancel</h5></a>			
+				</div>
+				<div align="CENTER"><P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp;<P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; 
+				<P> &nbsp; <P> &nbsp; <P> &nbsp;<P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; 
+				<P> &nbsp;<P> &nbsp; <P> &nbsp; <P> &nbsp; </div>
+            </div>
+            <div data-role="footer" id="ftrDialog" data-theme="c"></div>            
+            
+<script>
+    // Constants
+	var LIST_PAGE = 'ListPage.html';
+    var VALUE = ' value="';
+    
+    var STYLED_IN = '<input type="text" class="ui-input-text ui-body-null ui-corner-all ui-shadow-inset ui-body-c" id="';
+    
+    var TR_O = '<tr><td>';
+    var TD_C = '</td></tr>';
+    var TD_M = '</td><td>';
+    
+    var WORK_ORG_FRAGMENT_LOCAL = '<tr><td colspan="2"><h4>Work Organization</h4>'+TD_C+TR_O+'Name'+TD_M+STYLED_IN+'-1_1_OrgName">'+TD_C+TR_O+'Title'+TD_M+STYLED_IN+'-1_1_OrgTitle">'+TD_C;
+    var OTHER_ORG_FRAGMENT_LOCAL = '<tr><td colspan="2"><h4>Other Organization</h4>'+TD_C+TR_O+'Name'+TD_M+STYLED_IN+'-1_2_OrgName">'+TD_C+TR_O+'Title'+TD_M+STYLED_IN+'-1_2_OrgTitle">'+TD_C;
+    
+    var WORK_ORG_FRAGMENT_PRX = '<tr><td colspan="2"><h4>Work Organization</h4>'+TD_C+TR_O+'Name'+TD_M+STYLED_IN;
+    var WORK_ORG_FRAGMENT_MID1 = '_1_OrgName"'+VALUE;
+    var WORK_ORG_FRAGMENT_MID2 = '">'+TD_C+TR_O+'Title'+TD_M+STYLED_IN;
+    var WORK_ORG_FRAGMENT_MID3 = '_1_OrgTitle"'+VALUE;   
+    var WORK_ORG_FRAGMENT_SFX = '">'+TD_C;
+    
+    var OTHER_ORG_FRAGMENT_PRX = '<tr><td colspan="2"><h4>Other Organization</h4>'+TD_C+TR_O+'Name'+TD_M+STYLED_IN;
+    var OTHER_ORG_FRAGMENT_MID1 = '_2_OrgName"'+VALUE;
+    var OTHER_ORG_FRAGMENT_MID2 = '">'+TD_C+TR_O+'Title'+TD_M+STYLED_IN;
+    var OTHER_ORG_FRAGMENT_MID3 = '_2_OrgTitle"'+VALUE;   
+    var OTHER_ORG_FRAGMENT_SFX = '">'+TD_C;
+    
+    var HOME_PHONE_FRAGMENT_LOCAL = TR_O+'Home'+TD_M+STYLED_IN+'-1_1_No">'+TD_C;
+    var MOBILE_PHONE_FRAGMENT_LOCAL = TR_O+'Mobile'+TD_M+STYLED_IN+'-1_2_No">'+TD_C;
+    var WORK_PHONE_FRAGMENT_LOCAL = TR_O+'Work'+TD_M+STYLED_IN+'-1_3_No">'+TD_C;    
+    var OTHER_PHONE_FRAGMENT_LOCAL = TR_O+'Other'+TD_M+STYLED_IN+'-1_7_No">'+TD_C;  
+
+    var HOME_EMAIL_FRAGMENT_LOCAL = TR_O+'Home'+TD_M+STYLED_IN+'-1_1_Email">'+TD_C; 
+    var WORK_EMAIL_FRAGMENT_LOCAL = TR_O+'Work'+TD_M+STYLED_IN+'-1_2_Email">'+TD_C; 
+    var OTHER_EMAIL_FRAGMENT_LOCAL = TR_O+'Other'+TD_M+STYLED_IN+'-1_3_Email">'+TD_C;   
+    
+    var CUSTOM_IM_FRAGMENT_LOCAL = TR_O+'Custom'+TD_M+STYLED_IN+'-1_-1_IM">'+TD_C;
+    var AIM_IM_FRAGMENT_LOCAL = TR_O+'AIM'+TD_M+STYLED_IN+'-1_0_IM">'+TD_C; 
+    var GOOGLE_IM_FRAGMENT_LOCAL = TR_O+'Google Talk'+TD_M+STYLED_IN+'-1_5_IM">'+TD_C;
+    var ICQ_IM_FRAGMENT_LOCAL = TR_O+'ICQ'+TD_M+STYLED_IN+'-1_6_IM">'+TD_C;
+    var JABBER_IM_FRAGMENT_LOCAL = TR_O+'Jabber'+TD_M+STYLED_IN+'-1_7_IM">'+TD_C;
+    var MSN_IM_FRAGMENT_LOCAL = TR_O+'MSN'+TD_M+STYLED_IN+'-1_1_IM">'+TD_C;
+    var NETMEETING_IM_FRAGMENT_LOCAL = TR_O+'Netmeeting'+TD_M+STYLED_IN+'-1_8_IM">'+TD_C;
+    var QQ_IM_FRAGMENT_LOCAL = TR_O+'QQ'+TD_M+STYLED_IN+'-1_4_IM">'+TD_C;
+    var SKYPE_IM_FRAGMENT_LOCAL = TR_O+'Skype'+TD_M+STYLED_IN+'-1_3_IM">'+TD_C;
+    var YAHOO_IM_FRAGMENT_LOCAL = TR_O+'Yahoo'+TD_M+STYLED_IN+'-1_2_IM">'+TD_C;
+    
+    var HOME_FRAGMENT_PRX = TR_O+'Home'+TD_M+STYLED_IN;
+    var MOBILE_FRAGMENT_PRX = TR_O+'Mobile'+TD_M+STYLED_IN;
+    var WORK_FRAGMENT_PRX = TR_O+'Work'+TD_M+STYLED_IN;
+    var OTHER_FRAGMENT_PRX = TR_O+'Other'+TD_M+STYLED_IN;
+        
+    var CUSTOM_FRAGMENT_PRX = TR_O+'Custom'+TD_M+STYLED_IN;
+    var AIM_FRAGMENT_PRX = TR_O+'AIM'+TD_M+STYLED_IN;
+    var GOOGLE_FRAGMENT_PRX = TR_O+'Google Talk'+TD_M+STYLED_IN;
+    var ICQ_FRAGMENT_PRX = TR_O+'ICQ'+TD_M+STYLED_IN;
+    var JABBER_FRAGMENT_PRX = TR_O+'Jabber'+TD_M+STYLED_IN;
+    var MSN_FRAGMENT_PRX = TR_O+'MSN'+TD_M+STYLED_IN;
+    var NETMEETING_FRAGMENT_PRX = TR_O+'Netmeeting'+TD_M+STYLED_IN;
+    var QQ_FRAGMENT_PRX = TR_O+'QQ'+TD_M+STYLED_IN;
+    var SKYPE_FRAGMENT_PRX = TR_O+'Skype'+TD_M+STYLED_IN;
+    var YAHOO_FRAGMENT_PRX = TR_O+'Yahoo'+TD_M+STYLED_IN;
+    
+    var HOME_PHONE_FRAGMENT_MID = '_1_No"' + VALUE;
+    var MOBILE_PHONE_FRAGMENT_MID = '_2_No"' + VALUE;
+    var WORK_PHONE_FRAGMENT_MID = '_3_No"' + VALUE;
+    var OTHER_PHONE_FRAGMENT_MID = '_7_No"' + VALUE;
+    
+    var HOME_EMAIL_FRAGMENT_MID = '_1_Email"' + VALUE;
+    var WORK_EMAIL_FRAGMENT_MID = '_2_Email"' + VALUE;
+    var OTHER_EMAIL_FRAGMENT_MID = '_3_Email"' + VALUE;
+    
+    var CUSTOM_IM_FRAGMENT_MID = '_-1_IM"' + VALUE; 
+    var AIM_IM_FRAGMENT_MID = '_0_IM"' + VALUE;
+    var GOOGLE_IM_FRAGMENT_MID = '_5_IM"' + VALUE;
+    var ICQ_IM_FRAGMENT_MID = '_6_IM"' + VALUE;
+    var JABBER_IM_FRAGMENT_MID = '_7_IM"' + VALUE;
+    var MSN_IM_FRAGMENT_MID = '_1_IM"' + VALUE;
+    var NETMEETING_IM_FRAGMENT_MID = '_8_IM"' + VALUE;
+    var QQ_IM_FRAGMENT_MID = '_4_IM"' + VALUE;
+    var SKYPE_IM_FRAGMENT_MID = '_3_IM"' + VALUE;
+    var YAHOO_IM_FRAGMENT_MID = '_2_IM"' + VALUE;   
+    
+    var ADDR_FRAGMENT_TEMPLATE = '<tr>' + 
+    '           <td colspan="2">Theader</td></tr><tr>' + 
+    '           <td>Street</td>' + 
+    '           <td>'+STYLED_IN+'TStreet" value="Tstreetval"></td>' + 
+    '       </tr>' + 
+    '       <tr>' + 
+    '           <td>City</td>' + 
+    '           <td>'+STYLED_IN+'TCity" value="Tcityval"></td>' + 
+    '       </tr>' + 
+    '       <tr>' + 
+    '           <td>State</td>' + 
+    '           <td>'+STYLED_IN+'TState" value="Tstateval"></td>' + 
+    '       </tr>' + 
+    '       <tr>' + 
+    '           <td>PO Box</td>' + 
+    '           <td>'+STYLED_IN+'TPOBox" value="Tpoboxval"></td>' + 
+    '       </tr>' + 
+    '       <tr>' + 
+    '           <td>Postal Code</td>' + 
+    '           <td>'+STYLED_IN+'TZip" value="Tzipval"></td>' + 
+    '       </tr>' + 
+    '       <tr>' + 
+    '           <td>Country</td>' + 
+    '           <td>'+STYLED_IN+'TCountry" value="Tcountryval"></td>' + 
+    '       </tr>';
+        
+    var FRAGMENT_SFX = '"></td></tr>';
+
+    // Commonly used variables
+    var currentContact;
+    var firstNameVar; 
+    var lastNameVar; 
+    var noteVar;
+    var contactIdVar;
+    var phonesTableVar;
+    var imsTableVar;
+    var orgsTableVar;
+    var addressTableVar;
+    var hdrDetailVar;
+    var contentDetailVar;
+    var ftrDetailVar;
+    var hdrProgressVar;
+    var contentProgressVar;
+    var ftrProgressVar;
+    var hdrDialogVar;
+    var contentDialogVar;
+    var ftrDialogVar;
+        
+    $(document).ready(function () {     
+        // Initialize commonly used variables
+        firstNameVar = $('#firstName');
+        lastNameVar = $('#lastName');
+        noteVar = $('#note');
+        contactIdVar = $('#contactId');
+        phonesTableVar = $('#phonesTable');
+        emailsTableVar = $('#emailsTable');
+        imsTableVar = $('#imsTable');
+        orgsTableVar = $('#orgsTable');
+        addressTableVar = $('#addressTable');
+        hdrDetailVar = $('#hdrDetail');
+        contentDetailVar = $('#contentDetail');
+        ftrDetailVar = $('#ftrDetail');
+        hdrProgressVar = $('#hdrProgress');
+        contentProgressVar = $('#contentProgress');
+        ftrProgressVar = $('#ftrProgress');
+
+        hdrDialogVar = $('#hdrDialog');
+        contentDialogVar = $('#contentDialog');
+        ftrDialogVar = $('#ftrDialog');
+        
+        showProgress();
+
+        contactIdVar.val(window.location.search.substring(1));         
+        contactSupport.getContact(contactIdVar.val(),'setCurrentContact');
+    });
+
+    function hideDialog(){
+    	hdrDialogVar.hide();
+    	contentDialogVar.hide();
+    	ftrDialogVar.hide();      
+    }
+
+    function showDialog(){
+    	if('' === contactIdVar.val()){
+			return;
+    	}
+        hideProgress();
+     	hideDetail();
+ 		hdrDialogVar.show();
+		contentDialogVar.show();
+		ftrDialogVar.show();    
+    }
+
+        function hideDetail(){
+            hdrDetailVar.hide();
+            contentDetailVar.hide();
+            ftrDetailVar.hide();      
+        }
+
+        function showDetail(){
+            hideDialog();
+            hideProgress();
+            hdrDetailVar.show();
+            contentDetailVar.show();
+            ftrDetailVar.show(); 
+        }
+
+           
+       function hideProgress(){
+        hdrProgressVar.hide();
+        contentProgressVar.hide();
+        ftrProgressVar.hide();
+       } 
+
+       function showProgress(){
+        hideDialog();
+        hideDetail();
+        hdrProgressVar.show();
+        contentProgressVar.show();
+        ftrProgressVar.show();
+       }
+
+        function showListPage(){
+            showProgress();
+            contactSupport.showAllContacts(LIST_PAGE);
+        }
+
+        function deleteContact(){
+            showProgress();            
+            contactSupport.deleteContact(contactIdVar.val(),LIST_PAGE);
+        }
+
+        function generateJson(){
+            showProgress();
+            var jsonText = '{';
+            jsonText += '"contactId":"' + contactIdVar.val() + '"';
+            jsonText += ',"firstName":"' + firstNameVar.val() + '"';
+            jsonText += ',"lastName":"' + lastNameVar.val() + '"';
+            jsonText += ',"note":{"rowId":"","text":"' + noteVar.val() + '"}';
+            // IMs
+            jsonText += ',"ims":[';
+            $('input[id$="_IM"]').each(function(index) {
+                jsonText += '{"rowId":"","protocol":"';
+                jsonText += (($(this).attr('id')).split('_'))[1] + '","value":"';
+                jsonText += $(this).attr('value') + '"';
+                jsonText += '},';
+              });            
+             jsonText = addClosingBracket(jsonText);    
+             // Phones
+             jsonText += ',"phones":[';
+            $('input[id$="_No"]').each(function(index) {
+                jsonText += '{"rowId":"","type":"';
+                jsonText += (($(this).attr('id')).split('_'))[1] + '","no":"';
+                jsonText += $(this).attr('value') + '"';
+                jsonText += '},';
+              });            
+             jsonText = addClosingBracket(jsonText);    
+             // Emails
+             jsonText += ',"emails":[';
+            $('input[id$="_Email"]').each(function(index) {
+                jsonText += '{"rowId":"","type":"';
+                jsonText += (($(this).attr('id')).split('_'))[1] + '","value":"';
+                jsonText += $(this).attr('value') + '"';
+                jsonText += '},';
+              });            
+             jsonText = addClosingBracket(jsonText);
+            // Organizations
+            jsonText += ',"organizations":[';
+            $('input[id$="_OrgName"]').each(function(index) {
+                var tmpid = (($(this).attr('id')).split('_'))[0];
+                var tmptype = (($(this).attr('id')).split('_'))[1];
+                jsonText += '{"rowId":"","type":"';
+                jsonText += tmptype + '","name":"';
+                jsonText += $(this).attr('value') + '"';
+                jsonText += ',"title":"';               
+                jsonText += $('#'+tmpid+'_'+tmptype+'_OrgTitle').attr('value') + '"';
+                jsonText += '},';
+            });
+            jsonText = addClosingBracket(jsonText);
+            //Addresses
+            jsonText += ',"addresses":[';
+            $('input[id$="_Street"]').each(function(index) {
+                var tmpid = (($(this).attr('id')).split('_'))[0];
+                var tmptype = (($(this).attr('id')).split('_'))[1];
+                jsonText += '{"rowId":"","type":"';
+                jsonText += tmptype + '","street":"';
+                jsonText += $(this).attr('value') + '"';
+                jsonText += ',"city":"';    
+                jsonText += $('#'+tmpid+'_'+tmptype+'_City').attr('value') + '"';               
+                jsonText += ',"state":"';   
+                jsonText += $('#'+tmpid+'_'+tmptype+'_State').attr('value') + '"';
+                jsonText += ',"country":"'; 
+                jsonText += $('#'+tmpid+'_'+tmptype+'_Country').attr('value') + '"';
+                jsonText += ',"zip":"'; 
+                jsonText += $('#'+tmpid+'_'+tmptype+'_Zip').attr('value') + '"';    
+                jsonText += ',"poBox":"';   
+                jsonText += $('#'+tmpid+'_'+tmptype+'_POBox').attr('value') + '"';  
+                jsonText += '},';       
+            }); 
+            jsonText = addClosingBracket(jsonText);
+            jsonText += '}';
+            contactSupport.saveContact(jsonText,LIST_PAGE);            
+        }
+
+        function addClosingBracket(txt){
+             if((txt.length - 1) == txt.lastIndexOf(',')){
+                 txt = txt.substring(0,txt.length - 1) + ']';
+             }else{
+                 txt += ']';
+             }
+             return txt;
+        }
+
+        function setCurrentContact(jsonText){
+            currentContact = $.parseJSON(jsonText);                     
+            contactIdVar.val(currentContact.contactId);
+            firstNameVar.val(currentContact.firstName);
+            lastNameVar.val(currentContact.lastName);
+            noteVar.val(currentContact.note.text);
+
+            var i;
+            
+            
+            //////////////  IMs
+            var imsArr = currentContact.ims;
+            var customIMSet = false;
+            var aimIMSet = false;
+            var googleIMSet = false;
+            var icqIMSet = false;
+            var jabberIMSet = false;
+            var msnIMSet = false;
+            var netmeetingIMSet = false;
+            var qqIMSet = false;
+            var skypeIMSet = false;
+            var yahooIMSet = false;            
+            
+            if(imsArr !== null){
+                for(i = 0; i < imsArr.length; i++){
+                    var tmpProtocol = (imsArr[i]).protocol;
+                    var tmpRowId = (imsArr[i]).rowId;
+                    var tmpValue = (imsArr[i]).value;
+                    if(tmpProtocol == -1){//Custom
+                        imsTableVar.append(CUSTOM_FRAGMENT_PRX + tmpRowId + CUSTOM_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        customIMSet = true;                 
+                    }
+                    else if(tmpProtocol == 0){//AIM
+                        imsTableVar.append(AIM_FRAGMENT_PRX + tmpRowId + AIM_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        aimIMSet = true;                    
+                    }
+                    else if(tmpProtocol == 5){//GOOGLE
+                        imsTableVar.append(GOOGLE_FRAGMENT_PRX + tmpRowId + GOOGLE_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        googleIMSet = true;                 
+                    }
+                    else if(tmpProtocol == 6){//ICQ
+                        imsTableVar.append(ICQ_FRAGMENT_PRX + tmpRowId + ICQ_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        icqIMSet = true;                    
+                    }
+                    else if(tmpProtocol == 7){//JABBER
+                        imsTableVar.append(JABBER_FRAGMENT_PRX + tmpRowId + JABBER_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        jabberIMSet = true;                 
+                    }
+                    else if(tmpProtocol == 1){//MSN
+                        imsTableVar.append(MSN_FRAGMENT_PRX + tmpRowId + MSN_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        msnIMSet = true;                    
+                    }
+                    else if(tmpProtocol == 8){//NETMEETING
+                        imsTableVar.append(NETMEETING_FRAGMENT_PRX + tmpRowId + NETMEETING_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        netmeetingIMSet = true;                 
+                    }
+                    else if(tmpProtocol == 4){//QQ
+                        imsTableVar.append(QQ_FRAGMENT_PRX + tmpRowId + QQ_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        qqIMSet = true;                 
+                    }       
+                    else if(tmpProtocol == 3){//SKYPE
+                        imsTableVar.append(SKYPE_FRAGMENT_PRX + tmpRowId + SKYPE_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        skypeIMSet = true;                  
+                    }   
+                    else if(tmpProtocol == 2){//YAHOO
+                        imsTableVar.append(YAHOO_FRAGMENT_PRX + tmpRowId + YAHOO_IM_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        yahooIMSet = true;                  
+                    }                   
+                }
+            }   
+            
+            if(!customIMSet){
+                imsTableVar.append(CUSTOM_IM_FRAGMENT_LOCAL);
+            }
+            if(!aimIMSet){
+                imsTableVar.append(AIM_IM_FRAGMENT_LOCAL);
+            }
+            if(!googleIMSet){
+                imsTableVar.append(GOOGLE_IM_FRAGMENT_LOCAL);
+            }           
+            if(!icqIMSet){
+                imsTableVar.append(ICQ_IM_FRAGMENT_LOCAL);
+            }       
+            if(!jabberIMSet){
+                imsTableVar.append(JABBER_IM_FRAGMENT_LOCAL);
+            }
+            if(!msnIMSet){
+                imsTableVar.append(MSN_IM_FRAGMENT_LOCAL);
+            }   
+            if(!netmeetingIMSet){
+                imsTableVar.append(NETMEETING_IM_FRAGMENT_LOCAL);
+            }
+            if(!qqIMSet){
+                imsTableVar.append(QQ_IM_FRAGMENT_LOCAL);
+            }           
+            if(!skypeIMSet){
+                imsTableVar.append(SKYPE_IM_FRAGMENT_LOCAL);
+            }   
+            if(!yahooIMSet){
+                imsTableVar.append(YAHOO_IM_FRAGMENT_LOCAL);
+            }
+
+            ////////////////////// Phones
+            var phonesArr = currentContact.phones;  
+            var mobilePhoneSet = false;
+            var homePhoneSet = false;
+            var workPhoneSet = false;
+            var otherPhoneSet = false;          
+            
+            if(phonesArr !== null){
+                for(i = 0; i < phonesArr.length; i++){
+                    var tmpType = (phonesArr[i]).type;
+                    var tmpRowId = (phonesArr[i]).rowId;
+                    var tmpNo = (phonesArr[i]).no;
+
+                    if(tmpType == 1){//home
+                        phonesTableVar.append(HOME_FRAGMENT_PRX + tmpRowId + HOME_PHONE_FRAGMENT_MID + tmpNo + FRAGMENT_SFX);
+                        homePhoneSet = true;                        
+                    }else if(tmpType == 2){//mobile
+                        phonesTableVar.append(MOBILE_FRAGMENT_PRX + tmpRowId + MOBILE_PHONE_FRAGMENT_MID + tmpNo + FRAGMENT_SFX);
+                        mobilePhoneSet = true;
+                    }else if(tmpType == 3){//work
+                        phonesTableVar.append(WORK_FRAGMENT_PRX + tmpRowId + WORK_PHONE_FRAGMENT_MID + tmpNo + FRAGMENT_SFX);
+                        workPhoneSet = true;
+                    }else if(tmpType == 7){//other
+                        phonesTableVar.append(OTHER_FRAGMENT_PRX + tmpRowId + OTHER_PHONE_FRAGMENT_MID + tmpNo + FRAGMENT_SFX);
+                        otherPhoneSet = true;
+                    }                       
+                }
+            }
+
+            if(!homePhoneSet){
+                phonesTableVar.append(HOME_PHONE_FRAGMENT_LOCAL);
+            }
+            if(!mobilePhoneSet){
+                phonesTableVar.append(MOBILE_PHONE_FRAGMENT_LOCAL);
+            }
+            if(!workPhoneSet){
+                phonesTableVar.append(WORK_PHONE_FRAGMENT_LOCAL);
+            }
+            if(!otherPhoneSet){
+                phonesTableVar.append(OTHER_PHONE_FRAGMENT_LOCAL);
+            }
+            ///////////////// Emails
+            var emailsArr = currentContact.emails;  
+            var homeEmailSet = false;
+            var workEmailSet = false;
+            var otherEmailSet = false;
+            
+            if(emailsArr !== null){
+                for(i = 0; i < emailsArr.length; i++){
+                    var tmpType = (emailsArr[i]).type;
+                    var tmpRowId = (emailsArr[i]).rowId;
+                    var tmpValue = (emailsArr[i]).value;
+
+                    if(tmpType == 1){//home
+                        emailsTableVar.append(HOME_FRAGMENT_PRX + tmpRowId + HOME_EMAIL_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        homeEmailSet = true;                        
+                    }else if(tmpType == 2){//work
+                        emailsTableVar.append(WORK_FRAGMENT_PRX + tmpRowId + WORK_EMAIL_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        workEmailSet = true;
+                    }else if(tmpType == 3){//other
+                        emailsTableVar.append(OTHER_FRAGMENT_PRX + tmpRowId + OTHER_EMAIL_FRAGMENT_MID + tmpValue + FRAGMENT_SFX);
+                        otherEmailSet = true;
+                    }                       
+                }
+            }
+            
+            if(!homeEmailSet){
+                emailsTableVar.append(HOME_EMAIL_FRAGMENT_LOCAL);
+            }
+            if(!workEmailSet){
+                emailsTableVar.append(WORK_EMAIL_FRAGMENT_LOCAL);
+            }
+            if(!otherEmailSet){
+                emailsTableVar.append(OTHER_EMAIL_FRAGMENT_LOCAL);
+            }
+
+            ////// Addresses
+            var homeAddressSet = false;
+            var workAddressSet = false;
+            var otherAddressSet = false;
+            
+            var addressesArr = currentContact.addresses;    
+            if(addressesArr !== null){
+                for(i = 0; i < addressesArr.length; i++){
+                    var tmpType = (addressesArr[i]).type;
+                    var tmpStreet = (addressesArr[i]).street;
+                    var tmpCity = (addressesArr[i]).city;
+                    var tmpState = (addressesArr[i]).state;
+                    var tmpPOBox = (addressesArr[i]).poBox;
+                    var tmpZip = (addressesArr[i]).zip;
+                    var tmpCountry = (addressesArr[i]).country;
+                    var tmpRowId = (addressesArr[i]).rowId;
+                    if(tmpType == 1){//Home
+                        addressTableVar.append(ADDR_FRAGMENT_TEMPLATE.replace('Theader','<h3>Home</h3>').replace('TStreet',tmpRowId+'_1_Street').replace('TCity',tmpRowId+'_1_City').replace('TState',tmpRowId+'_1_State').replace('TCity',tmpRowId+'_1_City').replace('TPOBox',tmpRowId+'_1_POBox').replace('TZip',tmpRowId+'_1_Zip').replace('TCountry',tmpRowId+'_1_Country').replace('Tstreetval',tmpStreet).replace('Tcityval',tmpCity).replace('Tstateval',tmpState).replace('Tpoboxval',tmpPOBox).replace('Tzipval',tmpZip).replace('Tcountryval',tmpCountry));
+                        homeAddressSet = true;
+                    }else if(tmpType == 2){// Work
+                        addressTableVar.append(ADDR_FRAGMENT_TEMPLATE.replace('Theader','<h3>Work</h3>').replace('TStreet',tmpRowId+'_2_Street').replace('TCity',tmpRowId+'_2_City').replace('TState',tmpRowId+'_2_State').replace('TCity',tmpRowId+'_2_City').replace('TPOBox',tmpRowId+'_2_POBox').replace('TZip',tmpRowId+'_2_Zip').replace('TCountry',tmpRowId+'_2_Country').replace('Tstreetval',tmpStreet).replace('Tcityval',tmpCity).replace('Tstateval',tmpState).replace('Tpoboxval',tmpPOBox).replace('Tzipval',tmpZip).replace('Tcountryval',tmpCountry));
+                        workAddressSet = true;
+                    }else if(tmpType == 3){// Other
+                        addressTableVar.append(ADDR_FRAGMENT_TEMPLATE.replace('Theader','<h3>Other</h3>').replace('TStreet',tmpRowId+'_3_Street').replace('TCity',tmpRowId+'_3_City').replace('TState',tmpRowId+'_3_State').replace('TCity',tmpRowId+'_3_City').replace('TPOBox',tmpRowId+'_3_POBox').replace('TZip',tmpRowId+'_3_Zip').replace('TCountry',tmpRowId+'_3_Country').replace('Tstreetval',tmpStreet).replace('Tcityval',tmpCity).replace('Tstateval',tmpState).replace('Tpoboxval',tmpPOBox).replace('Tzipval',tmpZip).replace('Tcountryval',tmpCountry));
+                        otherAddressSet = true;
+                    }
+                }
+            }
+            
+            if(!homeAddressSet){
+                addressTableVar.append(ADDR_FRAGMENT_TEMPLATE.replace('Theader','<h3>Home</h3>').replace('TStreet','-1_1_Street').replace('TCity','-1_1_City').replace('TState','-1_1_State').replace('TCity','-1_1_City').replace('TPOBox','-1_1_POBox').replace('TZip','-1_1_Zip').replace('TCountry','-1_1_Country').replace('Tstreetval','').replace('Tcityval','').replace('Tstateval','').replace('Tpoboxval','').replace('Tzipval','').replace('Tcountryval',''));       
+            }
+            if(!workAddressSet){
+                addressTableVar.append(ADDR_FRAGMENT_TEMPLATE.replace('Theader','<h3>Work</h3>').replace('TStreet','-1_2_Street').replace('TCity','-1_2_City').replace('TState','-1_2_State').replace('TCity','-1_2_City').replace('TPOBox','-1_2_POBox').replace('TZip','-1_2_Zip').replace('TCountry','-1_2_Country').replace('Tstreetval','').replace('Tcityval','').replace('Tstateval','').replace('Tpoboxval','').replace('Tzipval','').replace('Tcountryval',''));
+            }
+            if(!otherAddressSet){
+                addressTableVar.append(ADDR_FRAGMENT_TEMPLATE.replace('Theader','<h3>Other</h3>').replace('TStreet','-1_3_Street').replace('TCity','-1_3_City').replace('TState','-1_3_State').replace('TCity','-1_3_City').replace('TPOBox','-1_3_POBox').replace('TZip','-1_3_Zip').replace('TCountry','-1_3_Country').replace('Tstreetval','').replace('Tcityval','').replace('Tstateval','').replace('Tpoboxval','').replace('Tzipval','').replace('Tcountryval',''));
+            }           
+            
+            ///// Organizations
+            var organizationsArr = currentContact.organizations;    
+            var workOrgSet = false;
+            var otherOrgSet = false;
+            
+            if(organizationsArr !== null){
+                for(i = 0; i < organizationsArr.length; i++){
+                    var tmpType = (organizationsArr[i]).type;
+                    var tmpName = (organizationsArr[i]).name;
+                    var tmpTitle = (organizationsArr[i]).title;
+                    var tmpRowId = (organizationsArr[i]).rowId;
+                    if(tmpType == 1){//Work
+                        orgsTableVar.append(WORK_ORG_FRAGMENT_PRX+tmpRowId+WORK_ORG_FRAGMENT_MID1+tmpName+WORK_ORG_FRAGMENT_MID2+tmpRowId+WORK_ORG_FRAGMENT_MID3+tmpTitle+WORK_ORG_FRAGMENT_SFX);
+                        workOrgSet = true;
+                    }
+                    else if(tmpType == 2){//Other
+                        orgsTableVar.append(OTHER_ORG_FRAGMENT_PRX+tmpRowId+OTHER_ORG_FRAGMENT_MID1+tmpName+OTHER_ORG_FRAGMENT_MID2+tmpRowId+OTHER_ORG_FRAGMENT_MID3+tmpTitle+OTHER_ORG_FRAGMENT_SFX);
+                        otherOrgSet = true;
+                    }
+                }
+            }
+
+            
+            if(!workOrgSet){
+                orgsTableVar.append(WORK_ORG_FRAGMENT_LOCAL);
+            }
+            
+            if(!otherOrgSet){
+                orgsTableVar.append(OTHER_ORG_FRAGMENT_LOCAL);
+            }
+
+            showDetail();
+        }
+        
+    
+</script>
+             <!-- Page ends here -->
+        </div>
+    </body>
+</html>
+

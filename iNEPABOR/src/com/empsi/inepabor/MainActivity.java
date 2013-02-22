@@ -2,8 +2,10 @@ package com.empsi.inepabor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -11,6 +13,10 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
 public class MainActivity extends SherlockActivity {
+	protected String view = null; 
+	protected String title = null; 
+	protected String scroll = null; 
+	public ProgressBar progressBar;
 
 	public class JavaScriptHandler {
 	    MainActivity parentActivity;
@@ -36,6 +42,10 @@ public class MainActivity extends SherlockActivity {
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         
+        progressBar = (ProgressBar)findViewById(R.id.progressbar);
+        progressBar.setProgress(0);
+        progressBar.setVisibility(View.VISIBLE);
+        
         Intent receiveIntent = getIntent();
 //        String content = receiveIntent.getData().toString();
 //        WebView engine = (WebView) findViewById(R.id.web_engine);
@@ -46,16 +56,24 @@ public class MainActivity extends SherlockActivity {
             return;
         }
         // Get data via the key
-        String view = extras.getString("view");
-        String title = extras.getString("title");
-        String scroll = extras.getString("scroll");
+        view = extras.getString("view");
+        title = extras.getString("title");
+        scroll = extras.getString("scroll");
         if (view != null) {
             // Do something with the data
         		WebView webview = (WebView) findViewById(R.id.web_engine);
         		webview.getSettings().setJavaScriptEnabled(true);
-        		webview.setWebViewClient(new WebViewClient());
+        		webview.setWebChromeClient(new WebChromeClient(){
+        		    public void onProgressChanged(WebView view, int progress) {
+        		         progressBar.setProgress(progress);
+        		         if(progress == 100) {
+        		             progressBar.setVisibility(View.GONE);
+        		             view.loadUrl("javascript:alert('Finished Loading " + scroll + "');");
+        		             view.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ scroll +"').offset().top);");
+        		          }
+        		       }
+        		    });
             webview.loadUrl(view);
-            webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#bookmark60').offset().top);");
         }
         if (title != null) {
             // Do something with the data
@@ -73,10 +91,16 @@ public class MainActivity extends SherlockActivity {
 
 	    int itemId = item.getItemId();
 	    switch (itemId) {
-	    case android.R.id.home:
-//	        toggle();
-	    		finish();
-	        Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
+	    	  case android.R.id.home:
+//	    		finish();
+
+    			WebView webview = (WebView) findViewById(R.id.web_engine);
+    			webview.getSettings().setJavaScriptEnabled(true);
+    			webview.setWebChromeClient(new WebChromeClient());
+    			webview.loadUrl(view);
+	        webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ scroll +"').offset().top);");
+
+//	        Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
 	        break;
 	    }
 

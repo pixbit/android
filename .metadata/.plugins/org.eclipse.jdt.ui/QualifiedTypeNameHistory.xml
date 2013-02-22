@@ -3,4 +3,8 @@
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="android.net.Uri"/>
 <fullyQualifiedTypeName name="android.webkit.JavascriptInterface"/>
+<fullyQualifiedTypeName name="com.actionbarsherlock.app.SherlockActivity"/>
+<fullyQualifiedTypeName name="com.actionbarsherlock.app.ActionBar"/>
+<fullyQualifiedTypeName name="com.actionbarsherlock.view.MenuItem"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
 </qualifiedTypeNameHistroy>

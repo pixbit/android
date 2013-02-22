@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css-js/jquery.mobile-1.0a3.min.css" />
+	<script src="css-js/jquery-1.5.min.js"></script>
+	<script src="css-js/jquery.mobile-1.0a3.min.js"></script>
+</head>
+<body>
+<!-- Container Page -->
+<div data-role="page" data-theme="c" id="containerPage">
+    <!-- Contact List -->
+    <div data-role="header" id="hdrList" data-nobackbtn="true">
+		<h1><img align="top"  src="img/contacts.png"> Contacts</h1>
+		<a id="buttonAddContact" data-icon="plus" class="ui-btn-right" 
+			href="javascript:addContact();return false;" data-role="button" data-inline="true">Add</a>
+	</div>
+	<div data-role="content" id="contentList" data-theme="c">
+		<ul data-role="listview" data-dividertheme="c" id="contactSelections"></ul>
+	</div>
+	<div data-role="footer" id="ftrList"></div>
+	
+	<!--  Progress -->
+	<div data-role="header" id="hdrProgress" data-nobackbtn="true"  data-theme="c">
+		<h1>Processing...</h1>
+	</div>	
+	<div data-role="content" id="contentProgress"  data-theme="c">
+		<div align="CENTER"><h4>Please wait.</h4></div>
+		<div align="CENTER"><img id="spin" src="img/wait.gif"/></div>	
+	</div>	
+	<div data-role="footer" id="ftrProgress"  data-theme="c"></div>
+	
+	<!--  Create Account -->
+	<div data-role="header" id="hdrAccount" data-nobackbtn="true"  data-theme="c">
+		<h1>Create Account</h1>
+	</div>	
+	<div data-role="content" id="contentAccount"  data-theme="c">
+		<div align="CENTER"><img src="img/contacts-master-bgd.png"></div> 
+		<div align="CENTER"><h4>Please enter name of the new account for this application</h4></div>
+		<div align="CENTER">Contacts created with this application will be associated with the new account specified below. 
+		Other contacts can be viewed, however, cannot be deleted or modified with this application.</div>
+		<div align="CENTER" id="accountDiv" data-role="fieldcontain">
+			<input id="accountName" type="text" />
+		</div>
+		<div align="CENTER">
+			<a href="javascript:createAccount();return false;" data-role="button"  
+				data-inline="true">Save</a>
+		</div>
+		<div align="CENTER"><P> &nbsp; <P> &nbsp;<P> </div>		
+	</div>	
+	<div data-role="footer" id="ftrAccount"  data-theme="c"></div>
+	
+</div> <!-- Container Page Ends Here -->
+<script>
+// Constants
+var DETAIL_PAGE = 'DetailPage.html';
+var LIST_PAGE = 'ListPage.html';
+// Commonly used variables
+var contactSelectionsVar;
+var hdrListVar;
+var contentListVar;
+var ftrListVar;
+var hdrProgressVar;
+var contentProgressVar;
+var ftrProgressVar;
+var hdrAccountVar;
+var contentAccountVar;
+var ftrAccountVar;
+
+
+$(document).ready(function () {	
+	// Initialize commonly used variables
+	hdrListVar = $('#hdrList');
+	contentListVar = $('#contentList');
+	ftrListVar = $('#ftrList');
+	hdrProgressVar = $('#hdrProgress');
+	contentProgressVar = $('#contentProgress');
+	ftrProgressVar = $('#ftrProgress');
+	hdrAccountVar = $('#hdrAccount');
+	contentAccountVar = $('#contentAccount');
+	ftrAccountVar = $('#ftrAccount');
+	contactSelectionsVar = $('#contactSelections');
+	
+	showProgress();
+	contactSupport.getAllContacts('setContactsList','showAccount');
+});
+
+	function createAccount(){
+		showProgress();
+		contactSupport.createAccount($('#accountName').val(),LIST_PAGE);
+	}
+
+	function hideList(){
+		hdrListVar.hide();
+		contentListVar.hide();
+		ftrListVar.hide();      
+	}
+	
+
+	function showList(){
+		hideProgress();
+		hideAccount();
+		hdrListVar.show();
+		contentListVar.show();
+		ftrListVar.show(); 
+	}
+
+	   
+   function hideProgress(){
+	hdrProgressVar.hide();
+	contentProgressVar.hide();
+	ftrProgressVar.hide();
+   } 
+
+   function showProgress(){
+   	hideList();
+   	hideAccount();
+    hdrProgressVar.show();
+    contentProgressVar.show();
+    ftrProgressVar.show();
+   }
+
+
+	function hideAccount(){
+		hdrAccountVar.hide();
+		contentAccountVar.hide();
+		ftrAccountVar.hide();      
+	}
+
+   	function showAccount(){
+	   	hideList();
+	   	hideProgress();
+	    hdrAccountVar.show();
+	    contentAccountVar.show();
+	    ftrAccountVar.show();
+	}
+
+
+function addContact(){
+	showProgress();
+	contactSupport.addContact(DETAIL_PAGE);
+}
+
+function showContact(tmpId){
+	showProgress();
+	contactSupport.showContact(tmpId,DETAIL_PAGE);
+}
+
+function setContactsList(jsonText){	
+	var tmpJson = $.parseJSON(jsonText);	
+	if(tmpJson != null && tmpJson.contacts != null){
+		var tmpContacts = tmpJson.contacts;
+		for(i = 0; i < tmpContacts.length; i++){
+			var tmpKey = (tmpContacts[i]).key;
+			var tmpKeyFragment = '<li data-role="list-divider">'+tmpKey+'</li>';
+			contactSelectionsVar.append(tmpKeyFragment);
+			var tmpValues = (tmpContacts[i]).values;
+			if(tmpValues != null){
+				var j;
+				for(j = 0; j < tmpValues.length; j++){
+					var tmpDisplayName = tmpValues[j].displayName;
+					var tmpContactId = tmpValues[j].contactId;					
+					var tmpLiFragment = '<li><a href="javascript:showContact(' + tmpContactId + ');return false;">'+tmpDisplayName+'</a></li>';
+					contactSelectionsVar.append(tmpLiFragment);
+				}
+			}			
+		}
+	}	
+	contactSelectionsVar.listview('refresh'); 	
+	showList();
+}
+
+</script>
+</body>
+</html>

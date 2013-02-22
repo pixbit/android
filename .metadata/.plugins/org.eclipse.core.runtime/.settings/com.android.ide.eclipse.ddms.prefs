@@ -8,4 +8,4 @@ logcat.view.colsize.TID=46
 logcat.view.colsize.Tag=132
 logcat.view.colsize.Text=545
 logcat.view.colsize.Time=140
-logcat.view.filters.list=name\: 'MainListActivity', tag\: 'MainListActivity', text\: '', pid\: '', app\: '', level\: 'verbose', name\: 'PlistHandler', tag\: 'PlistHandler', text\: '', pid\: '', app\: '', level\: 'verbose', 
+logcat.view.filters.list=name\: 'MainListActivity', tag\: 'MainListActivity', text\: '', pid\: '', app\: '', level\: 'verbose', name\: 'PlistHandler', tag\: 'PlistHandler', text\: '', pid\: '', app\: '', level\: 'verbose', name\: 'WEBVIEW', tag\: 'WEBVIEW', text\: '', pid\: '', app\: '', level\: 'verbose', 
