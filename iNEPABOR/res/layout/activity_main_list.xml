@@ -9,14 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-    </ListView>
-    
-    <TextView android:id="@android:id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="@string/error_no_items" />
+        tools:listitem="@layout/empsi_custom_row" >
+
+    </ListView>
 
 </RelativeLayout>

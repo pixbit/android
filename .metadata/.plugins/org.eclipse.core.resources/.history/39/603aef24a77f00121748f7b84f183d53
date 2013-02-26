@@ -1,0 +1,106 @@
+package com.empsi.inepabor;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
+	Context context; 
+    int layoutResourceId;    
+    List<ParsedRow> data = null;
+    List<ParsedRow> prevData = null;
+    
+    public EmpsiAdapter(Context context, int layoutResourceId, List<ParsedRow> data) {
+        super(context, layoutResourceId, data);
+        this.layoutResourceId = layoutResourceId;
+        this.context = context;
+        this.data = data;
+    }
+
+    public void setAdapter(int position) {
+    		this.prevData = this.data;
+		this.data = this.data.get(position).getChildren();
+		/* Set the result to be displayed in our GUI. */
+        EmpsiAdapter adapter = new EmpsiAdapter(this.context, R.layout.empsi_custom_row, this.data);
+        ((MainListActivity) this.context).setListAdapter(adapter);
+    }
+    
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View row = convertView;
+        RowHolder holder = null;
+        
+        if(row == null)
+        {
+            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+            row = inflater.inflate(layoutResourceId, parent, false);
+            
+            holder = new RowHolder();
+            holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
+            holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);
+            
+            holder.imgIcon.setOnClickListener(new EmpsiListener(row, data, position));
+            
+            row.setTag(holder);
+        }
+        else
+        {
+            holder = (RowHolder)row.getTag();
+        }
+        
+        ParsedRow rowItem = data.get(position);
+        holder.txtTitle.setText(rowItem.getTitle());
+        holder.imgIcon.setImageResource(rowItem.getIcon());
+        
+        return row;
+    }
+    
+    static class RowHolder
+    {
+        ImageView imgIcon;
+        TextView txtTitle;
+    }
+    
+    public class EmpsiListener implements View.OnClickListener {
+        List<ParsedRow> data = null;
+        List<ParsedRow> prevData = null;
+        List<ParsedRow> nextData = null;
+    		private View mView;
+    		int position;
+
+    	    public EmpsiListener(View v, List<ParsedRow> data, int position) {
+    	    		this.data = data;
+    	    		this.position = position;
+    	        setmView(v);
+    	    }
+
+    	    @Override
+    	    public void onClick(View v) {
+	    		Log.d("IMAGE", String.format("clicked = %d", this.position));
+	    		Log.d("TITLE", this.data.get(position).getTitle());
+    	        	
+    	    		this.prevData = this.data;
+    	    		this.nextData = this.data.get(position).getChildren();
+
+    	    		/* Set the result to be displayed in our GUI. */
+//            EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.data);
+//            setListAdapter(adapter);
+    	    }
+
+		public View getmView() {
+			return mView;
+		}
+
+		public void setmView(View mView) {
+			this.mView = mView;
+		}
+    }
+}

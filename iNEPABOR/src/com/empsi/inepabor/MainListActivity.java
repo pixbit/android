@@ -1,7 +1,6 @@
 package com.empsi.inepabor;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.SAXParser;
@@ -10,30 +9,35 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainListActivity extends ListActivity {
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.MenuItem;
+
+public class MainListActivity extends SherlockListActivity {
 
 	public static final String TAG = MainListActivity.class.getSimpleName();
 	public List<ParsedRow> entries;
 	public List<ParsedRow> currentEntries;
 	public List<ParsedRow> previousEntries;
 	public List<String> titleList;
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
+        
+        getSupportActionBar().setIcon(android.R.drawable.ic_menu_revert);
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         
         try {
                 /* Get a SAXParser from the SAXPArserFactory. */
@@ -54,37 +58,28 @@ public class MainListActivity extends ListActivity {
 
                 /* Our PlistHandler now provides the parsed data to us. */
             		this.entries = myHandler.getListOfRows();
-//            		Log.d(TAG, "Number of entries on this list: " + Integer.toString(entries.size()));
-            		
             		this.currentEntries = this.entries;
-            		/* Gets list of all the extracted strings */
-            		this.titleList = new ArrayList<String>();
-            		for(ParsedRow entry : currentEntries){
-            			this.titleList.add(entry.getTitle());
-            		}
                 
                 /* Set the result to be displayed in our GUI. */
 //              Toast.makeText(this, parsedExampleDataSet.toString(), Toast.LENGTH_LONG).show();
 
                 /* Set the result to be displayed in our GUI. */
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titleList);
+                EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.entries);
                 setListAdapter(adapter);
                
         } catch (Exception e) {
                 /* Display any Error to the GUI. */
                 Log.e(TAG, "XMLQueryError", e);
         }
-        /* Display the TextView. */
-//        this.setContentView(tv);
-//        Toast.makeText(this, "parsedExample", Toast.LENGTH_LONG).show();
     }
     
     @Override
     public void onListItemClick(ListView parent, View v, int position, long id) {
 //        Toast.makeText(this, this.currentEntries.get(position).getView(), Toast.LENGTH_SHORT).show();
-        int view = Integer.parseInt(this.currentEntries.get(position).getView());
-        String title = this.currentEntries.get(position).getTitle();
-        String scroll = this.currentEntries.get(position).getScroll();
+    		ParsedRow clickedRow = this.currentEntries.get(position);
+        int view = Integer.parseInt(clickedRow.getView());
+        String title = clickedRow.getTitle();
+        String scroll = clickedRow.getScroll();
         
         String url;
         switch(view){
@@ -112,23 +107,22 @@ public class MainListActivity extends ListActivity {
         i.setData(Uri.parse(url));
         
         startActivity(i);
-    	
-//    		this.previousEntries = this.currentEntries;
-//    		this.currentEntries = this.currentEntries.get(position).getChildren();
-//    		/* Gets list of all the extracted strings */
-//    		this.titleList = new ArrayList<String>();
-//    		for(ParsedRow entry : currentEntries){
-//    			this.titleList.add(entry.getTitle());
-//    		}
-//        /* Set the result to be displayed in our GUI. */
-//    		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titleList);
-//    		setListAdapter(adapter);
     	}
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+  	    switch (item.getItemId()) {
+  	    	  case android.R.id.home:
+//  	    		  finish();
+  	  	  	  Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
+  	    		/* Set the result to be displayed in our GUI. */
+            EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.entries);
+            setListAdapter(adapter);
+  	        break;
+  	      default:
+  	    	  	finish();
+  	  	    Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
+  	    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main_list, menu);
-        return true;
-    }
+  	    return true;
+  	}
 }

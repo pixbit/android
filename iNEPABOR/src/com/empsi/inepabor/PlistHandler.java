@@ -125,6 +125,7 @@ public class PlistHandler extends DefaultHandler{
 				// Add row to temp list
 //				Log.d(TAG, "Add rowDepth2 to rowDepth1's children '" + this.rowDepth1.getTitle() + "'");
 				this.rowDepth1.addChild(this.rowDepth2);
+				this.rowDepth1.setIcon(R.drawable.ic_launcher);
 				
 				// Release row
 //				Log.d(TAG, "++ Release row ++");
@@ -134,6 +135,7 @@ public class PlistHandler extends DefaultHandler{
 				// Add row to temp list
 //				Log.d(TAG, "Add rowDepth3 to rowDepth2's children '" + this.rowDepth2.getTitle() + "'");
 				this.rowDepth2.addChild(this.rowDepth3);
+				this.rowDepth2.setIcon(R.drawable.ic_launcher);
 				
 				// Release row
 //				Log.d(TAG, "++ Release row ++");
@@ -143,6 +145,7 @@ public class PlistHandler extends DefaultHandler{
 				// Add row to temp list
 //				Log.d(TAG, "Add rowDepth4 to rowDepth3's children '" + this.rowDepth3.getTitle() + "'");
 				this.rowDepth3.addChild(this.rowDepth4);
+				this.rowDepth3.setIcon(R.drawable.ic_launcher);
 				
 				// Release row
 //				Log.d(TAG, "++ Release row ++");

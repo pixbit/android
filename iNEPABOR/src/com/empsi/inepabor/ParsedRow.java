@@ -8,6 +8,17 @@ public class ParsedRow {
 	private String scroll = null;
 	private String view = null;
 	private List<ParsedRow> children = new ArrayList<ParsedRow>();
+	private int icon;
+	
+
+
+	public int getIcon() {
+		return icon;
+	}
+
+	public void setIcon(int icon) {
+		this.icon = icon;
+	}
 
 	public String getTitle() {
 		return title;

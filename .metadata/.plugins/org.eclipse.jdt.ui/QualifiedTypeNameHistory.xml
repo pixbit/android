@@ -7,4 +7,6 @@
 <fullyQualifiedTypeName name="com.actionbarsherlock.app.ActionBar"/>
 <fullyQualifiedTypeName name="com.actionbarsherlock.view.MenuItem"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="com.empsi.inepabor.R.id"/>
+<fullyQualifiedTypeName name="com.empsi.inepabor.R.layout"/>
 </qualifiedTypeNameHistroy>
