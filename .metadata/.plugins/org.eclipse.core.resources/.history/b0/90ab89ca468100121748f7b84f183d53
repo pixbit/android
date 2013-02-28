@@ -36,6 +36,7 @@ public class MainListActivity extends SherlockListActivity {
         setContentView(R.layout.activity_main_list);
         
         getSupportActionBar().setIcon(android.R.drawable.ic_menu_revert);
+        getSupportActionBar().setTitle(TAG);
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         
@@ -112,6 +113,8 @@ public class MainListActivity extends SherlockListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
   	    switch (item.getItemId()) {
   	    	  case android.R.id.home:
+//  	    		  finish();
+  	  	  	  Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
   	    		/* Set the result to be displayed in our GUI. */
   	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
   	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);

@@ -112,11 +112,10 @@ public class MainListActivity extends SherlockListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
   	    switch (item.getItemId()) {
   	    	  case android.R.id.home:
+//  	    		  finish();
+  	  	  	  Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
   	    		/* Set the result to be displayed in our GUI. */
-  	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
-  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);
-  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
-            EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.previousEntries);
+            EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.entries);
             setListAdapter(adapter);
   	        break;
   	      default:

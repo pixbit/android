@@ -28,14 +28,17 @@ public class MainListActivity extends SherlockListActivity {
 	public List<ParsedRow> entries;
 	public List<ParsedRow> currentEntries;
 	public List<ParsedRow> previousEntries;
+	public String previousTitle;
 	public List<String> titleList;
+	public ActionBar listBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
         
-        getSupportActionBar().setIcon(android.R.drawable.ic_menu_revert);
+        listBar = getSupportActionBar();
+        listBar.setIcon(android.R.drawable.ic_menu_revert);
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         
@@ -112,12 +115,20 @@ public class MainListActivity extends SherlockListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
   	    switch (item.getItemId()) {
   	    	  case android.R.id.home:
+//  	    		  finish();
+  	  	  	  Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
   	    		/* Set the result to be displayed in our GUI. */
-  	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
-  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);
-  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
+  	  	  	int indexOfLastData = EmpsiAdapter.prevData.size() - 1;
+  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLastData);
+  	  	    EmpsiAdapter.prevData.remove(indexOfLastData);
             EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.previousEntries);
             setListAdapter(adapter);
+
+  	  	  	int indexOfLastTitle = EmpsiAdapter.prevData.size() - 1;
+  	  	    this.previousTitle = EmpsiAdapter.prevTitle.get(indexOfLastTitle);
+  	  	    EmpsiAdapter.prevData.remove(indexOfLastTitle);
+            listBar.setTitle(this.previousTitle);
+  	  	    
   	        break;
   	      default:
   	    	  	finish();
