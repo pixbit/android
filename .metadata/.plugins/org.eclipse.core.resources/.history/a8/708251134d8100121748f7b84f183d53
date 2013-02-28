@@ -25,22 +25,19 @@ import com.actionbarsherlock.view.MenuItem;
 public class MainListActivity extends SherlockListActivity {
 
 	public static final String TAG = MainListActivity.class.getSimpleName();
-	public ActionBar actionBar;
 	public List<ParsedRow> entries;
 	public List<ParsedRow> currentEntries;
 	public List<ParsedRow> previousEntries;
 	public List<String> titleList;
-	public String initialTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
         
-        actionBar = getSupportActionBar();
-        actionBar.setIcon(android.R.drawable.ic_menu_revert);
+        getSupportActionBar().setIcon(android.R.drawable.ic_menu_revert);
+        final ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        initialTitle = "iNEPA BOR";
         
         try {
                 /* Get a SAXParser from the SAXPArserFactory. */
@@ -113,7 +110,6 @@ public class MainListActivity extends SherlockListActivity {
     	}
     
     public boolean onOptionsItemSelected(MenuItem item) {
-    		String title = "";
   	    switch (item.getItemId()) {
   	    	  case android.R.id.home:
   	    		/* Set the result to be displayed in our GUI. */
@@ -122,17 +118,6 @@ public class MainListActivity extends SherlockListActivity {
   	  	    EmpsiAdapter.prevData.remove(indexOfLast);
             EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.previousEntries);
             setListAdapter(adapter);
-
-  	  	  	int indexOfLastTitle = EmpsiAdapter.prevData.size() - 1;
-  	  	    Toast.makeText(this, String.format("index: %d", indexOfLastTitle), Toast.LENGTH_LONG).show();
-  	  	    if(indexOfLastTitle < 0){
-  	  	    		title = this.initialTitle;
-  	  	    }else{
-  	  	  	    title = EmpsiAdapter.prevTitle.get(indexOfLastTitle);
-  	  	  	    EmpsiAdapter.prevTitle.remove(indexOfLastTitle);
-  	  	    }
-            actionBar.setTitle(title);
-            
   	        break;
   	      default:
   	    	  	finish();

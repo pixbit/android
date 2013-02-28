@@ -30,7 +30,6 @@ public class MainListActivity extends SherlockListActivity {
 	public List<ParsedRow> currentEntries;
 	public List<ParsedRow> previousEntries;
 	public List<String> titleList;
-	public String initialTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,6 @@ public class MainListActivity extends SherlockListActivity {
         actionBar = getSupportActionBar();
         actionBar.setIcon(android.R.drawable.ic_menu_revert);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        initialTitle = "iNEPA BOR";
         
         try {
                 /* Get a SAXParser from the SAXPArserFactory. */
@@ -113,7 +111,6 @@ public class MainListActivity extends SherlockListActivity {
     	}
     
     public boolean onOptionsItemSelected(MenuItem item) {
-    		String title = "";
   	    switch (item.getItemId()) {
   	    	  case android.R.id.home:
   	    		/* Set the result to be displayed in our GUI. */
@@ -124,13 +121,8 @@ public class MainListActivity extends SherlockListActivity {
             setListAdapter(adapter);
 
   	  	  	int indexOfLastTitle = EmpsiAdapter.prevData.size() - 1;
-  	  	    Toast.makeText(this, String.format("index: %d", indexOfLastTitle), Toast.LENGTH_LONG).show();
-  	  	    if(indexOfLastTitle < 0){
-  	  	    		title = this.initialTitle;
-  	  	    }else{
-  	  	  	    title = EmpsiAdapter.prevTitle.get(indexOfLastTitle);
-  	  	  	    EmpsiAdapter.prevTitle.remove(indexOfLastTitle);
-  	  	    }
+  	  	    String title = EmpsiAdapter.prevTitle.get(indexOfLastTitle);
+  	  	    EmpsiAdapter.prevTitle.remove(indexOfLastTitle);
             actionBar.setTitle(title);
             
   	        break;

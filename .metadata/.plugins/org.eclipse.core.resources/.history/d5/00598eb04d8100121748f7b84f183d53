@@ -18,7 +18,6 @@ public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
     int layoutResourceId;    
     List<ParsedRow> data = null;
     public static ArrayList<List<ParsedRow>> prevData = new ArrayList<List<ParsedRow>>();
-    public static ArrayList<String> prevTitle = new ArrayList<String>();
     
     public EmpsiAdapter(Context context, int layoutResourceId, List<ParsedRow> data) {
         super(context, layoutResourceId, data);
@@ -84,12 +83,10 @@ public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
 
 	    		EmpsiAdapter.prevData.add(this.data);
     	    		this.nextData = this.data.get(position).getChildren();
+
     	        /* Set the result to be displayed in our GUI. */
     	    		EmpsiAdapter adapter = new EmpsiAdapter(this.context, R.layout.empsi_custom_row, this.nextData);
-            ((MainListActivity) this.context).setListAdapter(adapter);  
-
-    			EmpsiAdapter.prevTitle.add(this.data.get(position).getTitle());
-    			((MainListActivity) this.context).actionBar.setTitle(this.data.get(position).getTitle()); 
+            ((MainListActivity) this.context).setListAdapter(adapter);  	    		
     	    }
 
 		public View getmView() {
