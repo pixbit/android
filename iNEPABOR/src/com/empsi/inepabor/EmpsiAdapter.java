@@ -1,5 +1,6 @@
 package com.empsi.inepabor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -16,7 +17,7 @@ public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
 	Context context; 
     int layoutResourceId;    
     List<ParsedRow> data = null;
-    List<ParsedRow> prevData = null;
+    public static ArrayList<List<ParsedRow>> prevData = new ArrayList<List<ParsedRow>>();
     
     public EmpsiAdapter(Context context, int layoutResourceId, List<ParsedRow> data) {
         super(context, layoutResourceId, data);
@@ -79,8 +80,8 @@ public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
     	    public void onClick(View v) {
 	    		Log.d("IMAGE", String.format("clicked = %d", this.position));
 	    		Log.d("TITLE", this.data.get(position).getTitle());
-    	        	
-    	    		this.prevData = this.data;
+
+	    		EmpsiAdapter.prevData.add(this.data);
     	    		this.nextData = this.data.get(position).getChildren();
 
     	        /* Set the result to be displayed in our GUI. */

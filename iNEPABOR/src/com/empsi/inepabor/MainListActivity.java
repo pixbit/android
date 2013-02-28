@@ -115,7 +115,10 @@ public class MainListActivity extends SherlockListActivity {
 //  	    		  finish();
   	  	  	  Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
   	    		/* Set the result to be displayed in our GUI. */
-            EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.entries);
+  	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
+  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);
+  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
+            EmpsiAdapter adapter = new EmpsiAdapter(this, R.layout.empsi_custom_row, this.previousEntries);
             setListAdapter(adapter);
   	        break;
   	      default:
