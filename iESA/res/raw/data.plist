@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Rows</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Endangered Species Act of 1973</string>
+			<key>View</key>
+			<string>1</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>Section 2. Findings, purposes, and policy.</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark2</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark3</string>
+							<key>Title</key>
+							<string>(A) Findings</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark4</string>
+							<key>Title</key>
+							<string>(B) Purposes</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark5</string>
+							<key>Title</key>
+							<string>(C) Policy</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark6</string>
+					<key>Title</key>
+					<string>Section 3. Definitions</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 4. Determination of endangered species and threatened species. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark7</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark8</string>
+							<key>Title</key>
+							<string>(A) General</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark9</string>
+							<key>Title</key>
+							<string>(B) Basis for Determinations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark10</string>
+							<key>Title</key>
+							<string>(C) Lists</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark11</string>
+							<key>Title</key>
+							<string>(D) Protective Regulations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark12</string>
+							<key>Title</key>
+							<string>(E) Similarity of Appearance Cases</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark13</string>
+							<key>Title</key>
+							<string>(F) Recovery Plans</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark14</string>
+							<key>Title</key>
+							<string>(G) Monitoring</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark15</string>
+							<key>Title</key>
+							<string>(H) Agency Guidelines</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 5. Land acquisition. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark16</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark17</string>
+							<key>Title</key>
+							<string>(A) Program</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark18</string>
+							<key>Title</key>
+							<string>(B) Acquisitions</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 6. Cooperation with the States. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark19</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark20</string>
+							<key>Title</key>
+							<string>(A) General</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark21</string>
+							<key>Title</key>
+							<string>(B) (B)	Management Agreements</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark22</string>
+							<key>Title</key>
+							<string>(C) Cooperative Agreements</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark23</string>
+							<key>Title</key>
+							<string>(D) Allocation of Funds</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark24</string>
+							<key>Title</key>
+							<string>(E) Review of State Programs</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark25</string>
+							<key>Title</key>
+							<string>(F) Conflicts between Federal and State Laws</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark26</string>
+							<key>Title</key>
+							<string>(G) Transition</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark27</string>
+							<key>Title</key>
+							<string>(H) Regulations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark28</string>
+							<key>Title</key>
+							<string>(I) Appropriations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 7. Interagency cooperation.</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark29</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark30</string>
+							<key>Title</key>
+							<string>(A) Federal Agency Actions and Consultations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark31</string>
+							<key>Title</key>
+							<string>(B) Opinion of Secretary</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark32</string>
+							<key>Title</key>
+							<string>(C) Biological Assessment</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark33</string>
+							<key>Title</key>
+							<string>(D) Limitation on Commitment of Resources</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark34</string>
+							<key>Title</key>
+							<string>(E) Establishment of Committee</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark35</string>
+							<key>Title</key>
+							<string>(F) Regulations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark36</string>
+							<key>Title</key>
+							<string>(G) Application for Exemption and Report to the Committee</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark37</string>
+							<key>Title</key>
+							<string>(H) Exemption</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark38</string>
+							<key>Title</key>
+							<string>(I) Review by Secretary of State</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark39</string>
+							<key>Title</key>
+							<string>(J) ???</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark40</string>
+							<key>Title</key>
+							<string>(K) Special Provisions</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark41</string>
+							<key>Title</key>
+							<string>(L) Committee Orders</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark42</string>
+							<key>Title</key>
+							<string>(M) Notice</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark43</string>
+							<key>Title</key>
+							<string>(N) Judicial Review</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark44</string>
+							<key>Title</key>
+							<string>(O) Exemption as Providing Exception on Taking of Endangered Species</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark45</string>
+							<key>Title</key>
+							<string>(P) Exemptions in Presidentially Declared Disaster Areas.</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 8. International cooperation. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark46</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark47</string>
+							<key>Title</key>
+							<string>(A) Financial Assistance</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark48</string>
+							<key>Title</key>
+							<string>(B) Encouragement of Foreign Programs</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark49</string>
+							<key>Title</key>
+							<string>(C) Personnel</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark50</string>
+							<key>Title</key>
+							<string>(D) Investigations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 8A. Convention implementation. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark51</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark52</string>
+							<key>Title</key>
+							<string>(A) Management Authority and Scientific Authority</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark53</string>
+							<key>Title</key>
+							<string>(B) Management Authority Functions</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark54</string>
+							<key>Title</key>
+							<string>(C) Scientific Authority Functions</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark55</string>
+							<key>Title</key>
+							<string>(D) Reservations by the United States Under Convention</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark56</string>
+							<key>Title</key>
+							<string>(E) Wildlife Preservation in Western Hemisphere</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 9. Prohibited acts. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark57</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark58</string>
+							<key>Title</key>
+							<string>(A) General</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark59</string>
+							<key>Title</key>
+							<string>(B) Species Held in Captivity or Controlled Environment</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark60</string>
+							<key>Title</key>
+							<string>(C) Violation of Convention</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark61</string>
+							<key>Title</key>
+							<string>(D) Imports and Exports</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark62</string>
+							<key>Title</key>
+							<string>(E) Reports</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark63</string>
+							<key>Title</key>
+							<string>(F) Designation of Ports</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark64</string>
+							<key>Title</key>
+							<string>(G) Violations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 10. Exceptions</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark65</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark66</string>
+							<key>Title</key>
+							<string>(A) Permits</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark67</string>
+							<key>Title</key>
+							<string>(B) Hardship Exemptions</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark68</string>
+							<key>Title</key>
+							<string>(C) Notice and Review</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark69</string>
+							<key>Title</key>
+							<string>(D) Permit and Exemption Policy</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark70</string>
+							<key>Title</key>
+							<string>(E) Alaska Natives</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark71</string>
+							<key>Title</key>
+							<string>(F) ???</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark72</string>
+							<key>Title</key>
+							<string>(G) ???</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark73</string>
+							<key>Title</key>
+							<string>(H) Certain Antique Articles</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark74</string>
+							<key>Title</key>
+							<string>(I) Noncommercial Transshipments</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark75</string>
+							<key>Title</key>
+							<string>(J) Experimental Populations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 11. Penalties and enforcement. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark76</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark77</string>
+							<key>Title</key>
+							<string>(A) Civil Penalties</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark78</string>
+							<key>Title</key>
+							<string>(B) Criminal Violations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark79</string>
+							<key>Title</key>
+							<string>(C) District Court Jurisdiction</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark80</string>
+							<key>Title</key>
+							<string>(D) Rewards and Certain Incidental Expenses</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark81</string>
+							<key>Title</key>
+							<string>(E) Enforcement</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark82</string>
+							<key>Title</key>
+							<string>(F) Regulations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark83</string>
+							<key>Title</key>
+							<string>(G) Citizen Suits</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark84</string>
+							<key>Title</key>
+							<string>(H) Coordination with Other Laws</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 12. Endangered plants</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark85</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 13. Conforming amendments.</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark86</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 14. Repealer.</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark87</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 15. Authorization of appropriations. </string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark88</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark89</string>
+							<key>Title</key>
+							<string>(A) In General</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark90</string>
+							<key>Title</key>
+							<string>(B) Exemptions from Act</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark91</string>
+							<key>Title</key>
+							<string>(C) Convention Implementation</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark92</string>
+							<key>Title</key>
+							<string>(D) Investigations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 16. Effective date.</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark93</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 17. Marine Mammal Protection Act of 1972.</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark94</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Section 18. Annual cost analysis by the Fish and Wildlife Service.</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark95</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Migratory Bird Treaty Act</string>
+			<key>View</key>
+			<string>2</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark2</string>
+					<key>Title</key>
+					<string>Summary</string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark3</string>
+					<key>Title</key>
+					<string>Statute in Full:</string>
+					<key>View</key>
+					<string>2</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark4</string>
+							<key>Title</key>
+							<string>§ 703 · Taking, killing, or possessing migratory birds unlawful [MBTA § 2]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark5</string>
+							<key>Title</key>
+							<string>§ 704 · Determination as to when and how migratory birds may be taken, killed, or possessed [MBTA § 3]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark6</string>
+							<key>Title</key>
+							<string>§ 705 · Transportation or importation of migratory birds; when unlawful [MBTA § 4]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark7</string>
+							<key>Title</key>
+							<string>§ 706 · Arrests; search warrants [MBTA § 5]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark8</string>
+							<key>Title</key>
+							<string>§ 707 · Violations and penalties; forfeitures [MBTA § 6]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark9</string>
+							<key>Title</key>
+							<string>§ 708 · State or Territorial laws or regulations [MBTA § 7]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark10</string>
+							<key>Title</key>
+							<string>§ 709a · Authorization of appropriations [MBTA § 8]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark11</string>
+							<key>Title</key>
+							<string>§ 711 · Breeding and sale for food supply [MBTA § 10]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark12</string>
+							<key>Title</key>
+							<string>§ 712 · Treaty and convention implementing regulations; seasonal taking of migratory birds for essential needs or indigenous Alaskans to preserve and maintain stocks of the birds; protection and conservation of the birds. [MBTA § 11]</string>
+							<key>View</key>
+							<string>2</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Bald and Gold Eagle Protection Act</string>
+			<key>View</key>
+			<string>3</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark2</string>
+					<key>Title</key>
+					<string>§ 668. Bald and golden eagles</string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark3</string>
+					<key>Title</key>
+					<string>§ 668a . Taking and using of the bald and golden eagle for scientific, exhibition, and religious purposes</string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark4</string>
+					<key>Title</key>
+					<string>§ 668b. Enforcement provisions</string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark5</string>
+					<key>Title</key>
+					<string>§ 668c. Definitions</string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark6</string>
+					<key>Title</key>
+					<string>§ 668d. Availability of appropriations for Migratory Bird Treaty Act</string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Fish and Wildlife Coordination Act</string>
+			<key>View</key>
+			<string>4</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark2</string>
+					<key>Title</key>
+					<string>§ 661. Declaration of purpose; cooperation of agencies; surveys and investigations; donations</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark3</string>
+					<key>Title</key>
+					<string>§ 662. Impounding, diverting, or controlling of waters</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark4</string>
+					<key>Title</key>
+					<string>§ 663. Impoundment or diversion of waters</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark5</string>
+					<key>Title</key>
+					<string>§ 664. Administration; rules and regulations; availability of lands to State Agencies</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark6</string>
+					<key>Title</key>
+					<string>§ 665. Investigations as to effect of sewage, industrial wastes; reports</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark7</string>
+					<key>Title</key>
+					<string>§ 665a. Maintenance of adequate water levels in upper Mississippi River</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark8</string>
+					<key>Title</key>
+					<string>§ 666. Authorization of appropriations</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark9</string>
+					<key>Title</key>
+					<string>§ 666a. Penalties</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark10</string>
+					<key>Title</key>
+					<string>§ 666b. Definitions</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark11</string>
+					<key>Title</key>
+					<string>§ 666c. Applicability to Tennessee Valley Authority</string>
+					<key>View</key>
+					<string>4</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Application Tutorial</string>
+			<key>View</key>
+			<string>5</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Bookmark Tutorial</string>
+			<key>View</key>
+			<string>6</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Navigation Tutorial</string>
+			<key>View</key>
+			<string>7</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+		</dict>
+	</array>
+</dict>
+</plist>

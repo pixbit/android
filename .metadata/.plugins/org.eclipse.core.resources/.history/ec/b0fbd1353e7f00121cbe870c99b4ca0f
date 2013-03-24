@@ -1,9 +1,0 @@
-package com.empsi.inepabor;
-
-import android.widget.ArrayAdapter;
-
-import com.empsi.inepabor.ParsedRow;
-
-public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
-
-}

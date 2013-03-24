@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Rows</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Chapter 1, Introduction to the Handbook</string>
+			<key>Scroll</key>
+			<string>bookmark2</string>
+			<key>View</key>
+			<string>1</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>1.1 Who It's For</string>
+					<key>Scroll</key>
+					<string>bookmark3</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>1.2 What It Does</string>
+					<key>Scroll</key>
+					<string>bookmark4</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>1.3 What it Does Not Do</string>
+					<key>Scroll</key>
+					<string>bookmark5</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>1.4 Modifications to the Handbook</string>
+					<key>Scroll</key>
+					<string>bookmark6</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>1.5 Figures, Links, and Attachments</string>
+					<key>Scroll</key>
+					<string>bookmark7</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>1.6 Disclaimer</string>
+					<key>Scroll</key>
+					<string>bookmark8</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Chapter 1 Useful Links</string>
+					<key>Scroll</key>
+					<string>bookmark9</string>
+					<key>View</key>
+					<string>1</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

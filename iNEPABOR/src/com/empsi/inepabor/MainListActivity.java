@@ -27,7 +27,6 @@ public class MainListActivity extends SherlockListActivity {
 	public static final String TAG = MainListActivity.class.getSimpleName();
 	public ActionBar actionBar;
 	public List<ParsedRow> entries;
-	public List<ParsedRow> currentEntries;
 	public List<ParsedRow> previousEntries;
 	public List<String> titleList;
 	public String initialTitle;
@@ -61,7 +60,6 @@ public class MainListActivity extends SherlockListActivity {
 
                 /* Our PlistHandler now provides the parsed data to us. */
             		this.entries = myHandler.getListOfRows();
-            		this.currentEntries = this.entries;
                 
                 /* Set the result to be displayed in our GUI. */
 //              Toast.makeText(this, parsedExampleDataSet.toString(), Toast.LENGTH_LONG).show();
@@ -79,7 +77,7 @@ public class MainListActivity extends SherlockListActivity {
     @Override
     public void onListItemClick(ListView parent, View v, int position, long id) {
 //        Toast.makeText(this, this.currentEntries.get(position).getView(), Toast.LENGTH_SHORT).show();
-    		ParsedRow clickedRow = this.currentEntries.get(position);
+    		ParsedRow clickedRow = EmpsiAdapter.currentData.get(position);
         int view = Integer.parseInt(clickedRow.getView());
         String title = clickedRow.getTitle();
         String scroll = clickedRow.getScroll();
@@ -87,7 +85,7 @@ public class MainListActivity extends SherlockListActivity {
         String url;
         switch(view){
         		case 1:
-        			url = "file:///android_asset/handbook.htm";
+        			url = "file:///android_asset/usbr.htm";
         			break;
         		case 2:
         			url = "file:///android_asset/applicationTutorial.htm";
@@ -108,6 +106,12 @@ public class MainListActivity extends SherlockListActivity {
         i.putExtra("title", title);
         i.putExtra("scroll", scroll);
         i.setData(Uri.parse(url));
+
+        Log.d("INTENT", title);
+        Log.d("INTENT", url);
+        Log.d("INTENT", scroll);
+
+//      Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
         
         startActivity(i);
     	}
@@ -124,7 +128,7 @@ public class MainListActivity extends SherlockListActivity {
             setListAdapter(adapter);
 
   	  	  	int indexOfLastTitle = EmpsiAdapter.prevData.size() - 1;
-  	  	    Toast.makeText(this, String.format("index: %d", indexOfLastTitle), Toast.LENGTH_LONG).show();
+//  	  	    Toast.makeText(this, String.format("index: %d", indexOfLastTitle), Toast.LENGTH_LONG).show();
   	  	    if(indexOfLastTitle < 0){
   	  	    		title = this.initialTitle;
   	  	    }else{

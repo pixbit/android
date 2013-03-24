@@ -1,7 +1,0 @@
-package com.empsi.inepabor;
-
-import android.widget.ArrayAdapter;
-
-public class EmpsiAdapter extends ArrayAdapter<T> {
-
-}

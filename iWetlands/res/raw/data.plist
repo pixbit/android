@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Rows</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Section 404 of Clean Water Act</string>
+			<key>View</key>
+			<string>1</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Section 404(b)(I) Guidelines</string>
+			<key>View</key>
+			<string>1</string>
+			<key>Scroll</key>
+			<string>bookmark2</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>Subpart A—General</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark3</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark4</string>
+							<key>Title</key>
+							<string>Sec. 230.1 Purpose and policy</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark5</string>
+							<key>Title</key>
+							<string>Sec. 230.2 Applicability</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark6</string>
+							<key>Title</key>
+							<string>Sec. 230.3 Definitions</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark7</string>
+							<key>Title</key>
+							<string>Sec. 230.4 Organization</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark8</string>
+							<key>Title</key>
+							<string>Sec. 230.5 General procedures to be followed</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark9</string>
+							<key>Title</key>
+							<string>Sec. 230.6 Adaptability</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark10</string>
+							<key>Title</key>
+							<string>Sec. 230.7 General permits</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart B--Compliance With the Guidelines</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark11</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark12</string>
+							<key>Title</key>
+							<string>Sec. 230.10 Restrictions on discharge</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark13</string>
+							<key>Title</key>
+							<string>Sec. 230.11 Factual determinations.</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark14</string>
+							<key>Title</key>
+							<string>Sec. 230.12 Findings of compliance or non-compliance with the restrictions on discharge</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart C--Potential Impacts on Physical and Chemical Characteristics of the Aquatic Ecosystem</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark15</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark16</string>
+							<key>Title</key>
+							<string>Sec. 230.20 Substrate</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark17</string>
+							<key>Title</key>
+							<string>Sec. 230.21 Suspended particulates/turbidity</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark18</string>
+							<key>Title</key>
+							<string>Sec. 230.22 Water</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark19</string>
+							<key>Title</key>
+							<string>Sec. 230.23 Current patterns and water circulation</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark20</string>
+							<key>Title</key>
+							<string>Sec. 230.24 Normal water fluctuations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark21</string>
+							<key>Title</key>
+							<string>Sec. 230.25 Salinity gradients</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart D--Potential Impacts on Biological Characteristics of the Aquatic Ecosystem</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark22</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark23</string>
+							<key>Title</key>
+							<string>Sec. 230.30 Threatened and endangered species</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark24</string>
+							<key>Title</key>
+							<string>Sec. 230.31 Fish, crustaceans, mollusks, and other aquatic organisms in the food web</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark25</string>
+							<key>Title</key>
+							<string>Sec. 230.32 Other wildlife</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart E--Potential Impacts on Special Aquatic Sites</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark26</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark27</string>
+							<key>Title</key>
+							<string>Sec. 230.40 Sanctuaries and refuges.</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark28</string>
+							<key>Title</key>
+							<string>Sec. 230.41 Wetlands</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark29</string>
+							<key>Title</key>
+							<string>Sec. 230.42 Mud flats</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark30</string>
+							<key>Title</key>
+							<string>Sec. 230.43 Vegetated shallows</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark31</string>
+							<key>Title</key>
+							<string>Sec. 230.44 Coral reefs</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark32</string>
+							<key>Title</key>
+							<string>Sec. 230.45 Riffle and pool complexes</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart F--Potential Effects on Human Use Characteristics</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark33</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark34</string>
+							<key>Title</key>
+							<string>Sec. 230.50 Municipal and private water supplies</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark35</string>
+							<key>Title</key>
+							<string>Sec. 230.51 Recreational and commercial fisheries</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark36</string>
+							<key>Title</key>
+							<string>Sec. 230.52 Water-related recreation</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark37</string>
+							<key>Title</key>
+							<string>Sec. 230.53 Aesthetics</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark38</string>
+							<key>Title</key>
+							<string>Sec. 230.54 Parks, national and historical monuments, national seashores, wilderness areas, research sites, and similar preserves</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart G--Evaluation and Testing</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark39</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark40</string>
+							<key>Title</key>
+							<string>Sec. 230.60 General evaluation of dredged or fill material</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart H--Actions To Minimize Adverse Effects</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark41</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark42</string>
+							<key>Title</key>
+							<string>Sec. 230.70 Actions concerning the location of the discharge</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark43</string>
+							<key>Title</key>
+							<string>Sec. 230.71 Actions concerning the material to be discharged</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark44</string>
+							<key>Title</key>
+							<string>Sec. 230.72 Actions controlling the material after discharge</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark45</string>
+							<key>Title</key>
+							<string>Sec. 230.73 Actions affecting the method of dispersion</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark46</string>
+							<key>Title</key>
+							<string>Sec. 230.74 Actions related to technology</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark47</string>
+							<key>Title</key>
+							<string>Sec. 230.75 Actions affecting plant and animal populations</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark48</string>
+							<key>Title</key>
+							<string>Sec. 230.76 Actions affecting human use</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark49</string>
+							<key>Title</key>
+							<string>Sec. 230.77 Other actions</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Subpart I--Planning To Shorten Permit Processing Time</string>
+					<key>View</key>
+					<string>1</string>
+					<key>Scroll</key>
+					<string>bookmark50</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark51</string>
+							<key>Title</key>
+							<string>Sec. 230.80 Advanced identification of disposal areas</string>
+							<key>View</key>
+							<string>1</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Description of Nationwide Permits</string>
+			<key>View</key>
+			<string>2</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark2</string>
+					<key>Title</key>
+					<string>1. Aids to Navigation. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark3</string>
+					<key>Title</key>
+					<string>2. Structures in Artificial Canals. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark4</string>
+					<key>Title</key>
+					<string>3. Maintenance. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark5</string>
+					<key>Title</key>
+					<string>4. Fish and Wildlife Harvesting, Enhancement, and Attraction Devices and Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark6</string>
+					<key>Title</key>
+					<string>5. Scientific Measurement Devices. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark7</string>
+					<key>Title</key>
+					<string>6. Survey Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark8</string>
+					<key>Title</key>
+					<string>7. Outfall Structures and Maintenance. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark9</string>
+					<key>Title</key>
+					<string>8. Oil and Gas Structures. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark10</string>
+					<key>Title</key>
+					<string>9. Structures in Fleeting and Anchorage Areas. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark11</string>
+					<key>Title</key>
+					<string>10. Mooring Buoys. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark12</string>
+					<key>Title</key>
+					<string>11. Temporary Recreational Structures. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark13</string>
+					<key>Title</key>
+					<string>12. Utility Line Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark14</string>
+					<key>Title</key>
+					<string>13. Bank Stabilization. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark15</string>
+					<key>Title</key>
+					<string>14. Linear Transportation Projects</string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark16</string>
+					<key>Title</key>
+					<string>15. U.S. Coast Guard Approved Bridges. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark17</string>
+					<key>Title</key>
+					<string>16. Return Water From Upland Contained Disposal Areas. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark18</string>
+					<key>Title</key>
+					<string>17. Hydropower Projects. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark19</string>
+					<key>Title</key>
+					<string>18. Minor Discharges. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark20</string>
+					<key>Title</key>
+					<string>19. Minor Dredging. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark21</string>
+					<key>Title</key>
+					<string>20. Oil Spill Cleanup. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark22</string>
+					<key>Title</key>
+					<string>21. Surface Coal Mining Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark23</string>
+					<key>Title</key>
+					<string>22. Removal of Vessels. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark24</string>
+					<key>Title</key>
+					<string>23. Approved Categorical Exclusions. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark25</string>
+					<key>Title</key>
+					<string>24. Indian Tribe or State Administered Section 404 Programs. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark26</string>
+					<key>Title</key>
+					<string>25. Structural Discharges. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark27</string>
+					<key>Title</key>
+					<string>26. [Reserved]</string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark28</string>
+					<key>Title</key>
+					<string>27. Aquatic Habitat Restoration, Establishment, and Enhancement Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark29</string>
+					<key>Title</key>
+					<string>28. Modifications of Existing Marinas. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark30</string>
+					<key>Title</key>
+					<string>29. Residential Developments. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark31</string>
+					<key>Title</key>
+					<string>30. Moist Soil Management for Wildlife. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark32</string>
+					<key>Title</key>
+					<string>31. Maintenance of Existing Flood Control Facilities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark33</string>
+					<key>Title</key>
+					<string>32. Completed Enforcement Actions. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark34</string>
+					<key>Title</key>
+					<string>33. Temporary Construction, Access and Dewatering. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark35</string>
+					<key>Title</key>
+					<string>34. Cranberry Production Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark36</string>
+					<key>Title</key>
+					<string>35. Maintenance Dredging of Existing Basins. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark37</string>
+					<key>Title</key>
+					<string>36. Boat Ramps. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark38</string>
+					<key>Title</key>
+					<string>37. Emergency Watershed Protection and Rehabilitation. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark39</string>
+					<key>Title</key>
+					<string>38. Cleanup of Hazardous and Toxic Waste. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark40</string>
+					<key>Title</key>
+					<string>39. Commercial and Institutional Developments. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark41</string>
+					<key>Title</key>
+					<string>40. Agricultural Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark42</string>
+					<key>Title</key>
+					<string>41. Reshaping Existing Drainage Ditches. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark43</string>
+					<key>Title</key>
+					<string>42. Recreational Facilities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark44</string>
+					<key>Title</key>
+					<string>43. Stormwater Management Facilities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark45</string>
+					<key>Title</key>
+					<string>44. Mining Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark46</string>
+					<key>Title</key>
+					<string>45. Repair of Uplands Damaged by Discrete Events.  </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark47</string>
+					<key>Title</key>
+					<string>46. Discharges in Ditches.  </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark48</string>
+					<key>Title</key>
+					<string>47. Pipeline Safety Program Designated Time Sensitive Inspections and Repairs.  </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark49</string>
+					<key>Title</key>
+					<string>48. Existing Commercial Shellfish Commercial Shellfish Aquaculture Activities. </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark50</string>
+					<key>Title</key>
+					<string>49. Coal Remining Activities</string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark51</string>
+					<key>Title</key>
+					<string>50. Underground Coal Mining Activities.  </string>
+					<key>View</key>
+					<string>2</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Nationwide Permit General Conditions</string>
+			<key>View</key>
+			<string>3</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark2</string>
+					<key>Title</key>
+					<string>1. Navigation. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark3</string>
+					<key>Title</key>
+					<string>2. Aquatic Life Movements. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark4</string>
+					<key>Title</key>
+					<string>3. Spawning Areas. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark5</string>
+					<key>Title</key>
+					<string>4. Migratory Bird Breeding Areas. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark6</string>
+					<key>Title</key>
+					<string>5. Shellfish Beds. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark7</string>
+					<key>Title</key>
+					<string>6. Suitable Material. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark8</string>
+					<key>Title</key>
+					<string>7. Water Supply Intakes. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark9</string>
+					<key>Title</key>
+					<string>8. Adverse Effects from Impoundments. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark10</string>
+					<key>Title</key>
+					<string>9. Management of Water Flows. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark11</string>
+					<key>Title</key>
+					<string>10. Fills Within 100-Year Floodplains. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark12</string>
+					<key>Title</key>
+					<string>11. Equipment. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark13</string>
+					<key>Title</key>
+					<string>12. Soil Erosion and Sediment Controls.  </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark14</string>
+					<key>Title</key>
+					<string>13. Removal of Temporary Fills. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark15</string>
+					<key>Title</key>
+					<string>14. Proper Maintenance. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark16</string>
+					<key>Title</key>
+					<string>15. Wild and Scenic Rivers. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark17</string>
+					<key>Title</key>
+					<string>16. Tribal Rights. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark18</string>
+					<key>Title</key>
+					<string>17. Endangered Species. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark19</string>
+					<key>Title</key>
+					<string>18. Historic Properties. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark20</string>
+					<key>Title</key>
+					<string>19. Designated Critical Resource Waters. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark21</string>
+					<key>Title</key>
+					<string>20. Mitigation. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark22</string>
+					<key>Title</key>
+					<string>21. Water Quality. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark23</string>
+					<key>Title</key>
+					<string>22. Coastal Zone Management. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark24</string>
+					<key>Title</key>
+					<string>23. Regional and Case-By-Case Conditions. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark25</string>
+					<key>Title</key>
+					<string>24. Use of Multiple Nationwide Permits. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark26</string>
+					<key>Title</key>
+					<string>25. Transfers of Nationwide Permit Verifications.  </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark27</string>
+					<key>Title</key>
+					<string>26. Compliance Certification. </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>27. Pre-Construction Notification. </string>
+					<key>View</key>
+					<string>3</string>
+					<key>Scroll</key>
+					<string>bookmark28</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark29</string>
+							<key>Title</key>
+							<string>(a) Timing. </string>
+							<key>View</key>
+							<string>3</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark30</string>
+							<key>Title</key>
+							<string>(b) Contents of Notification</string>
+							<key>View</key>
+							<string>3</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark31</string>
+							<key>Title</key>
+							<string>(c) Form of Pre-Construction Notification</string>
+							<key>View</key>
+							<string>3</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark32</string>
+							<key>Title</key>
+							<string>(d) Agency Coordination: </string>
+							<key>View</key>
+							<string>3</string>
+						</dict>
+						<dict>
+							<key>Scroll</key>
+							<string>bookmark33</string>
+							<key>Title</key>
+							<string>(e) District Engineer’s Decision: </string>
+							<key>View</key>
+							<string>3</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark34</string>
+					<key>Title</key>
+					<string>28. Single and Complete Project.  </string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>Scroll</key>
+					<string>bookmark35</string>
+					<key>Title</key>
+					<string>Further Information</string>
+					<key>View</key>
+					<string>3</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Application Tutorial</string>
+			<key>View</key>
+			<string>4</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Bookmark Tutorial</string>
+			<key>View</key>
+			<string>5</string>
+			<key>Scroll</key>
+			<string>bookmark1</string>
+		</dict>
+	</array>
+</dict>
+</plist>

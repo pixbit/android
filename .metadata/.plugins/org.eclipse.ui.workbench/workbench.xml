@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="28" version="2.0">
+<workbench progressCount="20" version="2.0">
 <workbenchAdvisor/>
-<window height="512" maximized="true" width="1680" x="0" y="22">
+<window height="1024" maximized="true" width="1680" x="106" y="91">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="250"/>
@@ -16,9 +16,9 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="54" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="98" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="54" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
@@ -39,30 +39,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainListActivity.java" partName="MainListActivity.java" path="/Users/bit/Documents/pixbit/android/workspace/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java" title="MainListActivity.java" tooltip="iNEPABOR/src/com/empsi/inepabor/MainListActivity.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainListActivity.java" partName="MainListActivity.java" path="/Users/bit/Documents/pixbit/android/workspace/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java" title="MainListActivity.java" tooltip="iNEPABOR/src/com/empsi/inepabor/MainListActivity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java"/>
-<editorState selectionHorizontalPixel="185" selectionLength="0" selectionOffset="2702" selectionTopPixel="919"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="/Users/bit/Documents/pixbit/android/workspace/iNEPABOR/src/com/empsi/inepabor/MainActivity.java" title="MainActivity.java" tooltip="iNEPABOR/src/com/empsi/inepabor/MainActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/iNEPABOR/src/com/empsi/inepabor/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2584" selectionTopPixel="1407"/>
-</editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" partName="activity_main.xml" path="/Users/bit/Documents/pixbit/android/workspace/iNEPABOR/res/layout/activity_main.xml" title="activity_main.xml" tooltip="iNEPABOR/res/layout/activity_main.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/iNEPABOR/res/layout/activity_main.xml"/>
-</editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main_list.xml" partName="activity_main_list.xml" path="/Users/bit/Documents/pixbit/android/workspace/iNEPABOR/res/layout/activity_main_list.xml" title="activity_main_list.xml" tooltip="iNEPABOR/res/layout/activity_main_list.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/iNEPABOR/res/layout/activity_main_list.xml"/>
-</editor>
-<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="empsi_custom_row.xml" partName="empsi_custom_row.xml" path="/Users/bit/Documents/pixbit/android/workspace/iNEPABOR/res/layout/empsi_custom_row.xml" title="empsi_custom_row.xml" tooltip="iNEPABOR/res/layout/empsi_custom_row.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/iNEPABOR/res/layout/empsi_custom_row.xml"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3699" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -102,8 +85,7 @@
 <view id="com.android.ide.eclipse.ddms.views.FileExplorerView" partName="File Explorer"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Errors"/>
+<expanded>&#x0A;<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -151,7 +133,7 @@
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 <view id="com.android.ide.eclipse.ddms.views.AllocTrackerView" partName="Allocation Tracker"/>
 </views>
-<perspectives activePart="com.android.ide.eclipse.editors.CommonXmlEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="0" fixed="0" version="0.016">
 <descriptor class="com.android.ide.eclipse.ddms.Perspective" id="com.android.ide.eclipse.ddms.Perspective" label="DDMS"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -279,7 +261,7 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.views.ProblemView" style="0">
+<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
 <view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
 <view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
@@ -457,108 +439,16 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/iNEPABOR/src/com/empsi/inepabor/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/iNEPABOR/res/layout/activity_main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/iNEPABOR/res/layout/activity_main.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/iNEPABOR/src/com/empsi/inepabor/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/iNEPABOR/res/layout/activity_main_list.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/iNEPABOR/res/layout/empsi_custom_row.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/iNEPABOR/res/layout/empsi_custom_row.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/iNEPABOR/AndroidManifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java"/>
 </editors>
-<item historyLabel="activity_main.xml" index="2">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="MainListActivity.java" index="0">
+<position info="not_deleted" x="3040" y="0"/>
 </item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="2577" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainListActivity.java" index="3">
-<position info="not_deleted" x="1162" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="2909" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="2909" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6">
-<position/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="7">
-<position/>
-</item>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6">
-<position/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="7">
-<position/>
-</item>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6">
-<position/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="7">
-<position/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="7">
-<position/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="7">
-<position/>
-</item>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="1553" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="1553" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="2584" y="0"/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="6"/>
-<item historyLabel="MainListActivity.java" index="3">
-<position info="not_deleted" x="1162" y="0"/>
-</item>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="activity_main_list.xml" index="5"/>
-<item historyLabel="MainListActivity.java" index="3">
-<position info="not_deleted" x="2702" y="0"/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="6">
-<position/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="7">
-<position info="not_deleted" x="392" y="224"/>
-</item>
-<item historyLabel="empsi_custom_row.xml" index="7">
-<position info="not_deleted" x="628" y="0"/>
-</item>
-<item active="true" historyLabel="empsi_custom_row.xml" index="7">
-<position info="not_deleted" x="199" y="187"/>
+<item historyLabel="iNEPABOR Manifest" index="1"/>
+<item active="true" historyLabel="MainListActivity.java" index="2">
+<position info="not_deleted" x="3040" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -579,6 +469,15 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="iNEPABOR/AndroidManifest.xml">
+<persistable path="/iNEPABOR/AndroidManifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="Sublime Text 2" name="usbr.htm" tooltip="iNEPABOR/assets/usbr.htm">
+<persistable path="/iNEPABOR/assets/usbr.htm"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainListActivity.java" tooltip="iNEPABOR/src/com/empsi/inepabor/MainListActivity.java">
+<persistable path="/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="empsi_custom_row.xml" tooltip="iNEPABOR/res/layout/empsi_custom_row.xml">
 <persistable path="/iNEPABOR/res/layout/empsi_custom_row.xml"/>
 </file>
@@ -608,12 +507,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.browser.editorSupport" name="bookmarkTutorial.htm" tooltip="iNEPABOR/assets/bookmarkTutorial.htm">
 <persistable path="/iNEPABOR/assets/bookmarkTutorial.htm"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="ic_launcher.png" tooltip="iNEPABOR/res/drawable-hdpi/ic_launcher.png">
-<persistable path="/iNEPABOR/res/drawable-hdpi/ic_launcher.png"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="iNEPABOR/AndroidManifest.xml">
-<persistable path="/iNEPABOR/AndroidManifest.xml"/>
 </file>
 </mruList>
 </workbench>
