@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="20" version="2.0">
 <workbenchAdvisor/>
-<window height="1024" maximized="true" width="1680" x="106" y="91">
+<window height="768" maximized="true" width="1024" x="21" y="56">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="250"/>
@@ -16,7 +16,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="98" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="54" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -28,7 +28,7 @@
 <coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -37,16 +37,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainListActivity.java" partName="MainListActivity.java" path="/Users/bit/Documents/pixbit/android/workspace/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java" title="MainListActivity.java" tooltip="iNEPABOR/src/com/empsi/inepabor/MainListActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3699" selectionTopPixel="0"/>
-</editor>
 </editors>
 <views>
 <view id="com.android.ide.eclipse.ddms.views.DeviceView" partName="Devices"/>
@@ -261,7 +255,7 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
+<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">
 <fastViews>
 <view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
 <view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
@@ -437,20 +431,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/iNEPABOR/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/iNEPABOR/src/com/empsi/inepabor/MainListActivity.java"/>
-</editors>
-<item historyLabel="MainListActivity.java" index="0">
-<position info="not_deleted" x="3040" y="0"/>
-</item>
-<item historyLabel="iNEPABOR Manifest" index="1"/>
-<item active="true" historyLabel="MainListActivity.java" index="2">
-<position info="not_deleted" x="3040" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -469,6 +450,21 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentAlertDialogSupport.java" tooltip="SampleList/src/com/actionbarsherlock/sample/fragments/FragmentAlertDialogSupport.java">
+<persistable path="/SampleList/src/com/actionbarsherlock/sample/fragments/FragmentAlertDialogSupport.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentStackSupport.java" tooltip="iNEPA/src/com/empsi/inepa/FragmentStackSupport.java">
+<persistable path="/iNEPA/src/com/empsi/inepa/FragmentStackSupport.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentTabs.java" tooltip="iNEPA/src/com/empsi/inepa/FragmentTabs.java">
+<persistable path="/iNEPA/src/com/empsi/inepa/FragmentTabs.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainListActivity.java" tooltip="iNEPA/src/com/empsi/inepa/MainListActivity.java">
+<persistable path="/iNEPA/src/com/empsi/inepa/MainListActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="iNEPA/src/com/empsi/inepa/MainActivity.java">
+<persistable path="/iNEPA/src/com/empsi/inepa/MainActivity.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="iNEPABOR/AndroidManifest.xml">
 <persistable path="/iNEPABOR/AndroidManifest.xml"/>
 </file>
@@ -498,15 +494,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.browser.editorSupport" name="applicationTutorial.htm" tooltip="iNEPABOR/assets/applicationTutorial.htm">
 <persistable path="/iNEPABOR/assets/applicationTutorial.htm"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="iNEPABOR/src/com/empsi/inepabor/MainActivity.java">
-<persistable path="/iNEPABOR/src/com/empsi/inepabor/MainActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ContactsActivity.java" tooltip="ContactsDemo/src/com/jquerymobile/demo/contact/ContactsActivity.java">
-<persistable path="/ContactsDemo/src/com/jquerymobile/demo/contact/ContactsActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.browser.editorSupport" name="bookmarkTutorial.htm" tooltip="iNEPABOR/assets/bookmarkTutorial.htm">
-<persistable path="/iNEPABOR/assets/bookmarkTutorial.htm"/>
 </file>
 </mruList>
 </workbench>
