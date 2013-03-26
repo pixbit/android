@@ -5,12 +5,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-  
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.ActionBar.TabListener;
+import com.actionbarsherlock.app.SherlockFragment;
   
-public class MyTabListener<t extends Fragment> implements TabListener {
+public class MyTabListener<t extends SherlockFragment> implements TabListener {
     private Fragment mFragment;
     private final Activity mActivity;
     private final String mTag;
