@@ -9,9 +9,9 @@ import android.support.v4.app.FragmentTransaction;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.ActionBar.TabListener;
-import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.app.SherlockListFragment;
   
-public class MyTabListener<t extends SherlockFragment> implements TabListener {
+public class MyTabListener<t extends SherlockListFragment> implements TabListener {
     private Fragment mFragment;
     private final Activity mActivity;
     private final String mTag;
