@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.actionbarsherlock.sample.fragments;
+package com.empsi.iesa;
 
 import java.util.ArrayList;
 
@@ -28,7 +28,7 @@ import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
-import com.actionbarsherlock.sample.fragments.R;
+import com.empsi.iesa.R;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 /**
@@ -43,7 +43,7 @@ public class FragmentTabsPager extends SherlockFragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(SampleList.THEME); //Used for theme switching in samples
+//        setTheme(SampleList.THEME); //Used for theme switching in samples
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.fragment_tabs_pager);
@@ -56,12 +56,12 @@ public class FragmentTabsPager extends SherlockFragmentActivity {
 
         mTabsAdapter.addTab(mTabHost.newTabSpec("simple").setIndicator("Simple"),
                 FragmentStackSupport.CountingFragment.class, null);
-//        mTabsAdapter.addTab(mTabHost.newTabSpec("contacts").setIndicator("Contacts"),
-//                LoaderCursorSupport.CursorLoaderListFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec("contacts").setIndicator("Contacts"),
+                LoaderCursorSupport.CursorLoaderListFragment.class, null);
         mTabsAdapter.addTab(mTabHost.newTabSpec("custom").setIndicator("Custom"),
                 LoaderCustomSupport.AppListFragment.class, null);
-//        mTabsAdapter.addTab(mTabHost.newTabSpec("throttle").setIndicator("Throttle"),
-//                LoaderThrottleSupport.ThrottledLoaderListFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec("throttle").setIndicator("Throttle"),
+                LoaderThrottleSupport.ThrottledLoaderListFragment.class, null);
 
         if (savedInstanceState != null) {
             mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
