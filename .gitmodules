@@ -1,0 +1,3 @@
+[submodule "ABS"]
+	path = ABS
+	url = git@github.com:JakeWharton/ActionBarSherlock.git
