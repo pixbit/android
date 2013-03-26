@@ -16,7 +16,6 @@
 
 package com.actionbarsherlock.sample.fragments;
 
-import android.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -27,6 +26,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.actionbarsherlock.sample.fragments.R;
+import com.actionbarsherlock.app.SherlockDialogFragment;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 /**
  * Demonstrates how to show an AlertDialog that is managed by a Fragment.

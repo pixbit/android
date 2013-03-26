@@ -24,7 +24,10 @@
 
     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
 
-    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/application_name">
+    <application
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/icon"
+        android:label="@string/application_name">
 
         <activity android:label="@string/activity_sample_code" android:name=".SampleList" android:theme="@style/Theme.Sherlock">
             <intent-filter>
