@@ -1,5 +1,4 @@
 INDEX VERSION 1.126+/Users/bit/Documents/pixbit/android/workspace/.metadata/.plugins/org.eclipse.jdt.core
-1709199115.index
 54584238.index
 721729590.index
 2480851170.index

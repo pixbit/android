@@ -26,7 +26,7 @@ import com.actionbarsherlock.view.MenuItem;
   
 public class AFragment extends SherlockListFragment {
 
-	public static final String TAG = MainListActivity.class.getSimpleName();
+	public static final String TAG = AFragment.class.getSimpleName();
 	public ActionBar actionBar;
 	public List<ParsedRow> entries;
 	public List<ParsedRow> previousEntries;
@@ -66,7 +66,7 @@ public class AFragment extends SherlockListFragment {
 //              Toast.makeText(this, parsedExampleDataSet.toString(), Toast.LENGTH_LONG).show();
 
                 /* Set the result to be displayed in our GUI. */
-                EmpsiAdapter adapter = new EmpsiAdapter(getActivity(), R.layout.empsi_custom_row, this.entries);
+                EmpsiAdapter adapter = new EmpsiAdapter(getActivity(), R.layout.empsi_custom_row, this.entries, this);
                 setListAdapter(adapter);
                
 	        } catch (Exception e) {
@@ -136,21 +136,20 @@ public class AFragment extends SherlockListFragment {
 	    }
 	    
 	    public boolean onOptionsItemSelected(MenuItem item) {
-//	  	    switch (item.getItemId()) {
-//	  	    	  case android.R.id.home:
-//	  	    		/* Set the result to be displayed in our GUI. */
-//	  	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
-//	  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);
-//	  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
-//	            EmpsiAdapter adapter = new EmpsiAdapter(getActivity(), R.layout.empsi_custom_row, this.previousEntries);
-//	            setListAdapter(adapter);
-//	            
-//	  	        break;
-//	  	      default:
-//	  	    	  	getActivity().finish();
-//	  	  	    Toast.makeText(getActivity(), "home pressed", Toast.LENGTH_LONG).show();
-//	  	    }
-
+	  	    switch (item.getItemId()) {
+	  	    	  case android.R.id.home:
+	  	    		/* Set the result to be displayed in our GUI. */
+	  	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
+	  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);
+	  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
+	            EmpsiAdapter adapter = new EmpsiAdapter(getActivity(), R.layout.empsi_custom_row, this.previousEntries, this);
+	            setListAdapter(adapter);
+	            
+	  	        break;
+	  	      default:
+	  	    	  	getActivity().finish();
+	  	  	    Toast.makeText(getActivity(), "home pressed", Toast.LENGTH_LONG).show();
+	  	    }
 	  	    return true;
 	  	}
 	}

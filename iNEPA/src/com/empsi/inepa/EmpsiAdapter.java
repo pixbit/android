@@ -16,17 +16,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
-	Context context; 
+	Context activity;
+	AFragment listfragment;
     int layoutResourceId;    
     List<ParsedRow> data = null;
     public static List<ParsedRow> currentData = null;
     public static ArrayList<List<ParsedRow>> prevData = new ArrayList<List<ParsedRow>>();
     public static ArrayList<String> prevTitle = new ArrayList<String>();
     
-    public EmpsiAdapter(Context context, int layoutResourceId, List<ParsedRow> data) {
+    public EmpsiAdapter(Context context, int layoutResourceId, List<ParsedRow> data, AFragment listfragment) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
-        this.context = context;
+        this.activity = context;
+        this.listfragment = listfragment;
         this.data = data;
         EmpsiAdapter.currentData = data;
     }
@@ -37,12 +39,12 @@ public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
         RowHolder holder = null;
         
         if(row == null){
-            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+            LayoutInflater inflater = ((Activity) activity).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);            
             holder = new RowHolder();
             holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
             holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);           
-            holder.imgIcon.setOnClickListener(new EmpsiListener(row, data, position, context));           
+            holder.imgIcon.setOnClickListener(new EmpsiListener(row, data, position, activity, this.listfragment));           
             row.setTag(holder);
         }else{
             holder = (RowHolder)row.getTag();
@@ -62,16 +64,18 @@ public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
     
     public class EmpsiListener implements View.OnClickListener {
     		Context context; 
+    		AFragment frag;
         List<ParsedRow> data = null;
         List<ParsedRow> prevData = null;
         List<ParsedRow> nextData = null;
     		private View mView;
     		int position;
 
-    	    public EmpsiListener(View v, List<ParsedRow> data, int position, Context context) {
+    	    public EmpsiListener(View v, List<ParsedRow> data, int position, Context context, AFragment frag) {
     	    		this.data = data;
     	    		this.position = position;
     	        this.context = context;
+    	        this.frag = frag;
     	        setmView(v);
     	    }
 
@@ -83,11 +87,11 @@ public class EmpsiAdapter extends ArrayAdapter<ParsedRow> {
 	    		EmpsiAdapter.prevData.add(this.data);
     	    		this.nextData = this.data.get(position).getChildren();
     	        /* Set the result to be displayed in our GUI. */
-    	    		EmpsiAdapter adapter = new EmpsiAdapter(this.context, R.layout.empsi_custom_row, this.nextData);
-            ((MainListActivity) this.context).setListAdapter(adapter);  
+    	    		EmpsiAdapter adapter = new EmpsiAdapter(this.context, R.layout.empsi_custom_row, this.nextData, this.frag);
+    	    		this.frag.setListAdapter(adapter);  
 
-    			EmpsiAdapter.prevTitle.add(this.data.get(position).getTitle());
-    			((MainListActivity) this.context).actionBar.setTitle(this.data.get(position).getTitle()); 
+//    			EmpsiAdapter.prevTitle.add(this.data.get(position).getTitle());
+//    			((MainListActivity) this.context).actionBar.setTitle(this.data.get(position).getTitle()); 
     	    }
 
 		public View getmView() {
