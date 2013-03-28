@@ -13,9 +13,10 @@ import android.widget.ProgressBar;
 
 import com.actionbarsherlock.app.SherlockFragment;
   
-public class BFragment extends SherlockFragment {
+public class DFragment extends SherlockFragment {
 	public ProgressBar progressBar;
 	public ProgressBar progressSpinner;
+	public ImageView overlay;
 	
 	 @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,15 +30,27 @@ public class BFragment extends SherlockFragment {
 	        progressSpinner.setProgress(0);
 	        progressSpinner.setVisibility(View.VISIBLE);
 	        
-	        String url = "http:///www.empsi.com/nepalinks.html";
+	        overlay = (ImageView) v.findViewById(R.id.imageView1);
+	        overlay.setBackgroundResource(android.R.color.black);
+	        overlay.setVisibility(View.VISIBLE);
+	        
+	        String url = "file:///android_asset/about.htm";
 	        
 	        WebView webview = (WebView) v.findViewById(R.id.web_engine);
-    			webview.setWebViewClient(new MyWebViewClient());
-            webview.getSettings().setBuiltInZoomControls(false); 
-            webview.getSettings().setSupportZoom(false);
-            webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);   
-            webview.getSettings().setAllowFileAccess(true); 
-            webview.getSettings().setDomStorageEnabled(true);
+    			webview.getSettings().setJavaScriptEnabled(true);
+    			webview.setWebChromeClient(new WebChromeClient(){
+    				public void onProgressChanged(WebView view, int progress) {
+    		         Log.d("PROGRESS", String.format("Progress: %d", progress));
+   		         progressBar.setProgress(progress);
+   		         progressSpinner.setProgress(progress);
+    		         if(progress == 100) {
+    		             progressBar.setVisibility(View.GONE);
+    		             progressSpinner.setVisibility(View.GONE);
+    		             overlay.setVisibility(View.GONE);
+//    		             view.loadUrl("javascript:alert('Finished Loading');");
+    		          }
+    		       }
+    		    });
     			webview.setVisibility(View.VISIBLE);
     			webview.loadUrl(url);
 

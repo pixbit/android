@@ -73,7 +73,7 @@ public class MainActivity extends SherlockActivity {
         title = extras.getString("title");
         scroll = extras.getString("scroll");
 
-        Toast.makeText(this, view, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, view, Toast.LENGTH_LONG).show();
         if (view != null) {
             // Do something with the data
         		WebView webview = (WebView) findViewById(R.id.web_engine);
