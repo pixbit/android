@@ -1,12 +1,14 @@
 package com.empsi.inepa;
 
+import com.empsi.inepa.Main;
+import com.empsi.inepa.Splashscreen;
 import com.empsi.inepa.R;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
- 
+
 /**
  * Splash screen activity
  *
@@ -35,7 +37,8 @@ public class Splashscreen extends Activity {
                  
                 if (!mIsBackButtonPressed) {
                     // start the home screen if the back button wasn't pressed already 
-                    Intent intent = new Intent(Splashscreen.this, MainListActivity.class);
+//                  Intent intent = new Intent(Splashscreen.this, MainListActivity.class);
+                  Intent intent = new Intent(Splashscreen.this, Main.class);
                     Splashscreen.this.startActivity(intent);
                }
                  

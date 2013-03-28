@@ -8,29 +8,59 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@drawable/icon_inepa"
-        android:debuggable="true"
+        android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock" >
+        
         <activity
             android:name="com.empsi.inepa.Splashscreen"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" > 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        
         <activity
             android:name="com.empsi.inepa.MainListActivity"
             android:label="@string/app_name" >
         </activity>
+        
          <activity
             android:name="com.empsi.inepa.MainActivity"
             android:label="@string/app_name" >
         </activity>
+        
+         <activity
+            android:name="com.empsi.inepa.Main"
+            android:label="@string/app_name" >
+        </activity>
+        
+         <!-- Fragment Support Samples -->
+
+        <activity android:label="fragment_tabs_pager" android:name=".FragmentTabsPager">
+        </activity>
+
+        <activity android:label="fragment_pager_support" android:name=".FragmentPagerSupport">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.actionbarsherlock.sample.fragments.EXAMPLE"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:label="fragment_state_pager_support" android:name=".FragmentStatePagerSupport">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.actionbarsherlock.sample.fragments.EXAMPLE"/>
+            </intent-filter>
+        </activity>
+         
+         
     </application>
 
 </manifest>

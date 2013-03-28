@@ -1,4 +1,4 @@
-package com.empsi.iesa;
+package com.empsi.inepa;
 
 import java.io.InputStream;
 import java.util.List;
@@ -27,9 +27,11 @@ import com.actionbarsherlock.view.MenuItem;
 public class AFragment extends SherlockListFragment {
 
 	public static final String TAG = MainListActivity.class.getSimpleName();
+	public ActionBar actionBar;
 	public List<ParsedRow> entries;
 	public List<ParsedRow> previousEntries;
 	public List<String> titleList;
+	public String initialTitle;
 	
 	 @Override
 	    public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -134,20 +136,20 @@ public class AFragment extends SherlockListFragment {
 	    }
 	    
 	    public boolean onOptionsItemSelected(MenuItem item) {
-	  	    switch (item.getItemId()) {
-	  	    	  case android.R.id.home:
-	  	    		/* Set the result to be displayed in our GUI. */
-	  	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
-	  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);
-	  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
-	            EmpsiAdapter adapter = new EmpsiAdapter(getActivity(), R.layout.empsi_custom_row, this.previousEntries);
-	            setListAdapter(adapter);
-	            
-	  	        break;
-	  	      default:
-	  	    	  	getActivity().finish();
-	  	  	    Toast.makeText(getActivity(), "home pressed", Toast.LENGTH_LONG).show();
-	  	    }
+//	  	    switch (item.getItemId()) {
+//	  	    	  case android.R.id.home:
+//	  	    		/* Set the result to be displayed in our GUI. */
+//	  	  	  	int indexOfLast = EmpsiAdapter.prevData.size() - 1;
+//	  	  	    this.previousEntries = EmpsiAdapter.prevData.get(indexOfLast);
+//	  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
+//	            EmpsiAdapter adapter = new EmpsiAdapter(getActivity(), R.layout.empsi_custom_row, this.previousEntries);
+//	            setListAdapter(adapter);
+//	            
+//	  	        break;
+//	  	      default:
+//	  	    	  	getActivity().finish();
+//	  	  	    Toast.makeText(getActivity(), "home pressed", Toast.LENGTH_LONG).show();
+//	  	    }
 
 	  	    return true;
 	  	}

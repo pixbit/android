@@ -1,4 +1,4 @@
-package com.empsi.iesa;
+package com.empsi.inepa;
 
 import java.io.InputStream;
 import java.util.List;
@@ -24,12 +24,14 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.MenuItem;
   
-public class AFragment extends SherlockListFragment {
+public class CFragment extends SherlockListFragment {
 
 	public static final String TAG = MainListActivity.class.getSimpleName();
+	public ActionBar actionBar;
 	public List<ParsedRow> entries;
 	public List<ParsedRow> previousEntries;
 	public List<String> titleList;
+	public String initialTitle;
 	
 	 @Override
 	    public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -134,6 +136,7 @@ public class AFragment extends SherlockListFragment {
 	    }
 	    
 	    public boolean onOptionsItemSelected(MenuItem item) {
+	    		String title = "";
 	  	    switch (item.getItemId()) {
 	  	    	  case android.R.id.home:
 	  	    		/* Set the result to be displayed in our GUI. */
@@ -142,6 +145,16 @@ public class AFragment extends SherlockListFragment {
 	  	  	    EmpsiAdapter.prevData.remove(indexOfLast);
 	            EmpsiAdapter adapter = new EmpsiAdapter(getActivity(), R.layout.empsi_custom_row, this.previousEntries);
 	            setListAdapter(adapter);
+
+	  	  	  	int indexOfLastTitle = EmpsiAdapter.prevData.size() - 1;
+//	  	  	    Toast.makeText(this, String.format("index: %d", indexOfLastTitle), Toast.LENGTH_LONG).show();
+	  	  	    if(indexOfLastTitle < 0){
+	  	  	    		title = this.initialTitle;
+	  	  	    }else{
+	  	  	  	    title = EmpsiAdapter.prevTitle.get(indexOfLastTitle);
+	  	  	  	    EmpsiAdapter.prevTitle.remove(indexOfLastTitle);
+	  	  	    }
+	            actionBar.setTitle(title);
 	            
 	  	        break;
 	  	      default:
