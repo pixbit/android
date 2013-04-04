@@ -8,6 +8,8 @@ import org.json.JSONException;
 import android.content.Context;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class JavaScriptInterface {
@@ -16,12 +18,56 @@ public class JavaScriptInterface {
 	public static ArrayList<String> scrollBookmarks;
 	public static int scrollIndex = 0;
 	
+	WebView web;
+	TextView searchString;
+	
 	Context mContext;
     public String searchScrollValues = "";
-    public String searchResultCount = "";
+    public static String searchCount = "";
 
-    public JavaScriptInterface(Context c) {
+    public JavaScriptInterface(Context c, WebView webview, TextView searchString) {
         this.mContext = c;
+        this.web = webview;
+        this.searchString = searchString;
+    }
+    
+    public void submitSearch(String query){
+    	Log.d(TAG, "webview.loadUrl's RUN");
+  	  	web.loadUrl("javascript:MyApp_HighlightAllOccurencesOfString(\""+query+"\");");
+  	  	web.loadUrl("javascript:MainActivity.setSearchCount(jQuery('.MyAppHighlight').size());");
+
+//    	  if(JavaScriptInterface.scrollBookmarks.size() > 0){
+//    		  webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(0) +");");
+//    		  Log.d(TAG, "JavaScriptInterface.scrollIndex+1: " + JavaScriptInterface.scrollIndex+1);
+//    		  searchResultString = String.format("%d of %d", JavaScriptInterface.scrollBookmarks.size(), JavaScriptInterface.scrollBookmarks.size());
+//    		  Log.d(TAG, searchResultString);
+//    		  searchString.setText(resultString);
+//    	  }
+    	  
+    	  
+//    		if(resultNumber > 0){
+//    			resultString = String.format("%d of %d", searchIndex+1, resultNumber);
+//    			Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
+//    		}
+//    		webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ query +"').offset().top);");
+          
+
+//    	    if(resultNumber > 0){
+//    	        [self setScrollPostion:webView xValue:0 yValue:[[scrollArray objectAtIndex:0] integerValue]];
+//    	        searchIndex = 0;
+//    	        [scrollArray retain];
+//    	    }
+    	  
+    	  
+    	  
+//    		if(resultNumber > 0){
+//    			resultString = String.format("%d of %d", searchIndex+1, resultNumber);
+//    			Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
+//    		}
+//    		webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ query +"').offset().top);");
+//  	  webview.loadUrl("javascript:getSearchScrollValues();");
+//  	  Log.d(TAG, "scrollJSONArray: " + JavaScriptInterface.scrollJSONArray);
+  	  
     }
 
     @JavascriptInterface
@@ -30,8 +76,8 @@ public class JavaScriptInterface {
     }
 
     @JavascriptInterface
-    public void showLog(String message){
-    	Log.d(TAG, message);
+    public void setSearchCount(String message){
+    	searchString.setText(message);
     }
 
     @JavascriptInterface
@@ -41,11 +87,7 @@ public class JavaScriptInterface {
     	parseJSON(scrollJSONArray);
     }
     
-
     public void parseJSON(String json) {
-//  	  String resultString = highlightAllOccurencesOfString(query, webview);
-//  	  String scrollValueString = [webView stringByEvaluatingJavaScriptFromString:@"getSearchScrollValues()"];
-
   	  scrollBookmarks = new ArrayList<String>();  
   	  JSONArray jsonArray = null;
   	  try {
@@ -66,37 +108,8 @@ public class JavaScriptInterface {
   			}
   	     } 
   	  }
-  	  
-  	  if(JavaScriptInterface.scrollBookmarks.size() > 0){
-//  		  webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(0) +");");
-//  		  Log.d(TAG, "JavaScriptInterface.scrollIndex+1: " + JavaScriptInterface.scrollIndex+1);
-  		  String resultString = String.format("%d of %d", JavaScriptInterface.scrollBookmarks.size(), JavaScriptInterface.scrollBookmarks.size());
-  		  Log.d(TAG, resultString);
-//  		  searchString.setText(resultString);
-  	  }
-  	  
-  	  
-//  		if(resultNumber > 0){
-//  			resultString = String.format("%d of %d", searchIndex+1, resultNumber);
-//  			Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
-//  		}
-//  		webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ query +"').offset().top);");
-        
-
-//  	    if(resultNumber > 0){
-//  	        [self setScrollPostion:webView xValue:0 yValue:[[scrollArray objectAtIndex:0] integerValue]];
-//  	        searchIndex = 0;
-//  	        [scrollArray retain];
-//  	    }
-  	  
-  	  
-  	  
-//  		if(resultNumber > 0){
-//  			resultString = String.format("%d of %d", searchIndex+1, resultNumber);
-//  			Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
-//  		}
-//  		webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ query +"').offset().top);");
-        return;
+      
+  	  return;
     }
 
 

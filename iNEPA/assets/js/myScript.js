@@ -6,9 +6,8 @@ var MyApp_SearchResultCount = 0;
 
 // the main entry point to start the search
 function MyApp_HighlightAllOccurencesOfString(keyword) {
-	MyApp_RemoveAllHighlights();
-	MainActivity.emptyScrollValues();
-	MyApp_HighlightAllOccurencesOfStringForElement(document.body, keyword.toLowerCase());
+    MyApp_RemoveAllHighlights();
+    MyApp_HighlightAllOccurencesOfStringForElement(document.body, keyword.toLowerCase());
 }
 
 function getSearchScrollValues() {

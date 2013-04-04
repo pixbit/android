@@ -8,6 +8,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,10 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 	public ProgressBar progressSpinner;
 	public ImageView overlay;
 	
+	public RelativeLayout searchOverlay;
+	
 	private SearchView mSearchView;
+
 	private int searchIndex;
 	private int resultNumber;
 	
@@ -56,6 +60,9 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
         progressSpinner.setProgress(0);
         progressSpinner.setVisibility(View.VISIBLE);
         
+        searchOverlay = (RelativeLayout)findViewById(R.id.searchBar);
+        searchOverlay.setBackgroundResource(android.R.color.black);
+        
         overlay = (ImageView)findViewById(R.id.imageView1);
         overlay.setBackgroundResource(android.R.color.black);
         overlay.setVisibility(View.VISIBLE);
@@ -78,7 +85,7 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
         if (view != null) {
             // Do something with the data
         		webview = (WebView) findViewById(R.id.web_engine);
-        		jsi = new JavaScriptInterface(this);
+        		jsi = new JavaScriptInterface(this, webview, searchString);
         		webview.addJavascriptInterface(jsi, "MainActivity");
         		webview.getSettings().setJavaScriptEnabled(true);
         		webview.setWebChromeClient(new WebChromeClient(){
@@ -173,9 +180,7 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
   public boolean onQueryTextSubmit(String query) {
 //	  Toast.makeText(this, "Query = " + query + " : submitted", Toast.LENGTH_SHORT).show();
 
-	  webview.loadUrl("javascript:MyApp_HighlightAllOccurencesOfString(\""+query+"\");");
-	  webview.loadUrl("javascript:getSearchScrollValues();");
-//	  Log.d(TAG, "scrollJSONArray: " + JavaScriptInterface.scrollJSONArray);
+	  jsi.submitSearch(query);
 	  
       return false;
   }
@@ -208,18 +213,5 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 //			searchResultButton.title = [NSString stringWithFormat:@"%i of %i", searchIndex+1, resultNumber];	
 //			[self setScrollPostion:webView xValue:0 yValue:[[scrollArray objectAtIndex:searchIndex] integerValue]];
 		}
-	}
-  
-  protected int highlightAllOccurencesOfString(String str, WebView webview) {
-		int result = -1;
-	  	webview.loadUrl("javascript:MyApp_RemoveAllHighlights(" + str + ");");
-		
-//	    int result = [thiswebView stringByEvaluatingJavaScriptFromString:@"MyApp_SearchResultCount"];
-	    result = 10;
-	    return result;
-	}
-  
-  protected void removeAllHighlights(WebView webview) {
-		webview.loadUrl("javascript:MyApp_RemoveAllHighlights();");
 	}
 }
