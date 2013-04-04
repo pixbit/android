@@ -4,6 +4,29 @@ var scrollValues = new Array();
 // We're using a global variable to store the number of occurrences
 var MyApp_SearchResultCount = 0;
 
+// the main entry point to start the search
+function MyApp_HighlightAllOccurencesOfString(keyword) {
+	MyApp_RemoveAllHighlights();
+	MainActivity.emptyScrollValues();
+	MyApp_HighlightAllOccurencesOfStringForElement(document.body, keyword.toLowerCase());
+}
+
+function getSearchScrollValues() {
+	var x = getElementsByClassName("MyAppHighlight", document.body);
+	for (var i=0; i<=x.length-1; i++) {
+		scrollValues[i]=x[i].offsetTop;
+		// MainActivity.showLog("x["+i+"]: "+x[i].offsetTop);
+	}
+	
+	var result = JSON.stringify(scrollValues);
+	MainActivity.pushScrollValue(result);
+	
+	// showToast(result);
+	// showLog(result);
+	//alert(result);
+	return result;
+}
+
 // helper function, recursively searches in elements and their child nodes
 function MyApp_HighlightAllOccurencesOfStringForElement(element,keyword) {
 	if (element) {
@@ -14,7 +37,6 @@ function MyApp_HighlightAllOccurencesOfStringForElement(element,keyword) {
 				var idx = value.toLowerCase().indexOf(keyword);
 				
 				if (idx < 0) break;             // not found, abort
-				
 				var span = document.createElement("span");
 				var text = document.createTextNode(value.substr(idx,keyword.length));
 				span.appendChild(text);
@@ -28,17 +50,15 @@ function MyApp_HighlightAllOccurencesOfStringForElement(element,keyword) {
 				element.parentNode.insertBefore(text, next);
 				element = text;
 				MyApp_SearchResultCount++;	// update the counter
-				//scrollArray[MyApp_SearchResultCount-1] = scrollValue
-				//alert(MyApp_SearchResultCount-1);
-			}
+			}//while
 		} else if (element.nodeType == 1) { // Element node
 			if (element.style.display != "none" && element.nodeName.toLowerCase() != 'select') {
 				for (var i=element.childNodes.length-1; i>=0; i--) {
 					MyApp_HighlightAllOccurencesOfStringForElement(element.childNodes[i],keyword);
-				}
-			}
-		}
-	}
+				}//for
+			}// (element.style.display != "none" && element.nodeName.toLowerCase() != 'select')
+		}//else if (element.nodeType == 1)
+	}//if (element)
 }
 
 function getElementsByClassName(classname, node)  {
@@ -49,13 +69,6 @@ function getElementsByClassName(classname, node)  {
 	for(var i=0,j=els.length; i<j; i++)
 		if(re.test(els[i].className))a.push(els[i]);
 	return a;
-}
-
-// the main entry point to start the search
-function MyApp_HighlightAllOccurencesOfString(keyword) {
-	MyApp_RemoveAllHighlights();
-	MyApp_HighlightAllOccurencesOfStringForElement(document.body, keyword.toLowerCase());
-	$.scrollTo( 0, 800 );
 }
 
 // helper function, recursively removes the highlights in elements and their childs
@@ -86,20 +99,8 @@ function MyApp_RemoveAllHighlightsForElement(element) {
 // the main entry point to remove the highlights
 function MyApp_RemoveAllHighlights() {
 	MyApp_SearchResultCount = 0;
+	// emptyScrollValues();
 	MyApp_RemoveAllHighlightsForElement(document.body);
-}
-
-function getSearchScrollValues() {
-	var x = getElementsByClassName("MyAppHighlight", document.body);
-	for (var i=0; i<=x.length-1; i++) {
-		scrollValues[i]=x[i].offsetTop;
-	}
-	var result = "";
-	for (var i=0; i<=x.length-1; i++) {
-		result += scrollValues[i] + " ";
-	}
-	//alert(result);
-	return result;
 }
 
 function portraitZoom()
