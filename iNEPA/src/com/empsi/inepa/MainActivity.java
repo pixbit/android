@@ -1,11 +1,19 @@
 package com.empsi.inepa;
 
+import android.app.AlertDialog;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -26,20 +34,23 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 	protected String title = null; 
 	protected String scroll = null;
 	
-	protected WebView webview;
+	WebView webview;
+	RelativeLayout searchOverlay;
+	TextView searchString;
+	Button prevButton;
+	Button nextButton;
+	Button doneButton;
+	
 	protected JavaScriptInterface jsi;
 	public ProgressBar progressBar;
 	public ProgressBar progressSpinner;
 	public ImageView overlay;
-	
-	public RelativeLayout searchOverlay;
 	
 	private SearchView mSearchView;
 
 	private int searchIndex;
 	private int resultNumber;
 	
-	public TextView searchString;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +73,29 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
         
         searchOverlay = (RelativeLayout)findViewById(R.id.searchBar);
         searchOverlay.setBackgroundResource(android.R.color.black);
+        searchOverlay.setVisibility(View.INVISIBLE);
+
+        prevButton = (Button)findViewById(R.id.prevButton);
+        nextButton = (Button)findViewById(R.id.nextButton);
+        doneButton = (Button)findViewById(R.id.doneButton);
+        
+        prevButton.setOnClickListener(new OnClickListener() {
+        		    public void onClick(View v) {
+        		  	  jsi.clickPrevButton();
+        		    }
+        		 });
+        
+        nextButton.setOnClickListener(new OnClickListener() {
+		    public void onClick(View v) {
+  		  	  jsi.clickNextButton();
+		    }
+		 });
+        
+        doneButton.setOnClickListener(new OnClickListener() {
+		    public void onClick(View v) {
+  		  	  jsi.clickDoneButton();
+		    }
+		 });
         
         overlay = (ImageView)findViewById(R.id.imageView1);
         overlay.setBackgroundResource(android.R.color.black);
@@ -85,7 +119,7 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
         if (view != null) {
             // Do something with the data
         		webview = (WebView) findViewById(R.id.web_engine);
-        		jsi = new JavaScriptInterface(this, webview, searchString);
+        		jsi = new JavaScriptInterface(this, webview, searchOverlay, searchString, prevButton, nextButton, doneButton);
         		webview.addJavascriptInterface(jsi, "MainActivity");
         		webview.getSettings().setJavaScriptEnabled(true);
         		webview.setWebChromeClient(new WebChromeClient(){
@@ -121,13 +155,19 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 
   @Override
   public boolean onMenuItemSelected(int featureId, MenuItem item) {
-
 	    int itemId = item.getItemId();
 	    switch (itemId) {
 	    	case android.R.id.home:
 	    		finish();
 //	        Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
 	    	break;
+	    	case R.id.menu_search:
+//		        Toast.makeText(this, "Search", Toast.LENGTH_LONG).show();
+		    break;
+	    	case R.id.menu_bookmark:
+//		        Toast.makeText(this, "Bookmark", Toast.LENGTH_LONG).show();
+	    		jsi.onBookmarkClick();
+		    break;
 	    }
 	    return true;
 	}
@@ -136,12 +176,21 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
       super.onCreateOptionsMenu(menu);
-
       MenuInflater inflater = getSupportMenuInflater();
-      inflater.inflate(R.menu.searchview_in_menu, menu);
-      MenuItem searchItem = menu.findItem(R.id.action_search);
-      mSearchView = (SearchView) searchItem.getActionView();
-      setupSearchView(searchItem);
+      
+      inflater.inflate(R.layout.activity_menu, menu);
+
+      // Get the SearchView and set the searchable configuration
+      SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+      SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+      searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+//      inflater.inflate(R.menu.searchview_in_menu, menu);
+//      MenuItem searchItem = menu.findItem(R.id.action_search);
+//      mSearchView = (SearchView) searchItem.getActionView();
+//      setupSearchView(searchItem);
+      
+//      menu.add(0, 1337, 0, "Bookmark").setIcon(android.R.drawable.star_big_on);
 
       return true;
   }
@@ -171,7 +220,7 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 
       mSearchView.setOnQueryTextListener(this);
   }
-
+  
   public boolean onQueryTextChange(String newText) {
 //	  Toast.makeText(this, "Query = " + newText, Toast.LENGTH_SHORT).show();
       return false;
@@ -180,6 +229,7 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
   public boolean onQueryTextSubmit(String query) {
 //	  Toast.makeText(this, "Query = " + query + " : submitted", Toast.LENGTH_SHORT).show();
 
+      searchOverlay.setVisibility(View.VISIBLE);
 	  jsi.submitSearch(query);
 	  
       return false;
@@ -199,19 +249,4 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
   protected boolean isAlwaysExpanded() {
       return false;
   }
-  
-  protected void searchPreviousButtonPressed(WebView webview) {
-		if( searchIndex > 0){
-			searchIndex -= 1;
-//			searchResultButton.title = [NSString stringWithFormat:@"%i of %i", searchIndex+1, resultNumber];
-//			[self setScrollPostion:webView xValue:0 yValue:[[scrollArray objectAtIndex:searchIndex] integerValue]];
-		}
-	}
-  protected void searchNextButtonPressed(WebView webview) {
-		if( searchIndex < resultNumber-1){
-			searchIndex += 1;
-//			searchResultButton.title = [NSString stringWithFormat:@"%i of %i", searchIndex+1, resultNumber];	
-//			[self setScrollPostion:webView xValue:0 yValue:[[scrollArray objectAtIndex:searchIndex] integerValue]];
-		}
-	}
 }

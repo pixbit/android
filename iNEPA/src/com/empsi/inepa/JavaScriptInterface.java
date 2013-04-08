@@ -5,10 +5,17 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.text.Editable;
 import android.util.Log;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,58 +23,96 @@ public class JavaScriptInterface {
 	private static final String TAG = JavaScriptInterface.class.getSimpleName();
     public static String scrollJSONArray;
 	public static ArrayList<String> scrollBookmarks;
-	public static int scrollIndex = 0;
 	
-	WebView web;
+	WebView webview;
 	TextView searchString;
+	RelativeLayout searchOverlay;
+	Button prevButton;
+	Button nextButton;
+	Button doneButton;
 	
 	Context mContext;
     public String searchScrollValues = "";
-    public static String searchCount = "";
+    
+    public static int searchCount = 0;
+	public static int searchIndex = 1;
+	
+	public String currentScrollValue = "-1";
+	public EditText input;
 
-    public JavaScriptInterface(Context c, WebView webview, TextView searchString) {
+    public JavaScriptInterface(Context c, WebView webview, RelativeLayout searchOverlay, TextView searchString, Button prevButton, Button nextButton, Button doneButton) {
         this.mContext = c;
-        this.web = webview;
+        this.webview = webview;
         this.searchString = searchString;
+        this.searchOverlay = searchOverlay;
+        this.prevButton = prevButton;
+        this.nextButton = nextButton;
+        this.doneButton = doneButton;
+    }
+    
+    public void onBookmarkClick(){
+//      	webview.loadUrl("javascript:MainActivity.setCurrentScroll('hello');");
+      	webview.loadUrl("javascript:MainActivity.setCurrentScroll(window.pageYOffset);");
+    }
+
+    @JavascriptInterface
+    public void setCurrentScroll(String scroll){
+    	currentScrollValue = scroll;
+    	
+		input = new EditText(this.mContext);
+    	input.setText(currentScrollValue);
+
+		new AlertDialog.Builder(this.mContext)
+	    .setTitle("Add Bookmark")
+	    .setMessage("Name Bookmark")
+	    .setView(input)
+	    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int whichButton) {
+	            Editable inputText = input.getText();
+	            webview.loadUrl(inputText.toString());
+	        }
+	    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int whichButton) {
+	            // Do nothing.
+	        }
+	    }).show();
     }
     
     public void submitSearch(String query){
     	Log.d(TAG, "webview.loadUrl's RUN");
-  	  	web.loadUrl("javascript:MyApp_HighlightAllOccurencesOfString(\""+query+"\");");
-  	  	web.loadUrl("javascript:MainActivity.setSearchCount(jQuery('.MyAppHighlight').size());");
-
-//    	  if(JavaScriptInterface.scrollBookmarks.size() > 0){
-//    		  webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(0) +");");
-//    		  Log.d(TAG, "JavaScriptInterface.scrollIndex+1: " + JavaScriptInterface.scrollIndex+1);
-//    		  searchResultString = String.format("%d of %d", JavaScriptInterface.scrollBookmarks.size(), JavaScriptInterface.scrollBookmarks.size());
-//    		  Log.d(TAG, searchResultString);
-//    		  searchString.setText(resultString);
-//    	  }
-    	  
-    	  
-//    		if(resultNumber > 0){
-//    			resultString = String.format("%d of %d", searchIndex+1, resultNumber);
-//    			Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
-//    		}
-//    		webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ query +"').offset().top);");
-          
-
-//    	    if(resultNumber > 0){
-//    	        [self setScrollPostion:webView xValue:0 yValue:[[scrollArray objectAtIndex:0] integerValue]];
-//    	        searchIndex = 0;
-//    	        [scrollArray retain];
-//    	    }
-    	  
-    	  
-    	  
-//    		if(resultNumber > 0){
-//    			resultString = String.format("%d of %d", searchIndex+1, resultNumber);
-//    			Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
-//    		}
-//    		webview.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ query +"').offset().top);");
-//  	  webview.loadUrl("javascript:getSearchScrollValues();");
-//  	  Log.d(TAG, "scrollJSONArray: " + JavaScriptInterface.scrollJSONArray);
-  	  
+  	  	webview.loadUrl("javascript:MyApp_HighlightAllOccurencesOfString(\""+query+"\");");
+  	  	webview.loadUrl("javascript:MainActivity.setSearchCount(jQuery('.MyAppHighlight').size());");
+  	  	webview.loadUrl("javascript:getSearchScrollValues();");
+    }
+    
+    public void clickPrevButton(){
+    	Log.d(TAG, "clickPrevButton");
+    	
+    	if(searchIndex == 0){
+    		searchIndex = searchCount - 1;
+    	}else{
+    		searchIndex--;
+    	}
+    	searchString.setText((searchIndex+1) + " of " + searchCount);
+        webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(searchIndex) +");");
+    }
+    
+    public void clickNextButton(){
+    	Log.d(TAG, "clickNextButton");
+    	
+    	if(searchIndex == (searchCount - 1)){
+    		searchIndex = 0;
+    	}else{
+    		searchIndex++;
+    	}
+    	searchString.setText((searchIndex+1) + " of " + searchCount);
+        webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(searchIndex) +");");
+    }
+    
+    public void clickDoneButton(){
+    	Log.d(TAG, "clickDoneButton");
+        searchOverlay.setVisibility(View.INVISIBLE);
+        webview.loadUrl("javascript:MyApp_RemoveAllHighlights();");
     }
 
     @JavascriptInterface
@@ -77,7 +122,11 @@ public class JavaScriptInterface {
 
     @JavascriptInterface
     public void setSearchCount(String message){
-    	searchString.setText(message);
+    	searchCount = Integer.parseInt(message);
+    	searchIndex = 0;
+    	searchString.setText((searchIndex+1) + " of " + searchCount);
+
+        webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(searchIndex) +");");
     }
 
     @JavascriptInterface

@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/prevButton"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,16 +46,16 @@
             android:text="Prev" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/nextButton"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button1"
+            android:layout_toRightOf="@+id/prevButton"
             android:text="Next" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/doneButton"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,8 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/button3"
-            android:layout_toRightOf="@+id/button2"
+            android:layout_toLeftOf="@+id/doneButton"
+            android:layout_toRightOf="@+id/nextButton"
             android:gravity="center_horizontal"
             android:text="0 of 0"
             android:textAppearance="?android:attr/textAppearanceMedium" />
