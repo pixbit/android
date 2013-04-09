@@ -1,19 +1,17 @@
 package com.empsi.inepa;
 
-import android.app.AlertDialog;
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -47,9 +45,6 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 	public ImageView overlay;
 	
 	private SearchView mSearchView;
-
-	private int searchIndex;
-	private int resultNumber;
 	
 	
     @Override
@@ -131,7 +126,6 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
         		             progressBar.setVisibility(View.GONE);
         		             progressSpinner.setVisibility(View.GONE);
         		             overlay.setVisibility(View.GONE);
-//        		             view.loadUrl("javascript:alert('Finished Loading " + scroll + "');");
         		             view.loadUrl("javascript:jQuery('html, body').scrollTop(jQuery('#"+ scroll +"').offset().top);");
         		          }
         		       }
@@ -172,7 +166,6 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 	    return true;
 	}
 
-
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
       super.onCreateOptionsMenu(menu);
@@ -182,15 +175,9 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
 
       // Get the SearchView and set the searchable configuration
       SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-      SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
-      searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
-//      inflater.inflate(R.menu.searchview_in_menu, menu);
-//      MenuItem searchItem = menu.findItem(R.id.action_search);
-//      mSearchView = (SearchView) searchItem.getActionView();
-//      setupSearchView(searchItem);
-      
-//      menu.add(0, 1337, 0, "Bookmark").setIcon(android.R.drawable.star_big_on);
+      mSearchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+      mSearchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+      mSearchView.setOnQueryTextListener(this);
 
       return true;
   }

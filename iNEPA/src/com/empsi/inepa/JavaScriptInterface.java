@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
@@ -30,6 +32,7 @@ public class JavaScriptInterface {
 	Button prevButton;
 	Button nextButton;
 	Button doneButton;
+    SharedPreferences sharedPref;
 	
 	Context mContext;
     public String searchScrollValues = "";
@@ -39,6 +42,8 @@ public class JavaScriptInterface {
 	
 	public String currentScrollValue = "-1";
 	public EditText input;
+	
+    public static int bookmarkCount = 0;
 
     public JavaScriptInterface(Context c, WebView webview, RelativeLayout searchOverlay, TextView searchString, Button prevButton, Button nextButton, Button doneButton) {
         this.mContext = c;
@@ -69,13 +74,49 @@ public class JavaScriptInterface {
 	    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int whichButton) {
 	            Editable inputText = input.getText();
-	            webview.loadUrl(inputText.toString());
+	          	webview.loadUrl("javascript:MainActivity.setBookmark('"+inputText+"', window.pageYOffset);");
 	        }
 	    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int whichButton) {
 	            // Do nothing.
 	        }
 	    }).show();
+    }
+    
+    @JavascriptInterface
+    public void setBookmark(String title, String scroll){
+		Log.d(TAG, "setBookmark");
+    	/*Sets the Number of Bookmarks in Preferences*/
+    	SavePreference("bmTitle"+String.valueOf(bookmarkCount), title);
+    	SavePreference("bmScroll"+String.valueOf(bookmarkCount), scroll);
+    	SavePreference("bmCount", String.valueOf(bookmarkCount++));
+
+//        Toast.makeText(mContext, title + currentScrollValue, Toast.LENGTH_SHORT).show();
+        
+    	/* Loads the Preference for Number of Bookmarks */
+    	String bmCount = LoadPreference("bmCount", "idk bmCount");
+		Log.d(TAG, "bmCount: " + bmCount);
+    	for(int i = 0; i <= Integer.parseInt(bmCount); i++){
+    		String bmTitle = LoadPreference("bmTitle"+i, "idk");
+    		String bmScroll = LoadPreference("bmScroll"+i, "idk");
+    		Log.d(TAG, "bmTitle: " + bmTitle);
+    		Log.d(TAG, "bmScroll: " + bmScroll);
+    	}
+    }
+    
+    private void SavePreference(String key, String value){
+    	Activity activity = (Activity) mContext;
+        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+      
+    private String LoadPreference(String key, String alternative){
+    	Activity activity = (Activity) mContext;
+        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+        String strSaved = sharedPreferences.getString(key, alternative);
+        return strSaved;
     }
     
     public void submitSearch(String query){
