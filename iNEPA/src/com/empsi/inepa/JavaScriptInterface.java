@@ -91,20 +91,6 @@ public class JavaScriptInterface {
     	SavePreference("bmTitle"+String.valueOf(bookmarkCount), title);
     	SavePreference("bmScroll"+String.valueOf(bookmarkCount), scroll);
     	SavePreference("bmCount", String.valueOf(bookmarkCount++));
-
-//        Toast.makeText(mContext, title + currentScrollValue, Toast.LENGTH_SHORT).show();
-        
-    	/* Loads the Preference for Number of Bookmarks */
-    	String bmCount = LoadPreference("bmCount", "idk bmCount");
-		Log.d(TAG, "----------------------------");
-		Log.d(TAG, "bmCount: " + bmCount);
-    	for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-    		String bmTitle = LoadPreference("bmTitle"+i, "idk");
-    		String bmScroll = LoadPreference("bmScroll"+i, "idk");
-    		Log.d(TAG, "i: " + i);
-    		Log.d(TAG, "bmTitle: " + bmTitle);
-    		Log.d(TAG, "bmScroll: " + bmScroll);
-    	}
     }
     
     private void SavePreference(String key, String value){

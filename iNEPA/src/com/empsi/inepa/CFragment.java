@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 public class CFragment extends SherlockListFragment {
@@ -40,7 +42,9 @@ public class CFragment extends SherlockListFragment {
 			/* Our PlistHandler now provides the parsed data to us. */
 			//                this.entries = myHandler.getListOfRows();
 			List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
-
+			int icon = android.R.drawable.ic_menu_delete;
+//			int icon = android.R.drawable.ic_menu_close_clear_cancel;
+			
 			/* Loads the Preference for Number of Bookmarks */
 			String bmCount = LoadPreference("bmCount", "-1");
 			Log.d(TAG, "----------------------------");
@@ -51,15 +55,17 @@ public class CFragment extends SherlockListFragment {
 
 				ParsedRow bmRow = new ParsedRow();
 				bmRow.setTitle(bmTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
-				bmRow.setView("5");
+				bmRow.setView("3");
 				bmRow.setScroll(bmScroll);
+				bmRow.setIcon(icon);
+				bmRow.setIndex(i);
 				bookmarkList.add(bmRow);
 			}
 
 			ParsedRow row1 = new ParsedRow();
 			row1.setTitle("Application Tutorial");
 			row1.setView("5");
-			row1.setScroll("150");
+			row1.setScroll("0");
 			bookmarkList.add(row1);
 
 			ParsedRow row2 = new ParsedRow();
@@ -75,7 +81,7 @@ public class CFragment extends SherlockListFragment {
 			bookmarkList.add(row3);
 
 			/* Set the result to be displayed in our GUI. */
-			BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), R.layout.empsi_custom_row, bookmarkList, this);
+			BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), R.layout.bookmark_custom_row, bookmarkList, this);
 			setListAdapter(adapter);
 
 		} catch (Exception e) {
@@ -118,17 +124,25 @@ public class CFragment extends SherlockListFragment {
 		setListAdapter(null);
 	}
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+//		setHasOptionsMenu(true);
+	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		// TODO Add your menu entries here
+		super.onCreateOptionsMenu(menu, inflater);
+
+		inflater.inflate(R.layout.bookmark_menu, menu);
+	}
+
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			/* Set the result to be displayed in our GUI. */
-			int indexOfLast = BookmarkAdapter.prevData.size() - 1;
-			this.previousEntries = BookmarkAdapter.prevData.get(indexOfLast);
-			BookmarkAdapter.prevData.remove(indexOfLast);
-			//	            BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), R.layout.empsi_custom_row, this.previousEntries, this);
-			//	            setListAdapter(adapter);
-
-			break;
+    	case R.id.edit_bookmark:
+			Toast.makeText(getActivity(), "edit Bookmark", Toast.LENGTH_LONG).show();
+	    break;
 		default:
 			getActivity().finish();
 			Toast.makeText(getActivity(), "home pressed", Toast.LENGTH_LONG).show();
