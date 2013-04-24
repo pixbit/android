@@ -3,11 +3,13 @@ package com.empsi.inepa;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -19,27 +21,42 @@ import com.actionbarsherlock.view.MenuItem;
   
 public class CFragment extends SherlockListFragment {
 
-	public static final String TAG = AFragment.class.getSimpleName();
+	public static final String TAG = CFragment.class.getSimpleName();
 	public ActionBar actionBar;
 	public List<ParsedRow> entries;
 	public List<ParsedRow> previousEntries;
 	public List<String> titleList;
 	public String initialTitle;
 	
+	Context mContext;
+	
 	 @Override
 	    public void onViewCreated(View view, Bundle savedInstanceState) {
 	        super.onViewCreated(view, savedInstanceState);
+            
+	        /* Sets variable so that Preferences can be loaded and saved as in JavaScriptInterface */
+            mContext = getActivity();
 	        
 	        try {
-	        	/* Loads the Preference for Number of Bookmarks */
-                SharedPreferences sharedPref = getActivity().getSharedPreferences("numberOfBookmarks", Context.MODE_PRIVATE);
-                String numberOfBookmarks = sharedPref.getString("numberOfBookmarks", "+++");
-                String bookmarkTitle = sharedPref.getString("bookmarkTitle", "---");
-	        	
                 /* Our PlistHandler now provides the parsed data to us. */
 //                this.entries = myHandler.getListOfRows();
                 List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
-                
+	        	
+	        	/* Loads the Preference for Number of Bookmarks */
+	        	String bmCount = LoadPreference("bmCount", "-1");
+	    		Log.d(TAG, "----------------------------");
+	    		Log.d(TAG, "bmCount: " + bmCount);
+	        	for(int i = 0; i <= Integer.parseInt(bmCount); i++){
+	        		String bmTitle = LoadPreference("bmTitle"+i, "bmTitle");
+	        		String bmScroll = LoadPreference("bmScroll"+i, "bmScroll");
+	        		
+	                ParsedRow bmRow = new ParsedRow();
+	                bmRow.setTitle(bmTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
+	                bmRow.setView("5");
+	                bmRow.setScroll(bmScroll);
+	                bookmarkList.add(bmRow);
+	        	}
+	        	
                 ParsedRow row1 = new ParsedRow();
                 row1.setTitle("Application Tutorial");
                 row1.setView("3");
@@ -57,12 +74,6 @@ public class CFragment extends SherlockListFragment {
                 row3.setView("5");
                 row3.setScroll("0");
                 bookmarkList.add(row3);
-                
-                ParsedRow row4 = new ParsedRow();
-                row4.setTitle(bookmarkTitle + " " + numberOfBookmarks);
-                row4.setView("5");
-                row4.setScroll("0");
-                bookmarkList.add(row4);
 
                 /* Set the result to be displayed in our GUI. */
                 BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), R.layout.empsi_custom_row, bookmarkList, this);
@@ -128,6 +139,7 @@ public class CFragment extends SherlockListFragment {
 	    @Override
 	    public void onDestroyView() {
 	        super.onDestroyView();
+	        Log.d(TAG, "onDestroyView");
 	        setListAdapter(null);
 	    }
 	    
@@ -148,4 +160,22 @@ public class CFragment extends SherlockListFragment {
 	  	    }
 	  	    return true;
 	  	}
-	}
+	    
+	    private void SavePreference(String key, String value){
+	    	Activity activity = (Activity) mContext;
+	    	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+//	        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+	        SharedPreferences.Editor editor = sharedPreferences.edit();
+	        editor.putString(key, value);
+	        editor.commit();
+	    }
+	      
+	    private String LoadPreference(String key, String alternative){
+	    	Activity activity = (Activity) mContext;
+	    	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+//	        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+	        String strSaved = sharedPreferences.getString(key, alternative);
+	        return strSaved;
+	    }
+	    
+}

@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
@@ -95,10 +96,12 @@ public class JavaScriptInterface {
         
     	/* Loads the Preference for Number of Bookmarks */
     	String bmCount = LoadPreference("bmCount", "idk bmCount");
+		Log.d(TAG, "----------------------------");
 		Log.d(TAG, "bmCount: " + bmCount);
     	for(int i = 0; i <= Integer.parseInt(bmCount); i++){
     		String bmTitle = LoadPreference("bmTitle"+i, "idk");
     		String bmScroll = LoadPreference("bmScroll"+i, "idk");
+    		Log.d(TAG, "i: " + i);
     		Log.d(TAG, "bmTitle: " + bmTitle);
     		Log.d(TAG, "bmScroll: " + bmScroll);
     	}
@@ -106,7 +109,8 @@ public class JavaScriptInterface {
     
     private void SavePreference(String key, String value){
     	Activity activity = (Activity) mContext;
-        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+    	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+//        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
         editor.commit();
@@ -114,7 +118,8 @@ public class JavaScriptInterface {
       
     private String LoadPreference(String key, String alternative){
     	Activity activity = (Activity) mContext;
-        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+    	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+//        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
         String strSaved = sharedPreferences.getString(key, alternative);
         return strSaved;
     }
