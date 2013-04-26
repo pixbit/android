@@ -3,13 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
     
     <WebView android:id="@+id/web_engine"
              android:layout_width="fill_parent"
@@ -19,7 +12,7 @@
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        />
+        android:contentDescription="TODO"/>
     
     <ProgressBar android:id="@+id/progressbar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -35,5 +28,53 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
+
+    <RelativeLayout
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/prevButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Prev" />
+
+        <Button
+            android:id="@+id/nextButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/prevButton"
+            android:text="Next" />
+
+        <Button
+            android:id="@+id/doneButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Done" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/doneButton"
+            android:layout_toRightOf="@+id/nextButton"
+            android:gravity="center_horizontal"
+            android:text="0 of 0"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
