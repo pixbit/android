@@ -296,12 +296,12 @@ public class CFragment extends SherlockListFragment {
    * 
    * @param key [lookup string for SharedPreference]
    */
-	private void DeletePreference(String key){
-		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
-		SharedPreferences.Editor editor = sharedPreferences.edit();
-		editor.remove(key);
-		editor.commit();
-	}
+  private void DeletePreference(String key){
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.remove(key);
+    editor.commit();
+  }
     
   /**
   * Saves a single SharedPreference String value to a String key.
@@ -310,9 +310,7 @@ public class CFragment extends SherlockListFragment {
   * @param value [value stored for SharedPreference]
   */
   private void SavePreferenceString(String key, String value){
-    Activity activity = (Activity) mContext;
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
-    SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putString(key, value);
     editor.commit();
@@ -326,10 +324,9 @@ public class CFragment extends SherlockListFragment {
   * @return             [loaded preference or alternative]
   */
   private String LoadPreferenceString(String key, String alternative){
-    Activity activity = (Activity) mContext;
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
-    SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
     String strSaved = sharedPreferences.getString(key, alternative);
+
     return strSaved;
   }
 }

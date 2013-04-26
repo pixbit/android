@@ -97,7 +97,7 @@ public class JavaScriptInterface {
   	SavePreferenceString("bmScroll"+String.valueOf(bookmarkCount), scroll);
   	SavePreferenceString("bmCount", String.valueOf(bookmarkCount++));
   }
-    
+
     public void submitSearch(String query){
     	Log.d(TAG, "webview.loadUrl's RUN");
   	  	webview.loadUrl("javascript:MyApp_HighlightAllOccurencesOfString(\""+query+"\");");
@@ -210,9 +210,7 @@ public class JavaScriptInterface {
   * @param value [value stored for SharedPreference]
   */
   private void SavePreferenceString(String key, String value){
-    Activity activity = (Activity) mContext;
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
-    SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putString(key, value);
     editor.commit();
@@ -226,10 +224,9 @@ public class JavaScriptInterface {
   * @return             [loaded preference or alternative]
   */
   private String LoadPreferenceString(String key, String alternative){
-    Activity activity = (Activity) mContext;
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
-    SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
     String strSaved = sharedPreferences.getString(key, alternative);
+
     return strSaved;
   }
 }
