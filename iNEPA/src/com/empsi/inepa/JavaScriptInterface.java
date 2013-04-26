@@ -84,31 +84,19 @@ public class JavaScriptInterface {
 	    }).show();
     }
     
-    @JavascriptInterface
-    public void setBookmark(String title, String scroll){
-		Log.d(TAG, "setBookmark");
-    	/*Sets the Number of Bookmarks in Preferences*/
-    	SavePreference("bmTitle"+String.valueOf(bookmarkCount), title);
-    	SavePreference("bmScroll"+String.valueOf(bookmarkCount), scroll);
-    	SavePreference("bmCount", String.valueOf(bookmarkCount++));
-    }
-    
-    private void SavePreference(String key, String value){
-    	Activity activity = (Activity) mContext;
-    	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
-//        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(key, value);
-        editor.commit();
-    }
-      
-    private String LoadPreference(String key, String alternative){
-    	Activity activity = (Activity) mContext;
-    	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
-//        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
-        String strSaved = sharedPreferences.getString(key, alternative);
-        return strSaved;
-    }
+  /**
+   * Sets bookmark with title and scroll values using SharedPreferences
+   * @param title  [name that shows up in the listView row]
+   * @param scroll [Y scroll value of the bookmark]
+   */
+  @JavascriptInterface
+  public void setBookmark(String title, String scroll){
+	Log.d(TAG, "setBookmark");
+  	/*Sets the Number of Bookmarks in Preferences*/
+  	SavePreferenceString("bmTitle"+String.valueOf(bookmarkCount), title);
+  	SavePreferenceString("bmScroll"+String.valueOf(bookmarkCount), scroll);
+  	SavePreferenceString("bmCount", String.valueOf(bookmarkCount++));
+  }
     
     public void submitSearch(String query){
     	Log.d(TAG, "webview.loadUrl's RUN");
@@ -158,18 +146,18 @@ public class JavaScriptInterface {
     	searchIndex = 0;
     	searchString.setText((searchIndex+1) + " of " + searchCount);
 
-        webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(searchIndex) +");");
+      webview.loadUrl("javascript:jQuery('html, body').scrollTop("+ JavaScriptInterface.scrollBookmarks.get(searchIndex) +");");
     }
 
     @JavascriptInterface
     public void pushScrollValue(String value){
     	Log.d("pushScrollValue", value);
     	scrollJSONArray = value;
-    	parseJSON(scrollJSONArray);
+      scrollBookmarks = new ArrayList<String>();  
+    	parseJSON(scrollJSONArray, scrollBookmarks);
     }
     
-    public void parseJSON(String json) {
-  	  scrollBookmarks = new ArrayList<String>();  
+    public void parseJSON(String json, ArrayList<String> aList) {
   	  JSONArray jsonArray = null;
   	  try {
   		jsonArray = new JSONArray(json);
@@ -182,7 +170,7 @@ public class JavaScriptInterface {
   	     int len = jsonArray.length();
   	     for (int i=0;i<len;i++){ 
   	    	 try {
-  				scrollBookmarks.add(jsonArray.get(i).toString());
+  				aList.add(jsonArray.get(i).toString());
   			} catch (JSONException e) {
   				// TODO Auto-generated catch block
   				e.printStackTrace();
@@ -198,4 +186,50 @@ public class JavaScriptInterface {
     public void emptyScrollValues(){
     	JavaScriptInterface.scrollJSONArray = "";
     }
+
+  ////////////////////////////////
+  // SharedPreference Functions //
+  ////////////////////////////////
+
+  /**
+   * Deletes a single SharedPreference based on the key given.
+   * 
+   * @param key [lookup string for SharedPreference]
+   */
+  private void DeletePreference(String key){
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.remove(key);
+    editor.commit();
+  }
+    
+  /**
+  * Saves a single SharedPreference String value to a String key.
+  * 
+  * @param key   [lookup string for SharedPreference]
+  * @param value [value stored for SharedPreference]
+  */
+  private void SavePreferenceString(String key, String value){
+    Activity activity = (Activity) mContext;
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+    SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.putString(key, value);
+    editor.commit();
+  }
+
+  /**
+  * Loads a single SharedPreference String value from a String key.
+  * 
+  * @param key          [lookup string for SharedPreference]
+  * @param  alternative [string returned if not a SharedPreference]
+  * @return             [loaded preference or alternative]
+  */
+  private String LoadPreferenceString(String key, String alternative){
+    Activity activity = (Activity) mContext;
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext.getApplicationContext());
+    SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
+    String strSaved = sharedPreferences.getString(key, alternative);
+    return strSaved;
+  }
 }

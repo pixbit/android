@@ -108,7 +108,7 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 					if(i < this.position){
 						this.editBookmark(bmTitle, bmScroll, i);
 					}else if(i == this.position){
-						Log.d(TAG, "editBookmark " + bmTitle + "[" + i + "] =" + bmScroll);
+						Log.d(TAG, "deleteBookmark " + bmTitle + "[" + i + "] =" + bmScroll);
 					}else if(i > this.position){
 						this.editBookmark(bmTitle, bmScroll, i-1);
 					}else{
@@ -129,7 +129,7 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 
 					ParsedRow bmRow = new ParsedRow();
 					bmRow.setTitle(bmTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
-					bmRow.setView("5");
+					bmRow.setView("3");
 					bmRow.setScroll(bmScroll);
 					bmRow.setIcon(icon);
 					bmRow.setIndex(i);
@@ -156,6 +156,7 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 
 				/* Set the result to be displayed in our GUI. */
 				BookmarkAdapter adapter = new BookmarkAdapter(this.context, R.layout.bookmark_custom_row, bookmarkList, this.frag);
+				this.frag.setListAdapter(null);
 				this.frag.setListAdapter(adapter);
 
 			} catch (Exception e) {
@@ -182,10 +183,10 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 		}
 		
 	    public void editBookmark(String title, String scroll, int index){
-			Log.d(TAG, "editBookmark " + title + "[" + index + "] =" + scroll);
+			Log.d(TAG, "addBookmark " + title + "[" + index + "] =" + scroll);
 	    	/*Sets the Number of Bookmarks in Preferences*/
-//	    	SavePreference("bmTitle"+String.valueOf(index), title);
-//	    	SavePreference("bmScroll"+String.valueOf(index), scroll);
+	    	SavePreference("bmTitle"+String.valueOf(index), title);
+	    	SavePreference("bmScroll"+String.valueOf(index), scroll);
 	    }
 
 		private void SavePreference(String key, String value){
