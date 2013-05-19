@@ -1,12 +1,14 @@
 package com.empsi.iesa;
 
+import com.empsi.iesa.Main;
+import com.empsi.iesa.Splashscreen;
 import com.empsi.iesa.R;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
- 
+
 /**
  * Splash screen activity
  *

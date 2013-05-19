@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_search"
+        android:actionViewClass="com.actionbarsherlock.widget.SearchView"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="search"/>
+
+    <item android:id="@+id/menu_bookmark"
+        android:title="bookmark"
+        android:icon="@android:drawable/ic_input_get"
+        android:showAsAction="always" />
+
+    <!-- <item android:id="@+id/menu_settings"
+        android:title="@string/menu_settings"
+        android:showAsAction="never" /> -->
+</menu>
