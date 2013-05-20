@@ -102,15 +102,16 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 				Log.d(TAG, "---------Delete--------");
 				Log.d(TAG, "bmCount: " + bmCount);
 				for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-					String bmTitle = LoadPreference("bmTitle"+i, "bmTitle");
+					String bmTitle  = LoadPreference("bmTitle"+i, "bmTitle");
 					String bmScroll = LoadPreference("bmScroll"+i, "bmScroll");
+					String bmView   = LoadPreference("bmView"+i, "bmView");
 
 					if(i < this.position){
-						this.editBookmark(bmTitle, bmScroll, i);
+						this.editBookmark(bmTitle, bmScroll, bmView, i);
 					}else if(i == this.position){
 						Log.d(TAG, "deleteBookmark " + bmTitle + "[" + i + "] =" + bmScroll);
 					}else if(i > this.position){
-						this.editBookmark(bmTitle, bmScroll, i-1);
+						this.editBookmark(bmTitle, bmScroll, bmView, i-1);
 					}else{
 						
 					}
@@ -124,12 +125,17 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 				Log.d(TAG, "----------Load----------");
 				Log.d(TAG, "bmCount: " + bmCount);
 				for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-					String bmTitle = LoadPreference("bmTitle"+i, "bmTitle");
+					String bmTitle  = LoadPreference("bmTitle"+i, "bmTitle");
 					String bmScroll = LoadPreference("bmScroll"+i, "bmScroll");
+					String bmView   = LoadPreference("bmView"+i, "bmView");
 
 					ParsedRow bmRow = new ParsedRow();
-					bmRow.setTitle(bmTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
-					bmRow.setView("3");
+					bmRow.setTitle(bmTitle + ";of view[" + bmView + "]" + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
+
+					FileList fl = new FileList();
+					bmRow.setView(fl.getView(bmView));
+					Log.d(TAG, "fl.getView: " + fl.getView(bmView));
+
 					bmRow.setScroll(bmScroll);
 					bmRow.setIcon(icon);
 					bmRow.setIndex(i);
@@ -182,11 +188,12 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 			this.mView = mView;
 		}
 		
-	    public void editBookmark(String title, String scroll, int index){
-			Log.d(TAG, "addBookmark " + title + "[" + index + "] =" + scroll);
+	    public void editBookmark(String title, String scroll, String view, int index){
+			Log.d(TAG, "addBookmark of view[" + view + "]" + title + "[" + index + "] =" + scroll);
 	    	/*Sets the Number of Bookmarks in Preferences*/
 	    	SavePreference("bmTitle"+String.valueOf(index), title);
 	    	SavePreference("bmScroll"+String.valueOf(index), scroll);
+	    	SavePreference("bmView"+String.valueOf(index), view);
 	    }
 
 		private void SavePreference(String key, String value){

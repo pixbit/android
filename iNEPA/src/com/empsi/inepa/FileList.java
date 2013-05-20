@@ -31,4 +31,27 @@ public class FileList {
 		}
 		return url;
 	}
+
+	public String getView(String url){
+		int view = -1;
+
+		if(url.equals("file:///android_asset/endangeredspeciesact.htm")){
+			view = 1;
+		}else if(url.equals("file:///android_asset/migratorybirdtreatyact.htm")){
+			view = 2;
+		}else if(url.equals("file:///android_asset/baldeagleprotectionact.htm")){
+			view = 3;
+		}else if(url.equals("file:///android_asset/fishandwildlifecoordinationact.htm")){
+			view = 4;
+		}else if(url.equals("file:///android_asset/applicationTutorial.htm")){
+			view = 5;
+		}else if(url.equals("file:///android_asset/bookmarkTutorial.htm")){
+			view = 6;
+		}else if(url.equals("file:///android_asset/navigationTutorial.htm")){
+			view = 7; 
+		}else{
+			view = 5;
+		}
+		return Integer.toString(view);
+	}
 }

@@ -50,14 +50,25 @@ public class CFragment extends SherlockListFragment {
 			Log.d(TAG, "----------------------------");
 			Log.d(TAG, "bmCount: " + bmCount);
 			for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-				String bmTitle = LoadPreferenceString("bmTitle"+i, "bmTitle");
+				String bmTitle  = LoadPreferenceString("bmTitle"+i, "bmTitle");
 				String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+				String bmView   = LoadPreferenceString("bmView"+i, "bmView");
+
+				Log.d(TAG,
+						bmTitle + " " +
+						bmScroll + " " +
+						bmView + " "
+					);
 
 				ParsedRow bmRow = new ParsedRow();
 				bmRow.setTitle(bmTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
-				bmRow.setView("3");
+
+				FileList fl = new FileList();
+				bmRow.setView(fl.getView(bmView));
+				Log.d(TAG, "fl.getView: " + fl.getView(bmView));
+
 				bmRow.setScroll(bmScroll);
-				//				bmRow.setIcon(icon);
+				// bmRow.setIcon(icon);
 				bmRow.setIndex(i);
 				bookmarkList.add(bmRow);
 			}
