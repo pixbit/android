@@ -31,7 +31,6 @@ public class CFragment extends SherlockListFragment {
 	public static boolean editModeOn = false;
 
 	Context mContext;
-	List<ParsedRow> bookmarkList;
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -41,58 +40,16 @@ public class CFragment extends SherlockListFragment {
 		mContext = getActivity();
 
 		try {
-			/* Our PlistHandler now provides the parsed data to us. */
-			//                this.entries = myHandler.getListOfRows();
-			bookmarkList = new ArrayList<ParsedRow>();
-
 			/* Loads the Preference for Number of Bookmarks */
-			String bmCount = LoadPreferenceString("bmCount", "-1");
 			Log.d(TAG, "----------------------------");
-			Log.d(TAG, "bmCount: " + bmCount);
-			for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-				String bmTitle  = LoadPreferenceString("bmTitle"+i, "bmTitle");
-				String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
-				String bmView   = LoadPreferenceString("bmView"+i, "bmView");
+			Log.d(TAG, "BOOKMARK MODE, bmCount = " + LoadPreferenceString("bmCount", "-1"));
 
-				Log.d(TAG,
-						bmTitle + " " +
-						bmScroll + " " +
-						bmView + " "
-					);
-
-				ParsedRow bmRow = new ParsedRow();
-				bmRow.setTitle(bmTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
-
-				FileList fl = new FileList();
-				bmRow.setView(fl.getView(bmView));
-				Log.d(TAG, "fl.getView: " + fl.getView(bmView));
-
-				bmRow.setScroll(bmScroll);
-				// bmRow.setIcon(icon);
-				bmRow.setIndex(i);
-				bookmarkList.add(bmRow);
-			}
-
-			ParsedRow row1 = new ParsedRow();
-			row1.setTitle("Application Tutorial");
-			row1.setView("5");
-			row1.setScroll("0");
-			bookmarkList.add(row1);
-
-			ParsedRow row2 = new ParsedRow();
-			row2.setTitle("Bookmark Tutorial");
-			row2.setView("6");
-			row2.setScroll("0");
-			bookmarkList.add(row2);
-
-			ParsedRow row3 = new ParsedRow();
-			row3.setTitle("Navigation Tutorial");
-			row3.setView("7");
-			row3.setScroll("0");
-			bookmarkList.add(row3);
+			List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
+			bookmarkList = updateBookmarkList();
 
 			/* Set the result to be displayed in our GUI. */
 			BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), R.layout.bookmark_custom_row, bookmarkList, this);
+			setListAdapter(null);
 			setListAdapter(adapter);
 
 		} catch (Exception e) {
@@ -104,57 +61,14 @@ public class CFragment extends SherlockListFragment {
 	@Override
 	public void onListItemClick(ListView parent, View v, int position, long id) {
 		if(CFragment.editModeOn){
-			Log.d( TAG, String.format("Position clicked = %d", position) );
-
+			this.removeAndRewriteBookmarkPreferences(position);
 			try {
-				/* Our PlistHandler now provides the parsed data to us. */
-				//                this.entries = myHandler.getListOfRows();
-				List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
-				int icon = android.R.drawable.ic_menu_delete;
-				//    			int icon = android.R.drawable.ic_menu_close_clear_cancel;
-				String bmCount = LoadPreferenceString("bmCount", "-1");
-
-				/* Saves Bookmarks without the deleted one. */
-				Log.d(TAG, "---------Delete--------");
-				Log.d(TAG, "bmCount before delete: " + bmCount);
-				
-				for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-					String bmTitle = LoadPreferenceString("bmTitle"+i, "bmTitle");
-					String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
-
-					if(i < position){
-						this.editBookmark(bmTitle, bmScroll, i);
-					}else if(i == position){
-						Log.d(TAG, "deleteBookmark " + bmTitle + "[" + i + "] =" + bmScroll);
-						DeletePreference("bmTitle"+i);
-						DeletePreference("bmScroll"+i);
-					}else if(i > position){
-						this.editBookmark(bmTitle, bmScroll, i-1);
-					}else{
-
-					}
-				}
-
-				int theCount = Integer.parseInt(bmCount) - 1;
-				Log.d(TAG, "theCount = " + theCount);
-				SavePreferenceString("bmCount", String.valueOf(theCount));
-
 				/* Loads the Preference for Number of Bookmarks */
-				Log.d(TAG, "----------Load----------");
-				Log.d(TAG, "bmCount: " + bmCount);
-				for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-					String bmTitle = LoadPreferenceString("bmTitle"+i, "bmTitle");
-					String deleteTitle = bmTitle + " [tap to be deleted]";
-					String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+				Log.d(TAG, "----------------------------");
+				Log.d(TAG, "BOOKMARK MODE, bmCount = " + LoadPreferenceString("bmCount", "-1"));
 
-					ParsedRow bmRow = new ParsedRow();
-					bmRow.setTitle(deleteTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
-					bmRow.setView("3");
-					bmRow.setScroll(bmScroll);
-					bmRow.setIcon(icon);
-					bmRow.setIndex(i);
-					bookmarkList.add(bmRow);
-				}
+				List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
+				bookmarkList = updateBookmarkList();
 
 				/* Set the result to be displayed in our GUI. */
 				BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), R.layout.bookmark_custom_row, bookmarkList, this);
@@ -166,7 +80,7 @@ public class CFragment extends SherlockListFragment {
 				Log.e(TAG, "XMLQueryError", e);
 			}
 		}else{
-			//	        Toast.makeText(this, this.currentEntries.get(position).getView(), Toast.LENGTH_SHORT).show();
+      // Toast.makeText(this, this.currentEntries.get(position).getView(), Toast.LENGTH_SHORT).show();
 			ParsedRow clickedRow = BookmarkAdapter.currentData.get(position);
 			int view = Integer.parseInt(clickedRow.getView());
 			String title = clickedRow.getTitle();
@@ -185,8 +99,6 @@ public class CFragment extends SherlockListFragment {
 			Log.d(TAG, "INTENT: " + title);
 			Log.d(TAG, "INTENT: " + url);
 			Log.d(TAG, "INTENT: " + scroll);
-
-			//	        Toast.makeText(getActivity(), scroll + url, Toast.LENGTH_SHORT).show();
 
 			startActivity(i);
 		}
@@ -213,6 +125,12 @@ public class CFragment extends SherlockListFragment {
 		inflater.inflate(R.layout.bookmark_menu, menu);
 	}
 
+	/**
+	 * What happens when edit mode is ENABLED
+	 * 
+	 * @param  item [description]
+	 * @return      [description]
+	 */
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.edit_bookmark:
@@ -222,57 +140,13 @@ public class CFragment extends SherlockListFragment {
 				CFragment.editModeOn = true;
 			}
 			
-			//			Toast.makeText(getActivity(), "edit Bookmark", Toast.LENGTH_LONG).show();
 			try {
-				/* Our PlistHandler now provides the parsed data to us. */
-				//                this.entries = myHandler.getListOfRows();
-				List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
-				int icon = android.R.drawable.ic_menu_delete;
-
 				/* Loads the Preference for Number of Bookmarks */
-				String bmCount = LoadPreferenceString("bmCount", "-1");
 				Log.d(TAG, "----------------------------");
-				Log.d(TAG, "bmCount: " + bmCount);
-				for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-					String bmTitle = LoadPreferenceString("bmTitle"+i, "bmTitle");
-					String deleteTitle = "";
-					if(CFragment.editModeOn){
-						deleteTitle = bmTitle + " [tap to be deleted]";
-					}
-					
-					String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+				Log.d(TAG, "EDIT BOOKMARK MODE, bmCount = " + LoadPreferenceString("bmCount", "-1"));
 
-					ParsedRow bmRow = new ParsedRow();
-					bmRow.setTitle(deleteTitle + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
-					bmRow.setView("3");
-					bmRow.setScroll(bmScroll);
-					if(CFragment.editModeOn){
-						bmRow.setIcon(icon);
-					}
-					bmRow.setIndex(i);
-					bookmarkList.add(bmRow);
-				}
-
-
-				if(!CFragment.editModeOn){
-					ParsedRow row1 = new ParsedRow();
-					row1.setTitle("Application Tutorial");
-					row1.setView("5");
-					row1.setScroll("0");
-					bookmarkList.add(row1);
-
-					ParsedRow row2 = new ParsedRow();
-					row2.setTitle("Bookmark Tutorial");
-					row2.setView("6");
-					row2.setScroll("0");
-					bookmarkList.add(row2);
-
-					ParsedRow row3 = new ParsedRow();
-					row3.setTitle("Navigation Tutorial");
-					row3.setView("7");
-					row3.setScroll("0");
-					bookmarkList.add(row3);
-				}
+				List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
+				bookmarkList = updateBookmarkList();
 
 				/* Set the result to be displayed in our GUI. */
 				BookmarkAdapter adapter = new BookmarkAdapter(getActivity(), R.layout.bookmark_custom_row, bookmarkList, this);
@@ -290,13 +164,118 @@ public class CFragment extends SherlockListFragment {
 		}
 		return true;
 	}
-	
-    public void editBookmark(String title, String scroll, int index){
-		Log.d(TAG, "addBookmark " + title + "[" + index + "] =" + scroll);
-    	/*Sets the Number of Bookmarks in Preferences*/
-    	SavePreferenceString("bmTitle"+String.valueOf(index), title);
-    	SavePreferenceString("bmScroll"+String.valueOf(index), scroll);
-    }
+
+	public List updateBookmarkList(){
+		List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
+		int icon = android.R.drawable.ic_menu_delete;
+
+		String bmCount = LoadPreferenceString("bmCount", "-1");
+		for(int i = 0; i < Integer.parseInt(bmCount); i++){
+			String bmTitle  = LoadPreferenceString("bmTitle"+i, "bmTitle");
+			String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+			String bmView   = LoadPreferenceString("bmView"+i, "bmView");
+
+			ParsedRow bmRow = new ParsedRow();
+			FileList fl = new FileList();
+			if(CFragment.editModeOn){
+				bmTitle = bmTitle + " (tap to delete)";
+				bmRow.setIcon(icon);
+			}
+			bmRow.setTitle(bmTitle);
+			bmRow.setView(fl.getView(bmView));
+			bmRow.setScroll(bmScroll);
+			bmRow.setIndex(i);
+			bookmarkList.add(bmRow);
+		}
+
+		if(!CFragment.editModeOn){
+			ParsedRow row1 = new ParsedRow();
+			row1.setTitle("Application Tutorial");
+			row1.setView("5");
+			row1.setScroll("0");
+			bookmarkList.add(row1);
+
+			ParsedRow row2 = new ParsedRow();
+			row2.setTitle("Bookmark Tutorial");
+			row2.setView("6");
+			row2.setScroll("0");
+			bookmarkList.add(row2);
+
+			ParsedRow row3 = new ParsedRow();
+			row3.setTitle("Navigation Tutorial");
+			row3.setView("7");
+			row3.setScroll("0");
+			bookmarkList.add(row3);
+		}
+
+		return bookmarkList;
+	}
+
+	////////////////////////
+	// Bookmark Functions //
+	////////////////////////
+
+	public void removeAndRewriteBookmarkPreferences(int position){
+		String bmCount = LoadPreferenceString("bmCount", "-1");
+		this.resetCount();
+		for(int i = 0; i < Integer.parseInt(bmCount); i++){
+			String bmTitle  = LoadPreferenceString("bmTitle"+i, "bmTitle");
+			String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+			String bmView   = LoadPreferenceString("bmView"+i, "bmView");
+			if(i == position){
+				Log.d(TAG, "skipped: " + bmTitle);
+			}else{
+				int index = i;
+				if(i > position) index--;
+
+				Log.d(TAG, "kept: " + bmTitle + " @ " + index);
+				this.saveBookmarkPreference(bmTitle, bmScroll, bmView, index);
+				this.incrementCount();
+			}
+		}
+
+		// Pops/Deletes the last one that is leftover
+		this.incrementCount();
+		this.getCount();
+	}
+
+  public void saveBookmarkPreference(String title, String scroll, String view, int index){
+		Log.d(TAG, "saveBookmarkPreference " + title + "[" + index + "] =" + scroll);
+		SavePreferenceString("bmTitle"+String.valueOf(index), title);
+		SavePreferenceString("bmScroll"+String.valueOf(index), scroll);
+		SavePreferenceString("bmView"+String.valueOf(index), view);
+  }
+
+  public void deleteBookmarkPreference(int index){
+		Log.d(TAG, "deleteBookmarkPreference [" + index + "]");
+		DeletePreference("bmTitle"+String.valueOf(index));
+		DeletePreference("bmScroll"+String.valueOf(index));
+		DeletePreference("bmView"+String.valueOf(index));
+  }
+
+  public int getCount(){
+  	String count = LoadPreferenceString("bmCount", "-1");
+  	Log.d(TAG, "getCount = " + count);
+		return Integer.parseInt(count);
+  }
+
+  public void incrementCount(){
+		String bmCount = LoadPreferenceString("bmCount", "-1");
+		int theCount = Integer.parseInt(bmCount) + 1;
+		Log.d(TAG, "Increment theCount to: " + theCount);
+		SavePreferenceString("bmCount", String.valueOf(theCount));
+  }
+
+  public void decrementCount(){
+		String bmCount = LoadPreferenceString("bmCount", "-1");
+		int theCount = Integer.parseInt(bmCount) - 1;
+		Log.d(TAG, "Decrement theCount to: " + theCount);
+		SavePreferenceString("bmCount", String.valueOf(theCount));
+  }
+
+  public void resetCount(){
+		DeletePreference("bmCount");
+  }
 
   ////////////////////////////////
   // SharedPreference Functions //

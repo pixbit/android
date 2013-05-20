@@ -96,15 +96,15 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 				List<ParsedRow> bookmarkList = new ArrayList<ParsedRow>();
 				int icon = android.R.drawable.ic_menu_delete;
 				//    			int icon = android.R.drawable.ic_menu_close_clear_cancel;
-				String bmCount = LoadPreference("bmCount", "-1");
+				String bmCount = LoadPreferenceString("bmCount", "-1");
 
 				/* Saves Bookmarks without the deleted one. */
 				Log.d(TAG, "---------Delete--------");
 				Log.d(TAG, "bmCount: " + bmCount);
 				for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-					String bmTitle  = LoadPreference("bmTitle"+i, "bmTitle");
-					String bmScroll = LoadPreference("bmScroll"+i, "bmScroll");
-					String bmView   = LoadPreference("bmView"+i, "bmView");
+					String bmTitle  = LoadPreferenceString("bmTitle"+i, "bmTitle");
+					String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+					String bmView   = LoadPreferenceString("bmView"+i, "bmView");
 
 					if(i < this.position){
 						this.editBookmark(bmTitle, bmScroll, bmView, i);
@@ -125,12 +125,13 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 				Log.d(TAG, "----------Load----------");
 				Log.d(TAG, "bmCount: " + bmCount);
 				for(int i = 0; i <= Integer.parseInt(bmCount); i++){
-					String bmTitle  = LoadPreference("bmTitle"+i, "bmTitle");
-					String bmScroll = LoadPreference("bmScroll"+i, "bmScroll");
-					String bmView   = LoadPreference("bmView"+i, "bmView");
+					String bmTitle  = LoadPreferenceString("bmTitle"+i, "bmTitle");
+					String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+					String bmView   = LoadPreferenceString("bmView"+i, "bmView");
 
 					ParsedRow bmRow = new ParsedRow();
-					bmRow.setTitle(bmTitle + ";of view[" + bmView + "]" + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
+					// bmRow.setTitle(bmTitle + ";of view[" + bmView + "]" + "(" + bmScroll + ")" + " " + i + " of " + bmCount);
+					bmRow.setTitle(bmTitle);
 
 					FileList fl = new FileList();
 					bmRow.setView(fl.getView(bmView));
@@ -203,7 +204,7 @@ public class BookmarkAdapter extends ArrayAdapter<ParsedRow> {
 			editor.commit();
 		}
 
-		private String LoadPreference(String key, String alternative){
+		private String LoadPreferenceString(String key, String alternative){
 			SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());
 			String strSaved = sharedPreferences.getString(key, alternative);
 			return strSaved;

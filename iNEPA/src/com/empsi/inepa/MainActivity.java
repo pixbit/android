@@ -131,9 +131,9 @@ public class MainActivity extends SherlockActivity implements SearchView.OnQuery
         });
       webview.setVisibility(View.VISIBLE);
       webview.loadUrl(view);
-      Log.d("INTENT", "scroll: " + scroll);
-      Log.d("INTENT", "view: " + view);
-      Log.d("INTENT", "title: " + title);
+      // Log.d("INTENT", "scroll: " + scroll);
+      // Log.d("INTENT", "view: " + view);
+      // Log.d("INTENT", "title: " + title);
     }
     if (title != null) {
       // Do something with the data

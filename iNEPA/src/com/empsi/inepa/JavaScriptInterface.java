@@ -44,8 +44,6 @@ public class JavaScriptInterface {
   public String currentScrollValue = "-1";
   public EditText input;
   
-  public static int bookmarkCount = 0;
-  
   public JavaScriptInterface(Context c, WebView webview, RelativeLayout searchOverlay, TextView searchString, Button prevButton, Button nextButton, Button doneButton) {
     this.mContext = c;
     this.webview = webview;
@@ -57,6 +55,7 @@ public class JavaScriptInterface {
   }
   
   public void onBookmarkClick(String viewText){
+    Log.d(TAG, String.format("bmCount is: %d", this.getCount()));
     String js = "javascript:MainActivity.setCurrentScroll(window.pageYOffset,'" + viewText + "');";
     Log.d(TAG, js);
     webview.loadUrl(js);
@@ -67,7 +66,7 @@ public class JavaScriptInterface {
     currentScrollValue = scroll;
     
     input = new EditText(this.mContext);
-    input.setText(currentScrollValue);
+    input.setText("");
     
     final String viewText = view;
 
@@ -101,18 +100,11 @@ public class JavaScriptInterface {
    */
   @JavascriptInterface
   public void setBookmark(String title, String scroll, String view){
-    String titlePref  = "bmTitle" + String.valueOf(bookmarkCount);
-    String scrollPref = "bmScroll" + String.valueOf(bookmarkCount);
-    String viewPref   = "bmView" + String.valueOf(bookmarkCount);
-
-    Log.d(TAG, "SavePreferenceString[" + titlePref + "] : " + title);
-    Log.d(TAG, "SavePreferenceString[" + scrollPref + "] : " + scroll);
-    Log.d(TAG, "SavePreferenceString[" + viewPref + "] : " + view);
-
-    SavePreferenceString(titlePref, title);
-    SavePreferenceString(scrollPref, scroll);
-    SavePreferenceString(viewPref, view);
-    SavePreferenceString("bmCount", String.valueOf(bookmarkCount++));
+    if(this.getCount() < 0){
+      this.incrementCount();
+    }
+    this.saveBookmarkPreference(title, scroll, view, this.getCount());
+    this.incrementCount();
   }
 
   public void submitSearch(String query){
@@ -203,6 +195,66 @@ public class JavaScriptInterface {
     public void emptyScrollValues(){
       JavaScriptInterface.scrollJSONArray = "";
     }
+
+  ////////////////////////
+  // Bookmark Functions //
+  ////////////////////////
+
+  public void removeAndRewriteBookmarkPreferences(int position){
+    String bmCount = LoadPreferenceString("bmCount", "-1");
+    this.resetCount();
+    for(int i = 0; i <= Integer.parseInt(bmCount); i++){
+      String bmTitle  = LoadPreferenceString("bmTitle"+i, "bmTitle");
+      String bmScroll = LoadPreferenceString("bmScroll"+i, "bmScroll");
+      String bmView   = LoadPreferenceString("bmView"+i, "bmView");
+      if(i == position){
+        Log.d(TAG, "skipped: " + bmTitle);
+      }else{
+        Log.d(TAG, "kept: " + bmTitle + " @ " + i);
+        this.saveBookmarkPreference(bmTitle, bmScroll, bmView, i);
+        this.incrementCount();
+      }
+    }
+
+    // Pops/Deletes the last one that is leftover
+    this.deleteBookmarkPreference(Integer.parseInt(bmCount));
+  }
+
+  public void saveBookmarkPreference(String title, String scroll, String view, int index){
+    Log.d(TAG, "saveBookmarkPreference " + title + "[" + index + "] =" + scroll);
+    SavePreferenceString("bmTitle"+String.valueOf(index), title);
+    SavePreferenceString("bmScroll"+String.valueOf(index), scroll);
+    SavePreferenceString("bmView"+String.valueOf(index), view);
+  }
+
+  public void deleteBookmarkPreference(int index){
+    Log.d(TAG, "deleteBookmarkPreference [" + index + "]");
+    DeletePreference("bmTitle"+String.valueOf(index));
+    DeletePreference("bmScroll"+String.valueOf(index));
+    DeletePreference("bmView"+String.valueOf(index));
+  }
+
+  public int getCount(){
+    return Integer.parseInt(LoadPreferenceString("bmCount", "-1"));
+  }
+
+  public void incrementCount(){
+    String bmCount = LoadPreferenceString("bmCount", "-1");
+    int theCount = Integer.parseInt(bmCount) + 1;
+    Log.d(TAG, "Increment theCount to: " + theCount);
+    SavePreferenceString("bmCount", String.valueOf(theCount));
+  }
+
+  public void decrementCount(){
+    String bmCount = LoadPreferenceString("bmCount", "-1");
+    int theCount = Integer.parseInt(bmCount) - 1;
+    Log.d(TAG, "Decrement theCount to: " + theCount);
+    SavePreferenceString("bmCount", String.valueOf(theCount));
+  }
+
+  public void resetCount(){
+    DeletePreference("bmCount");
+  }
 
   ////////////////////////////////
   // SharedPreference Functions //
